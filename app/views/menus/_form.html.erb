@@ -1,0 +1,68 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+   $('form').on('click', '.add_fields', function(event) {
+        
+       var time, regexp;
+        time = new Date().getTime()
+        regexp = new RegExp($(this).data('id'), 'g');
+        $('.fields').append($(this).data('fields').replace(regexp, time));
+ 
+    });
+  
+
+    // for remove row dynamic in quotation/new
+    $('form').on('click', '.remove_record', function(event) {
+        $(this).parents('.item-row').remove();
+
+        if ($('.remove_record').length < 2) $('.remove_record').hide();
+        
+    });
+   });
+</script>
+
+<%= form_with(model: menu, local: true) do |f| %>
+  <% if menu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+
+      <ul>
+      <% menu.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <table class="table table-hover" id="items">
+    <thead>
+        <th class="units" style="text-align: center">NAME</th>
+    </thead>
+    <br>
+    <tbody class='fields'>
+        <%= f.fields_for :sub_menus do |builder| %>
+            <%= render 'submanu', f: builder  %>
+        <% end %>
+    </tbody>
+  </table>
+  <table class="table">
+      <tbody>
+          <tr>
+              <td style="width: 1%;"><%= link_to_add_row('', f, :sub_menus, class: 'fa fa-plus ') %></td>
+          </tr>
+      </tbody>
+  </table>
+
+ 
+
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+

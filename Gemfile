@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.0'
+ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
@@ -26,7 +26,12 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'bootstrap-sass'
+gem 'font-awesome-rails'
+gem "jquery-rails"
+gem 'popper_js', '~> 1.12.9'
+gem 'devise'
+gem "paperclip", "~> 4.1.1"
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -60,12 +65,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-
-gem 'devise'
-gem 'bootstrap-sass'
-
-gem "jquery-rails"
-gem 'popper_js', '~> 1.12.9'
-gem "paperclip", "~> 4.1.1"
-gem 'font-awesome-sass', '~> 5.6.1'

@@ -6,9 +6,4 @@ class StrideControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get admin" do
-    get stride_admin_url
-    assert_response :success
-  end
-
 end

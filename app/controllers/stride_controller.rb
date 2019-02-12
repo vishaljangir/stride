@@ -1,7 +1,7 @@
 class StrideController < ApplicationController
   def home
-  end
+  	@logos = Logo.all
+  	@menus = Menu.all
 
-  def admin
   end
 end
