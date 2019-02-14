@@ -28,7 +28,7 @@ class NewsSecondsController < ApplicationController
 
     respond_to do |format|
       if @news_second.save
-        format.html { redirect_to @news_second, notice: 'News second was successfully created.' }
+        format.html { redirect_to action: "index", notice: 'News second was successfully created.' }
         format.json { render :show, status: :created, location: @news_second }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class NewsSecondsController < ApplicationController
   def update
     respond_to do |format|
       if @news_second.update(news_second_params)
-        format.html { redirect_to @news_second, notice: 'News second was successfully updated.' }
+        format.html { redirect_to action: "index", notice: 'News second was successfully updated.' }
         format.json { render :show, status: :ok, location: @news_second }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class NewsSecondsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_second_params
-      params.require(:news_second).permit(:heading, :description)
+      params.require(:news_second).permit(:image, :heading, :description)
     end
 end
