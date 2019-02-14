@@ -28,7 +28,7 @@ class SlidersController < ApplicationController
 
     respond_to do |format|
       if @slider.save
-        format.html { redirect_to @slider, notice: 'Slider was successfully created.' }
+        format.html { redirect_to action: "index", notice: 'Slider was successfully created.' }
         format.json { render :show, status: :created, location: @slider }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class SlidersController < ApplicationController
   def update
     respond_to do |format|
       if @slider.update(slider_params)
-        format.html { redirect_to @slider, notice: 'Slider was successfully updated.' }
+        format.html { redirect_to action: "index", notice: 'Slider was successfully updated.' }
         format.json { render :show, status: :ok, location: @slider }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class SlidersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def slider_params
-      params.require(:slider).permit(:image)
+      params.require(:slider).permit(:image, :heading, :description)
     end
 end

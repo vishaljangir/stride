@@ -17,7 +17,7 @@ class SlidersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create slider" do
     assert_difference('Slider.count') do
-      post sliders_url, params: { slider: {  } }
+      post sliders_url, params: { slider: { description: @slider.description, heading: @slider.heading } }
     end
 
     assert_redirected_to slider_url(Slider.last)
@@ -34,7 +34,7 @@ class SlidersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update slider" do
-    patch slider_url(@slider), params: { slider: {  } }
+    patch slider_url(@slider), params: { slider: { description: @slider.description, heading: @slider.heading } }
     assert_redirected_to slider_url(@slider)
   end
 

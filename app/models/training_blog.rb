@@ -1,0 +1,2 @@
+class TrainingBlog < ApplicationRecord
+end

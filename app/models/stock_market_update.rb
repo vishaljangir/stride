@@ -1,0 +1,2 @@
+class StockMarketUpdate < ApplicationRecord
+end

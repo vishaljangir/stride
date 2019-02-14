@@ -1,17 +1,61 @@
-<%= form_with(model: logo, local: true) do |form| %>
-  <% if logo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(logo.errors.count, "error") %> prohibited this logo from being saved:</h2>
 
-      <ul>
-      <% logo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="wrapper ">
+    
+    <div class="main-panel">
+      <!-- Navbar -->
+      
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">ADD LOGO</h4>
+                  <p class="card-category">Brand logo</p>
+                </div>
+                <div class="card-body">
+                  <%= form_with(model: logo, local: true) do |form| %>
+                    <% if logo.errors.any? %>
+                      <div id="error_explanation">
+                        <h2><%= pluralize(logo.errors.count, "error") %> prohibited this logo from being saved:</h2>
+
+                        <ul>
+                        <% logo.errors.full_messages.each do |message| %>
+                          <li><%= message %></li>
+                        <% end %>
+                        </ul>
+                      </div>
+                    <% end %>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">LOGO</label>
+                          <!-- <input type="text" class="form-control" disabled> -->
+                          <div class="mb-4">
+                            <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" class="rounded-circle z-depth-1-half avatar-pic"
+                              alt="example placeholder avatar">
+                          </div>
+                          <div class="btn btn-mdb-color btn-rounded float-left">
+                            <span>Add photo</span>
+                            <%= form.file_field :image %>
+                          </div>
+                           
+                        </div>
+                      </div>
+                    </div>
+
+                    <%= form.submit "submit", class: "btn btn-primary pull-right"%>
+                    <!-- <button type="submit" class="btn btn-primary pull-right">Update Profile</button> -->
+                    <div class="clearfix"></div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+     
     </div>
-  <% end %>
-  <%= form.file_field :image %>
-  <div class="actions">
-    <%= form.submit %>
   </div>
-<% end %>

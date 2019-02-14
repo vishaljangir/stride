@@ -1,0 +1,2 @@
+module NewsSecondsHelper
+end

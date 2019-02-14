@@ -14,6 +14,8 @@ class SlidersTest < ApplicationSystemTestCase
     visit sliders_url
     click_on "New Slider"
 
+    fill_in "Description", with: @slider.description
+    fill_in "Heading", with: @slider.heading
     click_on "Create Slider"
 
     assert_text "Slider was successfully created"
@@ -24,6 +26,8 @@ class SlidersTest < ApplicationSystemTestCase
     visit sliders_url
     click_on "Edit", match: :first
 
+    fill_in "Description", with: @slider.description
+    fill_in "Heading", with: @slider.heading
     click_on "Update Slider"
 
     assert_text "Slider was successfully updated"

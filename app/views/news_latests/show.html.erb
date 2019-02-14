@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @news_latest.description %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @news_latest.name %>
+</p>
+
+<%= link_to 'Edit', edit_news_latest_path(@news_latest) %> |
+<%= link_to 'Back', news_latests_path %>

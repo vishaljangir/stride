@@ -1,4 +1,35 @@
-<p id="notice"><%= notice %></p>
-<%= image_tag(@logo.image) %>
-<%= link_to 'Edit', edit_logo_path(@logo) %> |
-<%= link_to 'Back', logos_path %>
+<div class="wrapper ">
+    
+    <div class="main-panel">
+      <!-- Navbar -->
+      
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">LOGOS</h4>
+                  <p class="card-category">Brand logos</p>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                        	<%= image_tag(@logo.image, class: "img-thumbnail", alt: "Cinque Terre", width: "236", height: "236") %>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  
+                </div>
+              </div>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>

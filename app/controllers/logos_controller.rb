@@ -28,7 +28,7 @@ class LogosController < ApplicationController
 
     respond_to do |format|
       if @logo.save
-        format.html { redirect_to @logo, notice: 'Logo was successfully created.' }
+        format.html { redirect_to action: "index", notice: 'Logo was successfully created.' }
         format.json { render :show, status: :created, location: @logo }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class LogosController < ApplicationController
   def update
     respond_to do |format|
       if @logo.update(logo_params)
-        format.html { redirect_to @logo, notice: 'Logo was successfully updated.' }
+        format.html { redirect_to action: "index", notice: 'Logo was successfully updated.' }
         format.json { render :show, status: :ok, location: @logo }
       else
         format.html { render :edit }

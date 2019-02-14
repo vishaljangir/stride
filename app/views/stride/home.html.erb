@@ -1,16 +1,115 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <!-- Brand/logo -->
-  	<a class="navbar-brand" href="#">
-    	<%= image_tag (@logos.last.image), style: "width:50px" %>
-  	</a>
-  
-  <!-- Links -->
-	 <ul class="navbar-nav">
-	  	<% @menus.each do |menu| %>
-		    <li class="nav-item">
-		      <a class="nav-link" href="#"><%= menu.name %></a>
-		    
-		    </li>
-	    <% end %> 
-	 </ul>
+<style type="text/css">
+  .centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
+<div class="card">
+ 
+    <% if user_signed_in? %>
+      <%= link_to "logout", destroy_user_session_path(@user), method: :delete, style: "pull-right" %>
+    <% else %>
+      <%= link_to "sigup", new_user_session_path %>
+      <%= link_to "login", new_user_session_path %>
+    <% end %>  
+</div>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <% if @logos.present? %><%= image_tag(@logos.last.image, :width => '70px') %><% else %><%= image_tag("Logo-USB1.png", :width => '70px') %>
+        <% end %></a>
+    </div>
+    <% Menu.all.each do |menu| %>
+      <ul class="nav navbar-nav">
+          <li><%= menu.name %></li>
+          <% menu.submenus.each do |submenu| %>
+            <ul>
+              <li><%= submenu.name %></li>
+            </ul>
+          <% end %>
+      </ul>
+    <% end %>
+  </div>
 </nav>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <%= image_tag("chicago.jpg", style: "width:100%") %>
+    </div>
+    <% @sliders.each do |slider| %>
+      <div class="carousel-item">
+          <%= image_tag(slider.image, style: "width:100%") %>
+          <div class="centered"><center><h1><%= slider.heading %></h1><br><h3><%= slider.description %></h3><br><button class="btn btn-primary">click</button></center></div>
+      </div>
+    <% end %>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  
+</div>
+
+<!-- 
+<div class="w3-container">
+  <h2>Slideshow Indicators</h2>
+  <p>An example of using buttons to indicate how many slides there are in the slideshow, and which slide the user is currently viewing.</p>
+</div>
+
+<div class="w3-content w3-display-container" style="max-width:800px">
+  <% @sliders.each do |slider| %>
+     
+            <%= image_tag(slider.image, style: "width:100%", class: "mySlides") %>
+  
+      <% end %>
+  <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+    <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+    <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+  </div>
+</div>
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" w3-white", "");
+  }
+  x[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " w3-white";
+}
+</script> -->

@@ -1,20 +1,56 @@
-<%= form_with(model: slider, local: true) do |form| %>
-  <% if slider.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(slider.errors.count, "error") %> prohibited this slider from being saved:</h2>
+<div class="wrapper ">
+    
+    <div class="main-panel">
+      <!-- Navbar -->
+      
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">ADD LOGO</h4>
+                  <p class="card-category">Brand logo</p>
+                </div>
+                <div class="card-body">
+                  <%= form_with(model: slider, local: true) do |form| %>
+                    <% if slider.errors.any? %>
+                      <div id="error_explanation">
+                        <h2><%= pluralize(slider.errors.count, "error") %> prohibited this slider from being saved:</h2>
 
-      <ul>
-      <% slider.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+                        <ul>
+                        <% slider.errors.full_messages.each do |message| %>
+                          <li><%= message %></li>
+                        <% end %>
+                        </ul>
+                      </div>
+                    <% end %>
+                    <div class="field">
+                      <%= form.label :image %>
+                      <%= form.file_field :image %>
+                    </div>
+                    <div class="field">
+                      <%= form.label :heading %>
+                      <%= form.text_field :heading %>
+                    </div>
+
+                    <div class="field">
+                      <%= form.label :description %>
+                      <%= form.text_field :description %>
+                    </div>
+
+                    <%= form.submit "submit", class: "btn btn-primary pull-right"%>
+                    <!-- <button type="submit" class="btn btn-primary pull-right">Update Profile</button> -->
+                    <div class="clearfix"></div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+     
     </div>
-  <% end %>
-  <div class="fields">
-    <%= form.file_field :image %>
   </div>
- 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

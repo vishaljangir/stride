@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Heading:</strong>
+  <%= @news_first.heading %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @news_first.description %>
+</p>
+
+<%= link_to 'Edit', edit_news_first_path(@news_first) %> |
+<%= link_to 'Back', news_firsts_path %>
