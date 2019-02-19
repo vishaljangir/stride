@@ -1,55 +1,48 @@
 <div class="wrapper ">
-    
-    <div class="main-panel">
-      <!-- Navbar -->
-      
-      <!-- End Navbar -->
-      <div class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title">ADD LATEST NEWS</h4>
-                  <p class="card-category">complete</p>
-                </div>
-                <div class="card-body">
-                  <%= form_with(model: news_latest, local: true) do |form| %>
-                    <% if news_latest.errors.any? %>
-                      <div id="error_explanation">
-                        <h2><%= pluralize(news_latest.errors.count, "error") %> prohibited this news_latest from being saved:</h2>
+  <div class="main-panel">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">ADD LATEST NEWS</h4>
+              </div>
+              <div class="card-body">
+                <%= form_with(model: news_latest, local: true) do |form| %>
+                  <% if news_latest.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(news_latest.errors.count, "error") %> prohibited this news_latest from being saved:</h2>
 
-                        <ul>
-                        <% news_latest.errors.full_messages.each do |message| %>
-                          <li><%= message %></li>
-                        <% end %>
-                        </ul>
-                      </div>
-                    <% end %>
-                    <div class="field">
-                      <%= form.label :image %>
-                      <%= form.file_field :image %>
+                      <ul>
+                      <% news_latest.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                      </ul>
                     </div>
-                    <div class="field">
-                      <%= form.label :description %>
-                      <%= form.text_field :description %>
-                    </div>
-
-                    <div class="field">
-                      <%= form.label :name %>
-                      <%= form.text_field :name %>
-                    </div>
-                    <%= form.submit "Add", class: "btn btn-primary pull-right"%>
-                    <div class="clearfix"></div>
                   <% end %>
-                </div>
+                  <div class="field">
+                    <%= form.label :image %>
+                    <%= form.file_field :image %>
+                  </div>
+                  <div class="field">
+                    <%= form.label :description %>
+                    <%= form.text_field :description %>
+                  </div>
+
+                  <div class="field">
+                    <%= form.label :name %>
+                    <%= form.text_field :name %>
+                  </div>
+                  <%= form.submit "Add", class: "btn btn-primary pull-right"%>
+                  <div class="clearfix"></div>
+                <% end %>
               </div>
             </div>
-           
           </div>
         </div>
       </div>
-     
     </div>
   </div>
+</div>
 

@@ -10,6 +10,7 @@ class TrainingVideosController < ApplicationController
   # GET /training_videos/1
   # GET /training_videos/1.json
   def show
+     render :partial => "layouts/404"
   end
 
   # GET /training_videos/new
@@ -28,7 +29,7 @@ class TrainingVideosController < ApplicationController
 
     respond_to do |format|
       if @training_video.save
-        format.html { redirect_to @training_video, notice: 'Training video was successfully created.' }
+        format.html { redirect_to actions: "index", notice: 'Training video was successfully created.' }
         format.json { render :show, status: :created, location: @training_video }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class TrainingVideosController < ApplicationController
   def update
     respond_to do |format|
       if @training_video.update(training_video_params)
-        format.html { redirect_to @training_video, notice: 'Training video was successfully updated.' }
+        format.html { redirect_to actions: "index", notice: 'Training video was successfully updated.' }
         format.json { render :show, status: :ok, location: @training_video }
       else
         format.html { render :edit }
@@ -69,6 +70,6 @@ class TrainingVideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def training_video_params
-      params.fetch(:training_video, {})
+      params.require(:training_video).permit(:video, :caption)
     end
 end

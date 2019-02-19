@@ -10,6 +10,7 @@ class SlidersController < ApplicationController
   # GET /sliders/1
   # GET /sliders/1.json
   def show
+     render :partial => "layouts/404"
   end
 
   # GET /sliders/new

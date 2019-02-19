@@ -10,6 +10,7 @@ class NewsFirstsController < ApplicationController
   # GET /news_firsts/1
   # GET /news_firsts/1.json
   def show
+    render :partial => "layouts/404"
   end
 
   # GET /news_firsts/new

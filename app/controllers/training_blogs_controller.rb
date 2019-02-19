@@ -10,6 +10,7 @@ class TrainingBlogsController < ApplicationController
   # GET /training_blogs/1
   # GET /training_blogs/1.json
   def show
+     render :partial => "layouts/404"
   end
 
   # GET /training_blogs/new
@@ -28,7 +29,7 @@ class TrainingBlogsController < ApplicationController
 
     respond_to do |format|
       if @training_blog.save
-        format.html { redirect_to @training_blog, notice: 'Training blog was successfully created.' }
+        format.html { redirect_to actions: "index", notice: 'Training blog was successfully created.' }
         format.json { render :show, status: :created, location: @training_blog }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class TrainingBlogsController < ApplicationController
   def update
     respond_to do |format|
       if @training_blog.update(training_blog_params)
-        format.html { redirect_to @training_blog, notice: 'Training blog was successfully updated.' }
+        format.html { redirect_to actions: "index", notice: 'Training blog was successfully updated.' }
         format.json { render :show, status: :ok, location: @training_blog }
       else
         format.html { render :edit }
@@ -69,6 +70,6 @@ class TrainingBlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def training_blog_params
-      params.require(:training_blog).permit(:description, :name)
+      params.require(:training_blog).permit(:image, :description, :name)
     end
 end

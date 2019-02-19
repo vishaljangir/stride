@@ -1,17 +1,45 @@
-<%= form_with(model: training_video, local: true) do |form| %>
-  <% if training_video.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(training_video.errors.count, "error") %> prohibited this training_video from being saved:</h2>
+<div class="wrapper ">
+  <div class="main-panel">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">ADD TRAINING VIDEO</h4>
+              </div>
+              <div class="card-body">
+                <%= form_with(model: training_video, local: true) do |form| %>
+                  <% if training_video.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(training_video.errors.count, "error") %> prohibited this training_video from being saved:</h2>
 
-      <ul>
-      <% training_video.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+                      <ul>
+                      <% training_video.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+                  <div class="field">
+                    <%= form.label :video %>
+                    <%= form.file_field :video %>
+                  </div>
+                  <div class="field">
+                    <%= form.label :caption %>
+                    <%= form.text_field :caption %>
+                  </div>
+                  <%= form.submit "Add", class: "btn btn-primary pull-right"%>
+                  <div class="clearfix"></div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
+   
   </div>
-<% end %>
+</div>
+

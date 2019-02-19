@@ -1,57 +1,45 @@
-<script type="text/javascript">
-
-
-</script>
 <div class="wrapper ">
-    
-    <div class="main-panel">
-      <!-- Navbar -->
-      
-      <!-- End Navbar -->
-      <div class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title">ADD LOGO</h4>
-                  <p class="card-category">Brand logo</p>
-                </div>
-                <div class="card-body">
-                  <%= form_with(model: menu, local: true) do |form| %>
-                    <% if menu.errors.any? %>
-                      <div id="error_explanation">
-                        <h2><%= pluralize(menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+  <div class="main-panel">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">ADD MENU</h4>
+              </div>
+              <div class="card-body">
+                <%= form_with(model: menu, local: true) do |form| %>
+                  <% if menu.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
 
-                        <ul>
-                        <% menu.errors.full_messages.each do |message| %>
-                          <li><%= message %></li>
-                        <% end %>
-                        </ul>
-                      </div>
-                    <% end %>
-                    <div class="field">
-                      <%= form.label :name %>
-                      <%= form.text_field :name %>
-                    </div>
-                    <div class="fields">
-                      <%= form.fields_for :submenus do |builder| %>
-                        <%= render 'submenu', f: builder  %>
+                      <ul>
+                      <% menu.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
                       <% end %>
+                      </ul>
                     </div>
-                    <%= link_to_add_row('ADD SUBMENU', form, :submenus, class: 'btn btn-primary btn-sm ') %>
-                    <%= form.submit "Add", class: "btn btn-primary pull-right"%>
-                    <!-- <button type="submit" class="btn btn-primary pull-right">Update Profile</button> -->
-                    <div class="clearfix"></div>
                   <% end %>
-                </div>
+                  <div class="field">
+                    <%= form.label :name %>
+                    <%= form.text_field :name %>
+                  </div>
+                  <div class="fields">
+                    <%= form.fields_for :submenus do |builder| %>
+                      <%= render 'submenu', f: builder  %>
+                    <% end %>
+                  </div>
+                  <%= link_to_add_row('ADD SUBMENU', form, :submenus, class: 'btn btn-primary btn-sm ') %>
+                  <%= form.submit "Add", class: "btn btn-primary pull-right"%>
+                  <div class="clearfix"></div>
+                <% end %>
               </div>
             </div>
-           
           </div>
         </div>
       </div>
-     
     </div>
   </div>
+</div>
 

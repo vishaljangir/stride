@@ -10,6 +10,7 @@ class LogosController < ApplicationController
   # GET /logos/1
   # GET /logos/1.json
   def show
+    render :partial => "layouts/404"
   end
 
   # GET /logos/new

@@ -10,6 +10,7 @@ class StockMarketUpdatesController < ApplicationController
   # GET /stock_market_updates/1
   # GET /stock_market_updates/1.json
   def show
+     render :partial => "layouts/404"
   end
 
   # GET /stock_market_updates/new
@@ -28,7 +29,7 @@ class StockMarketUpdatesController < ApplicationController
 
     respond_to do |format|
       if @stock_market_update.save
-        format.html { redirect_to @stock_market_update, notice: 'Stock market update was successfully created.' }
+        format.html { redirect_to action: "index", notice: 'Stock market update was successfully created.' }
         format.json { render :show, status: :created, location: @stock_market_update }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class StockMarketUpdatesController < ApplicationController
   def update
     respond_to do |format|
       if @stock_market_update.update(stock_market_update_params)
-        format.html { redirect_to @stock_market_update, notice: 'Stock market update was successfully updated.' }
+        format.html { redirect_to action: "index", notice: 'Stock market update was successfully updated.' }
         format.json { render :show, status: :ok, location: @stock_market_update }
       else
         format.html { render :edit }
@@ -69,6 +70,6 @@ class StockMarketUpdatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stock_market_update_params
-      params.require(:stock_market_update).permit(:description)
+      params.require(:stock_market_update).permit(:image, :description)
     end
 end

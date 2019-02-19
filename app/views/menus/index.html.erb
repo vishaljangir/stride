@@ -1,61 +1,56 @@
 <div class="wrapper ">
-    
-    <div class="main-panel">
-      <!-- Navbar -->
-      
-      <!-- End Navbar -->
-      <div class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header card-header-primary">
-                  <div class="row">
-                    <div class="col-md-10">
-                      <h4 class="card-title">Menus</h4>
-                      <p class="card-category">Header Menus</p>
-                    </div>
-                    <div class="col-md-2">
-                      <%= link_to 'Add Logo', new_menu_path, class: "btn btn-primary btn-sm" %>
-                    </div>
+  <div class="main-panel">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <div class="row">
+                  <div class="col-md-10">
+                    <h4 class="card-title">Menus</h4>
                   </div>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                      <div class="col-md-12">
-                        <table>
-                          <thead>
-                            <th>MENU</th>
-                          </thead>
-                          <tbody>
-                            <% @menus.each do |menu| %>
-                              <tr>
-                                <td><%= menu.name %></td>
-                                <td><%= link_to 'Show', menu %></td>
-                                <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
-                                <td><%= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-                              </tr>
-                              <% menu.submenus.each do |submenu| %>
-                                <tr>
-                                  <td style="padding-left: 10px"><%= submenu.name %></td>
-                                </tr>
-                              <% end %>
-                            <% end %>
-                          </tbody>
-                        </table>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="clearfix"></div>
-                  
+                  <div class="col-md-2"><!-- 
+                    <%= link_to 'Add Logo', new_menu_path, class: "btn btn-primary btn-sm" %>
+-->                </div>
                 </div>
               </div>
+              <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <table>
+                        <thead>
+                          <th>MENU</th>
+                        </thead>
+                        <tbody>
+                          <% @menus.each do |menu| %>
+                            <tr>
+                              <td><%= menu.name %></td><!-- 
+                              <td><%= link_to 'Show', menu %></td> -->
+                              <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
+                              <td><%= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+                            </tr>
+                            <% menu.submenus.each do |submenu| %>
+                              <tr>
+                                <td style="padding-left: 10px"><%= submenu.name %></td>
+                              </tr>
+                            <% end %>
+                          <% end %>
+                        </tbody>
+                      </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                
+              </div>
             </div>
-           
           </div>
+         
         </div>
       </div>
-     
     </div>
+   
   </div>
+</div>

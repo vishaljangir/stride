@@ -1,57 +1,53 @@
 <div class="wrapper ">
-    
-    <div class="main-panel">
-      <!-- Navbar -->
-      
-      <!-- End Navbar -->
-      <div class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header card-header-primary">
-                  <div class="row">
-                    <div class="col-md-10">
-                      <h4 class="card-title">NEWS SECOND</h4>
-                      <p class="card-category">news</p>
-                    </div>
-                    <div class="col-md-2">
-                      <%= link_to 'Add News', new_news_second_path, class: "btn btn-primary btn-sm" %>
-                    </div>
+  <div class="main-panel">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <div class="row">
+                  <div class="col-md-10">
+                    <h4 class="card-title">NEWS SECOND</h4>
+                  </div>
+                  <div class="col-md-2">
+                    <%= link_to '', new_news_second_path, class: "fa fa-plus", style: "color: white; border: 1px solid; padding: 9px; float: right;" %>
                   </div>
                 </div>
-                <div class="card-body">
-                    <div class="row">
-                      <div class="col-md-12">
-                        <table>
-                          <thead>
-                            <th>FIRST NEWS</th>
-                          </thead>
-                          <tbody>
-                            <% @news_seconds.each do |news_second| %>
-                              <tr>
-                                <td><%= image_tag(news_second.image, class: "img-thumbnail", alt: "Cinque Terre", width: "236", height: "236") %></td>
-                                <td><strong><%= news_second.heading %></strong></td>
-                                <td><%= news_second.description %></td>
-                                <td><%= link_to 'Show', news_second %></td>
-                                <td><%= link_to 'Edit', edit_news_second_path(news_second) %></td>
-                                <td><%= link_to 'Destroy', news_second, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                              </tr>
-                            <% end %>
-                          </tbody>
-                        </table>
-                        </div>
+              </div>
+              <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <table class="table">
+                        <thead>
+                          <th>IMAGE</th>
+                          <th>HEADING</th>
+                          <th>DESCRIPTION</th>
+                          <th></th>
+                          <th></th>
+                        </thead>
+                        <tbody>
+                          <% @news_seconds.each do |news_second| %>
+                            <tr>
+                              <td><%= image_tag(news_second.image, class: "img-thumbnail", alt: "Cinque Terre", width: "236", height: "236") %></td>
+                              <td><strong><%= news_second.heading %></strong></td>
+                              <td><%= news_second.description %></td><!-- 
+                              <td><%= link_to 'Show', news_second %></td> -->
+                              <td><%= link_to '', edit_news_second_path(news_second), class: "fa fa-pencil" %></td>
+                              <td><%= link_to '', news_second, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash" %></td>
+                            </tr>
+                          <% end %>
+                        </tbody>
+                      </table>
                       </div>
                     </div>
-                    <div class="clearfix"></div>
-                  
-                </div>
+                  </div>
+                  <div class="clearfix"></div>
               </div>
             </div>
-           
           </div>
         </div>
       </div>
-     
     </div>
   </div>
+</div>
