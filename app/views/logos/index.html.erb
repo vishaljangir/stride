@@ -1,3 +1,30 @@
+<style type="text/css">
+img.img-thumbnail {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+.logo-container:hover img.img-thumbnail {
+  opacity: 0.3;
+}
+.logo-container:hover .middle {
+  opacity: 1;
+}
+</style>
+
 <div class="wrapper ">
   <div class="main-panel">
     <div class="content">
@@ -20,12 +47,12 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <% @logos.each do |logo| %>
-                        
-                          <%= image_tag(logo.image, class: "img-thumbnail", alt: "Cinque Terre", width: "236", height: "236") %>
-                       <!--    <td><%= link_to 'Show', logo %></td> -->
-                          <td><%= link_to 'Edit', edit_logo_path(logo) %></td><!-- 
-                          <td><%= link_to 'Destroy', logo, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-                        
+                        <div class="col-md-2 logo-container">
+                            <%= image_tag(logo.image, class: "img-thumbnail", alt: "Cinque Terre", width: "236", height: "236") %>
+                          <div class="middle">
+                            <%= link_to 'change', edit_logo_path(logo), class: "btn btn-sm btn-primary" %>
+                          </div>
+                        </div>
                       <% end %>
                     </div>
                   </div>

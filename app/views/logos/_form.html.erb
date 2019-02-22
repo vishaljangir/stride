@@ -24,19 +24,24 @@
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <div class="mb-4">
-                            <div class="col-md-4">
-                              <%= image_tag(@logo.image) %>
-                            </div>
-                            <div class="col-md-4">
-                              <div class="newI">
-                                
-                              </div>
-                            </div>
+                          <div class="col-md-2">
+                            <%= image_tag(@logo.image) %>
+                          </div>
+                        <div class="form-group form-file-upload form-file-multiple">
+                          <input type="file" multiple="" class="inputFileHidden">
+                          <div class="input-group">
+                            <%= form.file_field :image %>
+                              <input type="text" class="form-control inputFileVisible" placeholder="">
+                              <span class="input-group-btn">
+                                  <button type="button" class="btn btn-fab btn-round btn-primary">
+                                      <i class="material-icons">attach_file</i>
+                                  </button>
+                              </span>
+                          </div>
                         </div>
-                        <div class="btn btn-mdb-color btn-rounded float-left" onclick="newImage()">
+                        <div class="btn btn-mdb-color btn-rounded float-left">
                           <span>Add photo</span>
-                          <%= form.file_field :image, class: "image" %>
+                          
                         </div>
                          
                       </div>
@@ -53,10 +58,3 @@
     </div>
   </div>
 </div>
-
-<script type="text/javascript">
-  function newImage() {
-    var image = $('.image').val();
-    $('.newI').html(image);
-  }
-</script>
