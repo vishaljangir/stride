@@ -18,27 +18,19 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-12">
-                    <table class="table">
-                      <thead>
-                        <th>IMAGE</th>
-                        <th>HEADING</th>
-                        <th>DESCRIPTION</th>
-                        <th></th>
-                        <th></th>
-                      </thead>
-                      <tbody>
-                        <% @news_firsts.each do |news_first| %>
-                          <tr>
-                            <td><%= image_tag(news_first.image, class: "img-thumbnail", alt: "Cinque Terre", width: "236", height: "236") %></td>
-                            <td><strong><%= news_first.heading %></strong></td>
-                            <td><%= news_first.description %></td><!-- 
-                            <td><%= link_to 'Show', news_first %></td> -->
-                            <td><%= link_to '', edit_news_first_path(news_first), class: "fa fa-pencil" %></td>
-                            <td><%= link_to '', news_first, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash" %></td>
-                          </tr>
-                        <% end %>
-                      </tbody>
-                    </table>
+                    <% @news_firsts.each do |news_first| %>
+                        <div class="col-md-4 logo-container">
+                          <%= image_tag(news_first.image, class: "img-thumbnail", alt: "Cinque Terre", width: "236", height: "236") %>
+                          <div class="middle">
+                            <h3><%= news_first.heading %></h3>
+                            <br/>
+                            <p><%= news_first.description %></p>
+                            <br/>
+                            <%= link_to '', edit_news_first_path(news_first), class: "fa fa-pencil" %>
+                            <%= link_to '', news_first, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash" %>
+                          </div>
+                        </div>
+                      <% end %>
                     </div>
                   </div>
                 </div>

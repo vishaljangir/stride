@@ -18,27 +18,19 @@
               <div class="card-body">
                   <div class="row">
                     <div class="col-md-12">
-                      <table class="table">
-                        <thead>
-                          <th>IMAGE</th>
-                          <th>HEADING</th>
-                          <th>DESCRIPTION</th>
-                          <th></th>
-                          <th></th>
-                        </thead>
-                        <tbody>
-                          <% @sliders.each do |slider| %>
-                            <tr>
-                              <td><%= image_tag(slider.image, class: "img-thumbnail", alt: "Cinque Terre", width: "236", height: "236") %></td>
-                              <td><strong><%= slider.heading %></strong></td>
-                              <td><%= slider.description %></td><!-- 
-                              <td><%= link_to 'Show', slider %></td> -->
-                              <td><%= link_to '', edit_slider_path(slider), class: "fa fa-pencil" %></td>
-                              <td><%= link_to '', slider, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash" %></td>
-                            </tr>
-                          <% end %>
-                        </tbody>
-                      </table>
+                      <% @sliders.each do |slider| %>
+                        <div class="col-md-4 logo-container">
+                          <%= image_tag(slider.image, class: "img-thumbnail", alt: "Cinque Terre", width: "236", height: "236") %>
+                          <div class="middle">
+                            <h3><%= slider.heading %></h3>
+                            <br/>
+                            <p><%= slider.description %></p>
+                            <br/>
+                            <%= link_to '', edit_slider_path(slider), class: "fa fa-pencil" %>
+                            <%= link_to '', slider, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash" %>
+                          </div>
+                        </div>
+                      <% end %>
                     </div>
                   </div>
                   <div class="clearfix"></div>

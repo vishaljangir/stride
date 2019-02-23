@@ -23,16 +23,16 @@
                   <% end %>
                   <div class="field">
                     <%= form.label :image %>
-                    <%= form.file_field :image %>
+                    <%= form.file_field :image, class: "form-control" %>
                   </div>
                   <div class="field">
                     <%= form.label :heading %>
-                    <%= form.text_field :heading %>
+                    <%= form.text_field :heading, class: "form-control" %>
                   </div>
 
                   <div class="field">
                     <%= form.label :description %>
-                    <%= form.text_field :description %>
+                    <%= form.text_area :description, class: "form-control" %>
                   </div>
                   <%= form.submit "Add", class: "btn btn-primary pull-right"%>
                   <div class="clearfix"></div>

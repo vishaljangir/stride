@@ -16,42 +16,30 @@
                 </div>
               </div>
               <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <table class="table">
-                        <thead>
-                          <th>IMAGE</th>
-                          <th>DESCRIPTION</th>
-                          <th>NAME</th>
-                          <th>DATE</th>
-                          <th></th>
-                          <th></th>
-                        </thead>
-                        <tbody>
-                          <% @news_latests.each do |news_latest| %>
-                            <tr>
-                              <td><%= image_tag(news_latest.image, class: "img-thumbnail", alt: "Cinque Terre", width: "236", height: "236") %>
-                              <td><%= news_latest.description %></td>
-                              <td><%= "By " + news_latest.name %></td>
-                              <td><%= news_latest.created_at.strftime("%d-%m-%Y") %></td>
-                              <td><%= link_to '', edit_news_latest_path(news_latest), class: "fa fa-pencil" %></td>
-                              <td><%= link_to '', news_latest, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash" %></td>
-                            </tr>
-                          <% end %>
-                        </tbody>
-                      </table>
+                <div class="row">
+                  <div class="col-md-12">
+                    <% @news_latests.each do |news_latest| %>
+                      <div class="col-md-4 logo-container">
+                        <%= image_tag(news_latest.image, class: "img-thumbnail", alt: "Cinque Terre", width: "236", height: "236") %>
+                        <div class="middle">
+                          <p><%= news_latest.description %></p>
+                          <br/>
+                          <h4><%= "By " + news_latest.name %></h4>
+                          <p><%= news_latest.created_at.strftime("%d-%m-%Y") %></p>
+                          <br/>
+                          <%= link_to '', edit_news_latest_path(news_latest), class: "fa fa-pencil" %>
+                          <%= link_to '', news_latest, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash" %>
+                        </div>
                       </div>
-                    </div>
+                    <% end %>
                   </div>
-                  <div class="clearfix"></div>
-                
+                </div>
               </div>
+              <div class="clearfix"></div>    
             </div>
           </div>
-         
-        </div>
+        </div> 
       </div>
     </div>
-   
-  </div>
+  </div> 
 </div>
