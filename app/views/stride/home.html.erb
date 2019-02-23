@@ -1,65 +1,418 @@
-<style type="text/css">
-  .centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-</style>
-<div class="card">
- 
-    <% if user_signed_in? %>
-      <%= link_to "logout", destroy_user_session_path(@user), method: :delete, style: "pull-right" %>
-    <% else %>
-      <%= link_to "sigup", new_user_session_path %>
-      <%= link_to "login", new_user_session_path %>
-    <% end %>  
+<div id="preloader">
+  <div class="lds-ellipsis">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+  </div>
 </div>
-
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">
-        <% if @logos.present? %><%= image_tag(@logos.last.image, :width => '70px') %><% else %><%= image_tag("Logo-USB1.png", :width => '70px') %>
-        <% end %></a>
-    </div>
-    <% Menu.all.each do |menu| %>
-      <ul class="nav navbar-nav">
-          <li><%= menu.name %></li>
-          <% menu.submenus.each do |submenu| %>
-            <ul>
-              <li><%= submenu.name %></li>
+<div id="top-bar" class="hidden-md-down">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-9 col-12">
+              <ul class="top-bar-info">
+                  <li><i class="fas fa-phone"></i> Phone: +1234567890</li>
+                  <li><i class="fas fa-map-marker-alt"></i>Jaipur</li>
+                  <li><i class="fa fa-envelope"></i>Email: demo@email.com</li>
+              </ul>
+          </div>
+          <div class="col-md-3 col-12">
+              <ul class="social-icons hidden-sm">
+                <% if user_signed_in? %>
+                  <li><%= link_to "logout", destroy_user_session_path(@user), method: :delete, style: "pull-right" %></li>
+                <% else %>
+                  <li><%= link_to "login", new_user_session_path %></li>
+                  <li><%= link_to "sigup", new_user_session_path %></li>
+                <% end %>
             </ul>
-          <% end %>
-      </ul>
-    <% end %>
-  </div>
-</nav>
-
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-        <%= image_tag("chicago.jpg", style: "width:100%; height: 600px") %>
-    </div>
-    <% @sliders.last(5).each do |slider| %>
-      <div class="carousel-item">
-          <%= image_tag(slider.image, style: "width:100%; height: 600px") %>
-          <div class="centered"><center><h1><%= slider.heading %></h1><br><h3><%= slider.description %></h3><br><button class="btn btn-primary">click</button></center></div>
+         </div>
       </div>
-    <% end %>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-  
+   </div>
 </div>
+<header>
+  <nav id="navigation4" class="container navigation">
+    <div class="nav-header">
+      <a class="nav-brand" href="index.html"><%= image_tag(@logos.last.image, :width => '70px', class: "main-logo", :alt=> "logo", id: "main_logo") %></a>
+      <div class="nav-toggle"></div>
+    </div>
+    <div class="nav-menus-wrapper">
+      <ul class="nav-menu align-to-right">
+        <%= @menus.each do |menu| %> 
+          <li><a href="#"><%= menu.name %></a></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>
+<div class="rev_slider_wrapper">
+    <div id="rev_slider" class="rev_slider fullscreenbanner">
+        <ul>
+          <%= @sliders.each do |slider| %>
+            <li data-delay="5000" data-transition="slotzoom-horizontal" data-slotamount="7" data-masterspeed="1000" data-fsmasterspeed="1000">
+              <%= image_tag (slider.image), class: "rev-slidebg", :alt=> "slider" %>
+                <img src="img/content/slider/slide11.jpg"  >
+                <div class="slide-title tp-caption tp-resizeme white-color text-center" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['-90','-90', '-150', '-350']" data-fontsize="['70','70', '70', '125']" data-fontweight="600" data-lineheight="['85','85', '80', '135']" data-width="['800','800','650']" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:50px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05"><%= slider.heading %></div>
+                <div class="slide-subtitle tp-caption tp-resizeme white-color text-center" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['45','45', '15', '15']" data-fontsize="['18', '18', '18', '18']" data-fontweight="300" data-lineheight="['30']" data-width="['1000','1000','550']" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1200;e:Power1.easeInOut;" data-transform_out="opacity:0;s:1000;s:1000;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-start="1500" data-splitin="none" data-splitout="none"><%= slider.description %></div>
+                <div class="tp-caption rev-btn tp-resizeme button-white-bordered" id="slide-1081-layer-12" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['125','125','125','30']" data-fontsize="['15','15','15','15']" data-fontweight="600" data-lineheight="['50','50','50','50']" data-width="['200','200','200','200']" data-height="none" data-borderWidth="2" data-whitespace="nowrap" data-start="1500" data-type="button" data-actions='[{"event":"click","action":"scrollbelow","offset":"-70px","delay":"","speed":"1000","ease":"Power1.easeInOut"}]' data-responsive_offset="on" data-splitin="none" data-splitout="none" data-frames='[{"delay":900,"speed":2000,"frame":"0","from":"y:50px;opacity:0;fb:10px;fbr:100;","to":"o:1;fb:0;fbr:100;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;fbr:100;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"200","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;fb:0;fbr:110%;","style":"c:rgba(255,255,255,1);bs:solid;bw:0 0 0 0;"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="">Keep Going</div>
+            </li>
+          <% end %>
+            <!-- <li data-delay="5000" data-transition="slotzoom-horizontal" data-slotamount="7" data-masterspeed="1000" data-fsmasterspeed="1000">
+                <img src="img/content/slider/slide12.jpg" alt="" data-bgposition="center right" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg">
+                <div class="slide-title tp-caption tp-resizeme white-color text-center" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['-90','-90', '-150', '-350']" data-fontsize="['70','60', '60', '125']" data-fontweight="600" data-lineheight="['80','70', '70', '135']" data-width="['800','700','650']" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:50px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05">Accurate data for precision marketing</div>
+                <div class="slide-subtitle tp-caption tp-resizeme white-color text-center" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['45','25', '15', '15']" data-fontsize="['18', '18', '18', '18']" data-fontweight="300" data-lineheight="['30']" data-width="['1000','1000','550']" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1200;e:Power1.easeInOut;" data-transform_out="opacity:0;s:1000;s:1000;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-start="1500" data-splitin="none" data-splitout="none">Brand marketing that puts your vision into action! Putting vision into action.
+                    <br>Accurate data for precision marketing. Your outsourced marketing team.</div>
+                <div class="tp-caption rev-btn tp-resizeme slider-btn button-primary" id="slide-1081-layer-13" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['100','100','100','30']" data-fontsize="['15','15','15','15']" data-fontweight="600" data-lineheight="['50','50','50','50']" data-width="['200','200','200','200']" data-height="none" data-whitespace="nowrap" data-start="1500" data-type="button" data-actions='[{"event":"click","action":"scrollbelow","offset":"-70px","delay":"","speed":"2500","ease":"Power1.easeInOut"}]' data-responsive_offset="on" data-splitin="none" data-splitout="none" data-frames='[{"delay":900,"speed":1000,"frame":"0","from":"y:50px;opacity:0;fb:10px;fbr:100;","to":"o:1;fb:0;fbr:100;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;fbr:100;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"200","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;fb:0;fbr:110%;","style":"c:rgba(255,255,255,1);bs:solid;bw:0 0 0 0;"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="">Learn More</div>
+            </li> -->
+        </ul>
+    </div>
+</div>
+<div class="section-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-12">
+              <%= image_tag ("tradingApi.jpg") %>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="section-block grey-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-8 col-12">
+        <div class="col-lg-12 col-md-6 col-sm-6 col-12">
+          <div class="features-box">
+            <% @news_firsts.last(1).each do |news_first| %>
+              <div class="features-box-icon">
+                <%= image_tag (news_first.image), class: "shadow-primary rounded-border", :alt=> "img" %>
+              </div>
+              <div class="features-box-content">
+                <h2><%= news_first.heading %></h2>
+                <p><%= news_first.description %></p>
+              </div>
+            <% end %>
+            <div class="row mt-50">
+              <div class="owl-carousel owl-theme services-carousel-2">
+                <% @news_firsts.each do |news_first| %>
+                  <div class="service-block-2">
+                    <%= image_tag (news_first.image) %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4 col-12">
+        <div class="pl-45-md">
+          <div class="section-heading text-left mt-5">
+            <h3 class="semi-bold font-size-30">
+              <div class="row"> 
+                <div class="top-news mt-20">
+                  <% @stock_market_updates.each do |stock| %>
+                    <div class="top-news-info">
+                      <div class="row">
+                        <div class="col-md-4 col-sm-4 col-12 pr-0">
+                          <%= image_tag (stock.image) %>
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-12">
+                          <h3><a href="#"><%= stock.description %></a></h3>
+                          <h6><%= stock.created_at.strftime("%d/%m/%y") %></h6> 
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="section-block">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 col-sm-4 col-12">
+                    <div class="pl-45-md">
+                        <canvas class="chartjs mt-30-xs" id="chart-1" height="370px"></canvas>
+                    </div>
+                </div>
+
+                <div class="col-md-8 col-sm-8 col-12">
+                    <div class="section-heading text-left">
+                        <h3 class="semi-bold"><span class="primary-color">Leatest News</span></h3>
+                        <div class="section-heading-line line-thin"></div>
+                    </div>
+                    <div class="text-content mt-15">
+                        <div class="col-md-12 col-sm-12 col-12">
+                            <div class="">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-12">
+                                        <div class="top-news-info">
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-4 col-12 pr-0">
+                        <img src="img/content/blog/bs-1.jpg" alt="img" class="round"> </div>
+                                                <div class="col-md-8 col-sm-8 col-12 ">
+                                                    <h3><a href="#">Four ways to cheer yourself up on Blue Monday! Four ways to cheer yourself up on Blue Monday!</a></h3>
+                                                    <h6>May 21, 2019</h6> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-12">
+                                        <div class="top-news-info">
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-4 col-12 pr-0"> <img src="img/content/blog/bs-1.jpg" alt="img" class="round">  </div>
+                                                <div class="col-md-8 col-sm-8 col-12">
+                                                    <h3><a href="#">Four ways to cheer yourself up on Blue Monday! Four ways to cheer yourself up on Blue Monday!</a></h3>
+                                                    <h6>May 21, 2019</h6> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-12">
+                                        <div class="top-news-info">
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-4 col-12 pr-0"> <img src="img/content/blog/bs-1.jpg" alt="img" class="round">  </div>
+                                                <div class="col-md-8 col-sm-8 col-12">
+                                                    <h3><a href="#">Four ways to cheer yourself up on Blue Monday! Four ways to cheer yourself up on Blue Monday!</a></h3>
+                                                    <h6>May 21, 2019</h6> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-12">
+                                        <div class="top-news-info">
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-4 col-12 pr-0"> <img src="img/content/blog/bs-1.jpg" alt="img" class="round">  </div>
+                                                <div class="col-md-8 col-sm-8 col-12">
+                                                    <h3><a href="#">Four ways to cheer yourself up on Blue Monday! Four ways to cheer yourself up on Blue Monday!</a></h3>
+                                                    <h6>May 21, 2019</h6> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="section-block-parallax jarallax" data-jarallax data-speed="0.6" style="background-image: url('img/content/bgs/bg10.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-12">
+<BR><BR>
+                    <div class="row mt-10">
+                        <div class="owl-carousel owl-theme services-carousel-2">
+                            <div class="service-block-2"> <img src="img/content/services/s4.jpg" alt="img">
+                                <div class="service-block-2-content">
+                                    <h4><a href="#">Administrative Assistant</a></h4> </div>
+                            </div>
+                            <div class="service-block-2"> <img src="img/content/services/s4.jpg" alt="img">
+                                <div class="service-block-2-content">
+                                    <h4><a href="#">Administrative Assistant</a></h4> </div>
+                            </div>
+                            <div class="service-block-2"> <img src="img/content/services/s4.jpg" alt="img">
+                                <div class="service-block-2-content">
+                                    <h4><a href="#">Administrative Assistant</a></h4> </div>
+                            </div>
+                            <div class="service-block-2"> <img src="img/content/services/s4.jpg" alt="img">
+                                <div class="service-block-2-content">
+                                    <h4><a href="#">Administrative Assistant</a></h4> </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-12 bg offset-md-1">
+                    <div class="top-news mt-20">
+                        <div class="top-news-info">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4 col-12 pr-0"> <img src="img/content/blog/bs-1.jpg" alt="img" class="rounded"> </div>
+                                <div class="col-md-8 col-sm-8 col-12">
+                                    <h3><a href="#">Four ways to cheer yourself up on Blue Monday!</a></h3>
+                                    <h6>May 21, 2019</h6> </div>
+                            </div>
+                        </div>
+                        <div class="top-news-info">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4 col-12 pr-0"> <img src="img/content/blog/bs-1.jpg" alt="img" class="rounded"> </div>
+                                <div class="col-md-8 col-sm-8 col-12">
+                                    <h3><a href="#">How to Organize Your Office for Maximum?</a></h3>
+                                    <h6>May 21, 2019</h6> </div>
+                            </div>
+                        </div>
+                        <div class="top-news-info">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4 col-12 pr-0"> <img src="img/content/blog/bs-1.jpg" alt="img" class="rounded"> </div>
+                                <div class="col-md-8 col-sm-8 col-12">
+                                    <h3><a href="#">Best Messaging Apps for Business 2019</a></h3>
+                                    <h6>May 21, 2019</h6> </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="section-block">
+        <div class="container">
+            <div class="section-heading text-center">
+                <h3 class="semi-bold">Recent News</h3>
+                <div class="section-heading-line line-thin dark-bg"></div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                    <br>ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            </div>
+            <div class="row mt-50">
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-12">
+
+                        <div class="blog-grid">
+                            <img src="img/content/blog/b-1.jpg" alt="blog">
+                            <div class="blog-team-box">
+                                <h6>Oct 24, 2019</h6>
+                            </div>
+                            <h4><a href="#">Advices for young designers, what Planning Process Needs?</a></h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+                            <a href="#" class="button-simple-primary mt-20">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-12">
+
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-12">
+                                <div class="blog-grid">
+                                    <img src="img/content/blog/b-2.jpg" alt="blog">
+                                    <div class="blog-team-box">
+                                        <h6>Oct 13, 2019</h6>
+                                    </div>
+                                    <h4>
+    <a href="#">Leverage Customer</a></h4>
+                                    <p>Lorem ipsum dolor sit amet, labore et dolore magna aliqua.</p>
+                                    <a href="#" class="button-simple-primary mt-20">Read More <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-12">
+                                <div class="blog-grid">
+                                    <img src="img/content/blog/b-2.jpg" alt="blog">
+                                    <div class="blog-team-box">
+                                        <h6>Oct 13, 2019</h6>
+                                    </div>
+                                    <h4>
+    <a href="#">Leverage Customer </a></h4>
+                                    <p>Lorem ipsum dolor sit amet, labore et dolore magna aliqua.</p>
+                                    <a href="#" class="button-simple-primary mt-20">Read More <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-12">
+                                <div class="blog-grid">
+                                    <img src="img/content/blog/b-2.jpg" alt="blog">
+                                    <div class="blog-team-box">
+                                        <h6>Oct 13, 2019</h6>
+                                    </div>
+                                    <h4>
+    <a href="#">Leverage Customer  </a></h4>
+                                    <p>Lorem ipsum dolor sit amet, labore et dolore magna aliqua.</p>
+                                    <a href="#" class="button-simple-primary mt-20">Read More <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-12">
+                                <div class="blog-grid">
+                                    <img src="img/content/blog/b-2.jpg" alt="blog">
+                                    <div class="blog-team-box">
+                                        <h6>Oct 13, 2019</h6>
+                                    </div>
+                                    <h4>
+    <a href="#">Leverage Customer  </a></h4>
+                                    <p>Lorem ipsum dolor sit amet, labore et dolore magna aliqua.</p>
+                                    <a href="#" class="button-simple-primary mt-20">Read More <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-12">
+                        <a href="#"><img id="footer_logo" src="img/logos/logo-footer-3.png" alt="logo"></a>
+                        <p class="mt-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <ul class="social-links-footer">
+                            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-12">
+                        <h2>Extra Links</h2>
+                        <div class="row mt-25">
+                            <div class="col-md-6 col-sm-6">
+                                <ul class="footer-nav">
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Services</a></li>
+                                    <li><a href="#">Our approach</a></li>
+                                    <li><a href="#">Case Studies</a></li>
+                                    <li><a href="#">Our team</a></li>
+                                    <li><a href="#">Our approach</a></li>
+                                    <li><a href="#">Accounting</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <ul class="footer-nav">
+                                    <li><a href="#">Business</a></li>
+                                    <li><a href="#">Consulting</a></li>
+                                    <li><a href="#">Development</a></li>
+                                    <li><a href="#">Case Studies</a></li>
+                                    <li><a href="#">Latest News</a></li>
+                                    <li><a href="#">Contact us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-12">
+                        <h2>Recent news</h2>
+                        <ul class="footer-news mt-25">
+                            <li> <a href="#">Apartamento at ten: a decade of celebrating the everyday.</a> <strong><i class="fa fa-calendar"></i> 11 September 2019</strong> </li>
+                            <li> <a href="#">Within the construction industry as their overdraft</a> <strong><i class="fa fa-calendar"></i> 11 September 2019</strong> </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-12">
+                        <h2>Subscribe</h2>
+                        <form class="footer-subscribe-form mt-25">
+                            <div class="d-table full-width">
+                                <div class="d-table-cell">
+                                    <input type="text" placeholder="Your Email adress"> </div>
+                                <div class="d-table-cell">
+                                    <button type="submit"><i class="fas fa-envelope"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                        <p class="mt-10">Get latest updates and offers.</p>
+                    </div>
+                </div>
+                <div class="footer-1-bar">
+                    <p>SpecThemes © 2019. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
