@@ -8,5 +8,9 @@ class StrideController < ApplicationController
   	@sliders = Slider.all
   	@news_firsts = NewsFirst.all
   	@stock_market_updates = StockMarketUpdate.all
+  	@news_latests = NewsLatest.all
+  	@training_videos = TrainingVideo.all
+  	@training_blogs = TrainingBlog.all
+  	@news_seconds = NewsSecond.all
   end
 end

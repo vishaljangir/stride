@@ -11,8 +11,8 @@
       <div class="row">
           <div class="col-md-9 col-12">
               <ul class="top-bar-info">
-                  <li><i class="fas fa-phone"></i> Phone: +1234567890</li>
-                  <li><i class="fas fa-map-marker-alt"></i>Jaipur</li>
+                  <li><i class="fa fa-phone"></i> Phone: +1234567890</li>
+                  <li><i class="fa fa-map-marker-alt"></i>Jaipur</li>
                   <li><i class="fa fa-envelope"></i>Email: demo@email.com</li>
               </ul>
           </div>
@@ -106,7 +106,6 @@
       <div class="col-md-4 col-sm-4 col-12">
         <div class="pl-45-md">
           <div class="section-heading text-left mt-5">
-            <h3 class="semi-bold font-size-30">
               <div class="row"> 
                 <div class="top-news mt-20">
                   <% @stock_market_updates.each do |stock| %>
@@ -128,269 +127,173 @@
           </div>
         </div>
     </div>
-    </div>
-    </div>
-
-    <div class="section-block">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-4 col-sm-4 col-12">
-                    <div class="pl-45-md">
-                        <canvas class="chartjs mt-30-xs" id="chart-1" height="370px"></canvas>
+  </div>
+</div>
+<div class="section-block">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-4 col-12">
+        <div class="pl-45-md">
+          <%= image_tag ("Logofgf.png") %>
+          <!-- <canvas class="chartjs mt-30-xs" id="chart-1" height="370px"></canvas> -->
+        </div>
+      </div>
+      <div class="col-md-8 col-sm-8 col-12">
+        <div class="section-heading text-left">
+          <h3 class="semi-bold"><span class="primary-color">Latest News</span></h3>
+          <div class="section-heading-line line-thin"></div>
+        </div>
+        <div class="text-content mt-15">
+          <div class="col-md-12 col-sm-12 col-12">
+            <div class="">
+              <div class="row">
+                <% @news_latests.last(4).each do |latest_news| %>
+                  <div class="col-md-6 col-sm-6 col-12">
+                    <div class="top-news-info">
+                      <div class="row">
+                        <div class="col-md-4 col-sm-4 col-12 pr-0">
+                          <%= image_tag (latest_news.image), class: "round" %>
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-12 ">
+                          <p><a href="#"><%= latest_news.description %></a></p>
+                          <h3><a href="#"><%= "By " + latest_news.name %></a></h3>
+                          <h6><%= latest_news.created_at.strftime("%d/%m/%y") %></h6> </div>
+                      </div>
                     </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="section-block-parallax jarallax" data-jarallax data-speed="0.6" style="background-color: #445698;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-8 col-12">
+        <br><br>
+        <div class="row mt-10">
+          <div class="owl-carousel owl-theme services-carousel-2">
+            <% @training_videos.each do |training_video| %>
+              <div class="service-block-2">
+                <%= video_tag(url_for(training_video.video), controls: "") %>
+                <div class="service-block-2-content">
+                  <h4><%= training_video.caption %></h4>
                 </div>
-
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 col-12 bg offset-md-1">
+        <div class="top-news mt-20">
+          <% @training_blogs.last(3).each do |blog| %>
+            <div class="top-news-info">
+              <div class="row">
+                <div class="col-md-4 col-sm-4 col-12 pr-0">
+                  <%= image_tag (blog.image), class: "rounded" %>
+                </div>
                 <div class="col-md-8 col-sm-8 col-12">
-                    <div class="section-heading text-left">
-                        <h3 class="semi-bold"><span class="primary-color">Leatest News</span></h3>
-                        <div class="section-heading-line line-thin"></div>
-                    </div>
-                    <div class="text-content mt-15">
-                        <div class="col-md-12 col-sm-12 col-12">
-                            <div class="">
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-6 col-12">
-                                        <div class="top-news-info">
-                                            <div class="row">
-                                                <div class="col-md-4 col-sm-4 col-12 pr-0">
-                        <img src="img/content/blog/bs-1.jpg" alt="img" class="round"> </div>
-                                                <div class="col-md-8 col-sm-8 col-12 ">
-                                                    <h3><a href="#">Four ways to cheer yourself up on Blue Monday! Four ways to cheer yourself up on Blue Monday!</a></h3>
-                                                    <h6>May 21, 2019</h6> </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-12">
-                                        <div class="top-news-info">
-                                            <div class="row">
-                                                <div class="col-md-4 col-sm-4 col-12 pr-0"> <img src="img/content/blog/bs-1.jpg" alt="img" class="round">  </div>
-                                                <div class="col-md-8 col-sm-8 col-12">
-                                                    <h3><a href="#">Four ways to cheer yourself up on Blue Monday! Four ways to cheer yourself up on Blue Monday!</a></h3>
-                                                    <h6>May 21, 2019</h6> </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-12">
-                                        <div class="top-news-info">
-                                            <div class="row">
-                                                <div class="col-md-4 col-sm-4 col-12 pr-0"> <img src="img/content/blog/bs-1.jpg" alt="img" class="round">  </div>
-                                                <div class="col-md-8 col-sm-8 col-12">
-                                                    <h3><a href="#">Four ways to cheer yourself up on Blue Monday! Four ways to cheer yourself up on Blue Monday!</a></h3>
-                                                    <h6>May 21, 2019</h6> </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-12">
-                                        <div class="top-news-info">
-                                            <div class="row">
-                                                <div class="col-md-4 col-sm-4 col-12 pr-0"> <img src="img/content/blog/bs-1.jpg" alt="img" class="round">  </div>
-                                                <div class="col-md-8 col-sm-8 col-12">
-                                                    <h3><a href="#">Four ways to cheer yourself up on Blue Monday! Four ways to cheer yourself up on Blue Monday!</a></h3>
-                                                    <h6>May 21, 2019</h6> </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
+                  <h3><a href="#"><%= blog.description %></a></h3>
+                  <p><%= "By " + blog.name %></p>
+                  <h6><%= blog.created_at.strftime("%d/%m/%y") %></h6> </div>
+              </div>
             </div>
+          <% end %>
         </div>
+      </div>
     </div>
-
-    <div class="section-block-parallax jarallax" data-jarallax data-speed="0.6" style="background-image: url('img/content/bgs/bg10.jpg');">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-sm-8 col-12">
-<BR><BR>
-                    <div class="row mt-10">
-                        <div class="owl-carousel owl-theme services-carousel-2">
-                            <div class="service-block-2"> <img src="img/content/services/s4.jpg" alt="img">
-                                <div class="service-block-2-content">
-                                    <h4><a href="#">Administrative Assistant</a></h4> </div>
-                            </div>
-                            <div class="service-block-2"> <img src="img/content/services/s4.jpg" alt="img">
-                                <div class="service-block-2-content">
-                                    <h4><a href="#">Administrative Assistant</a></h4> </div>
-                            </div>
-                            <div class="service-block-2"> <img src="img/content/services/s4.jpg" alt="img">
-                                <div class="service-block-2-content">
-                                    <h4><a href="#">Administrative Assistant</a></h4> </div>
-                            </div>
-                            <div class="service-block-2"> <img src="img/content/services/s4.jpg" alt="img">
-                                <div class="service-block-2-content">
-                                    <h4><a href="#">Administrative Assistant</a></h4> </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-6 col-12 bg offset-md-1">
-                    <div class="top-news mt-20">
-                        <div class="top-news-info">
-                            <div class="row">
-                                <div class="col-md-4 col-sm-4 col-12 pr-0"> <img src="img/content/blog/bs-1.jpg" alt="img" class="rounded"> </div>
-                                <div class="col-md-8 col-sm-8 col-12">
-                                    <h3><a href="#">Four ways to cheer yourself up on Blue Monday!</a></h3>
-                                    <h6>May 21, 2019</h6> </div>
-                            </div>
-                        </div>
-                        <div class="top-news-info">
-                            <div class="row">
-                                <div class="col-md-4 col-sm-4 col-12 pr-0"> <img src="img/content/blog/bs-1.jpg" alt="img" class="rounded"> </div>
-                                <div class="col-md-8 col-sm-8 col-12">
-                                    <h3><a href="#">How to Organize Your Office for Maximum?</a></h3>
-                                    <h6>May 21, 2019</h6> </div>
-                            </div>
-                        </div>
-                        <div class="top-news-info">
-                            <div class="row">
-                                <div class="col-md-4 col-sm-4 col-12 pr-0"> <img src="img/content/blog/bs-1.jpg" alt="img" class="rounded"> </div>
-                                <div class="col-md-8 col-sm-8 col-12">
-                                    <h3><a href="#">Best Messaging Apps for Business 2019</a></h3>
-                                    <h6>May 21, 2019</h6> </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
+  </div>
+</div>
+<div class="section-block">
+  <div class="container">
+    <div class="section-heading text-center">
+      <h3 class="semi-bold">Recent News</h3>
+      <div class="section-heading-line line-thin dark-bg"></div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+      <br>ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+    </div>
+    <div class="row mt-50">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-12">
+          <% @news_seconds.last(1).each do |news_second| %>
+            <div class="blog-grid">
+              <%= image_tag (news_second.image) %>
+              <div class="blog-team-box">
+                <h6><%= news_second.created_at.strftime("%d/%m/%y") %></h6>
+              </div>
+              <h4><a href="#"><%= news_second.heading %></a></h4>
+              <p><%= news_second.description %></p>
+              <a href="#" class="button-simple-primary mt-20">Read More <i class="fa fa-arrow-right"></i></a>
             </div>
+          <% end %>
         </div>
-    </div>
-    <div class="section-block">
-        <div class="container">
-            <div class="section-heading text-center">
-                <h3 class="semi-bold">Recent News</h3>
-                <div class="section-heading-line line-thin dark-bg"></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                    <br>ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-            </div>
-            <div class="row mt-50">
-
-                <div class="row">
-                    <div class="col-md-6 col-sm-6 col-12">
-
-                        <div class="blog-grid">
-                            <img src="img/content/blog/b-1.jpg" alt="blog">
-                            <div class="blog-team-box">
-                                <h6>Oct 24, 2019</h6>
-                            </div>
-                            <h4><a href="#">Advices for young designers, what Planning Process Needs?</a></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
-                            <a href="#" class="button-simple-primary mt-20">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-12">
-
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6 col-12">
-                                <div class="blog-grid">
-                                    <img src="img/content/blog/b-2.jpg" alt="blog">
-                                    <div class="blog-team-box">
-                                        <h6>Oct 13, 2019</h6>
-                                    </div>
-                                    <h4>
-    <a href="#">Leverage Customer</a></h4>
-                                    <p>Lorem ipsum dolor sit amet, labore et dolore magna aliqua.</p>
-                                    <a href="#" class="button-simple-primary mt-20">Read More <i class="fas fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-12">
-                                <div class="blog-grid">
-                                    <img src="img/content/blog/b-2.jpg" alt="blog">
-                                    <div class="blog-team-box">
-                                        <h6>Oct 13, 2019</h6>
-                                    </div>
-                                    <h4>
-    <a href="#">Leverage Customer </a></h4>
-                                    <p>Lorem ipsum dolor sit amet, labore et dolore magna aliqua.</p>
-                                    <a href="#" class="button-simple-primary mt-20">Read More <i class="fas fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-12">
-                                <div class="blog-grid">
-                                    <img src="img/content/blog/b-2.jpg" alt="blog">
-                                    <div class="blog-team-box">
-                                        <h6>Oct 13, 2019</h6>
-                                    </div>
-                                    <h4>
-    <a href="#">Leverage Customer  </a></h4>
-                                    <p>Lorem ipsum dolor sit amet, labore et dolore magna aliqua.</p>
-                                    <a href="#" class="button-simple-primary mt-20">Read More <i class="fas fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-12">
-                                <div class="blog-grid">
-                                    <img src="img/content/blog/b-2.jpg" alt="blog">
-                                    <div class="blog-team-box">
-                                        <h6>Oct 13, 2019</h6>
-                                    </div>
-                                    <h4>
-    <a href="#">Leverage Customer  </a></h4>
-                                    <p>Lorem ipsum dolor sit amet, labore et dolore magna aliqua.</p>
-                                    <a href="#" class="button-simple-primary mt-20">Read More <i class="fas fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+        <div class="col-md-6 col-sm-6 col-12">
+          <div class="row">
+            <% @news_seconds[-5...-1].each do |news_second| %>
+              <div class="col-md-6 col-sm-6 col-12">
+                <div class="blog-grid">
+                  <%= image_tag (news_second.image) %>
+                  <div class="blog-team-box">
+                    <h6><%= news_second.created_at.strftime("%d/%m/%y") %></h6>
+                  </div>
+                  <h4><a href="#"><%= news_second.heading %></a></h4>
+                  <p><%= news_second.description %></p>
+                  <a href="#" class="button-simple-primary mt-20">Read More <i class="fa fa-arrow-right"></i></a>
                 </div>
-
-            </div>
+              </div>
+            <% end %>
+          </div>
         </div>
+      </div>
     </div>
-
-    <footer>
-        <div class="footer-1">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <a href="#"><img id="footer_logo" src="img/logos/logo-footer-3.png" alt="logo"></a>
-                        <p class="mt-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <ul class="social-links-footer">
-                            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <h2>Extra Links</h2>
-                        <div class="row mt-25">
-                            <div class="col-md-6 col-sm-6">
-                                <ul class="footer-nav">
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Services</a></li>
-                                    <li><a href="#">Our approach</a></li>
-                                    <li><a href="#">Case Studies</a></li>
-                                    <li><a href="#">Our team</a></li>
-                                    <li><a href="#">Our approach</a></li>
-                                    <li><a href="#">Accounting</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <ul class="footer-nav">
-                                    <li><a href="#">Business</a></li>
-                                    <li><a href="#">Consulting</a></li>
-                                    <li><a href="#">Development</a></li>
-                                    <li><a href="#">Case Studies</a></li>
-                                    <li><a href="#">Latest News</a></li>
-                                    <li><a href="#">Contact us</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <h2>Recent news</h2>
+  </div>
+</div>
+<footer>
+  <div class="footer-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-12">
+          <a href="#"><img id="footer_logo" src="img/logos/logo-footer-3.png" alt="logo"></a>
+          <p class="mt-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <ul class="social-links-footer">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-sm-6 col-12">
+          <h2>Extra Links</h2>
+          <div class="row mt-25">
+            <div class="col-md-6 col-sm-6">
+              <ul class="footer-nav">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Our approach</a></li>
+                <li><a href="#">Case Studies</a></li>
+                <li><a href="#">Our team</a></li>
+                <li><a href="#">Our approach</a></li>
+                <li><a href="#">Accounting</a></li>
+              </ul>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <ul class="footer-nav">
+                <li><a href="#">Business</a></li>
+                <li><a href="#">Consulting</a></li>
+                <li><a href="#">Development</a></li>
+                <li><a href="#">Case Studies</a></li>
+                <li><a href="#">Latest News</a></li>
+                <li><a href="#">Contact us</a></li>
+              </ul>
+            </div>
+            </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-12">
+                <h2>Recent news</h2>
                         <ul class="footer-news mt-25">
                             <li> <a href="#">Apartamento at ten: a decade of celebrating the everyday.</a> <strong><i class="fa fa-calendar"></i> 11 September 2019</strong> </li>
                             <li> <a href="#">Within the construction industry as their overdraft</a> <strong><i class="fa fa-calendar"></i> 11 September 2019</strong> </li>
@@ -403,7 +306,7 @@
                                 <div class="d-table-cell">
                                     <input type="text" placeholder="Your Email adress"> </div>
                                 <div class="d-table-cell">
-                                    <button type="submit"><i class="fas fa-envelope"></i></button>
+                                    <button type="submit"><i class="fa fa-envelope"></i></button>
                                 </div>
                             </div>
                         </form>

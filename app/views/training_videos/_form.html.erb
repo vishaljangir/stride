@@ -23,11 +23,11 @@
                   <% end %>
                   <div class="field">
                     <%= form.label :video %>
-                    <%= form.file_field :video %>
+                    <%= form.file_field :video, class: "form-control" %>
                   </div>
                   <div class="field">
                     <%= form.label :caption %>
-                    <%= form.text_field :caption %>
+                    <%= form.text_field :caption, class: "form-control" %>
                   </div>
                   <%= form.submit "Add", class: "btn btn-primary pull-right"%>
                   <div class="clearfix"></div>
