@@ -1,9 +1,6 @@
-<div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-        Tip 2: you can also add an image using data-image tag
-    -->
+<div class="row">
+  <div class="col-md-4">
+    <div class="sidebar" data-color="purple" data-background-color="white" >
       <div class="logo">
         <%= link_to "STRIDE", root_path, class: "simple-text logo-normal" %>
 
@@ -16,112 +13,86 @@
               <p>Dashboard</p>
             </a>
           </li>
+          
           <li class="nav-item ">
-            <a class="nav-link" href="/logos">
-              <i class="material-icons">bubble_chart</i>
-              <p>Logo</p>
+            <a class="nav-link" href="#">
+              <i class="material-icons">home</i>
+              <p data-toggle="collapse" data-target="#header" style="cursor: pointer;">HEADER</p>
             </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/menus">
-              <i class="material-icons">menu</i>
-              <p>Menu</p>
-            </a>
-          </li>
-     
-          <li class="nav-item ">
-            <span class="nav-link">
-              <i class="material-icons">content_paste</i>
-              <p data-toggle="collapse" data-target="#body" style="cursor: pointer;">Content List</p>
-              <div id="body" class="collapse content">
+              <div id="header" class="collapse content" style="background-color: rgb(115, 115, 115);">
                 <ul style="list-style-type: none;">
-                  
-                
+                  <li class="nav-item ">
+                    <a class="nav-link" href="/logos">
+                      <i class="material-icons">bubble_chart</i>
+                      <p>LOGO</p>
+                    </a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link" href="/menus">
+                      <i class="material-icons">menu</i>
+                      <p>MENU</p>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="#">
+              <i class="material-icons">storage</i>
+              <p data-toggle="collapse" data-target="#body" style="cursor: pointer;">BODY</p>
+            </a>
+              <div id="body" class="collapse content" style="background-color: rgb(115, 115, 115);">
+                <ul style="list-style-type: none;">
                   <li class="nav-item ">
                     <a class="nav-link" href="/sliders">
-                      <i class="material-icons"></i>
-                      <p>Slider</p>
+                      <i class="material-icons">code</i>
+                      <p>SLIDER</p>
                     </a>
                   </li>
                   <li class="nav-item ">
                     <a class="nav-link" href="/news_firsts">
-                      <i class="material-icons"></i>
+                      <i class="material-icons">event_note</i>
                       <p>FIRST NEWS</p>
                     </a>
                   </li>
                   <li class="nav-item ">
                     <a class="nav-link" href="/news_seconds">
-                      <i class="material-icons"></i>
+                      <i class="material-icons">import_contacts</i>
                       <p>SECOND NEWS</p>
                     </a>
                   </li>
                   <li class="nav-item ">
                     <a class="nav-link" href="/news_latests">
-                      <i class="material-icons"></i>
+                      <i class="material-icons">local_library</i>
                       <p>LATEST NEWS</p>
                     </a>
                   </li>
                   <li class="nav-item ">
                     <a class="nav-link" href="/stock_market_updates">
-                      <i class="material-icons"></i>
+                      <i class="material-icons">business</i>
                       <p>STOCK UPDATION</p>
                     </a>
                   </li>
                   <li class="nav-item ">
                     <a class="nav-link" href="/training_blogs">
-                      <i class="material-icons"></i>
+                      <i class="material-icons">textsms</i>
                       <p>TRAINING BLOG</p>
                     </a>
                   </li>
                   <li class="nav-item ">
                     <a class="nav-link" href="/training_videos">
-                      <i class="material-icons"></i>
+                      <i class="material-icons">video_library</i>
                       <p>TRAINING VIDEO</p>
                     </a>
                   </li>
                 </ul>
               </div>
-            </span>
           </li>
           <li class="nav-item ">
-            <span class="nav-link">
-              <i class="material-icons">content_paste</i>
-              <p data-toggle="collapse" data-target="#footer" style="cursor: pointer;">Footer List</p>
-              <div id="footer" class="collapse content">
-                <ul style="list-style-type: none;">
-                  <li class="nav-item ">
-                    <a class="nav-link" href="/sliders">
-                      <i class="material-icons"></i>
-                      <p>Slider</p>
-                    </a>
-                  </li>
-                  <li class="nav-item ">
-                    <a class="nav-link" href="/news_firsts">
-                      <i class="material-icons"></i>
-                      <p>FIRST NEWS</p>
-                    </a>
-                  </li>
-                  <li class="nav-item ">
-                    <a class="nav-link" href="/news_seconds">
-                      <i class="material-icons"></i>
-                      <p>SECOND NEWS</p>
-                    </a>
-                  </li>
-                  <li class="nav-item ">
-                    <a class="nav-link" href="/news_latests">
-                      <i class="material-icons"></i>
-                      <p>LATEST NEWS</p>
-                    </a>
-                  </li>
-                  <li class="nav-item ">
-                    <a class="nav-link" href="/stock_market_updates">
-                      <i class="material-icons"></i>
-                      <p>STOCK UPDATION</p>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </span>
+            <a class="nav-link" href="/footerlinks">
+              <i class="material-icons">all_out</i>
+              <p>FOOTER</p>
+            </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="">
@@ -144,8 +115,11 @@
         </ul>
       </div>
     </div>
+  </div>
 
-    <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+
+  <div class="col-md-4">
+  <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -173,22 +147,6 @@
                   </p>
                 </a>
               </li>
-              <!-- <li class="nav-item dropdown">
-                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">notifications</i>
-                  <span class="notification">5</span>
-                  <p class="d-lg-none d-md-block">
-                    Some Actions
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                  <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                  <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                  <a class="dropdown-item" href="#">Another Notification</a>
-                  <a class="dropdown-item" href="#">Another One</a>
-                </div>
-              </li> -->
               <li class="nav-item dropdown">
                 <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="material-icons">person</i>
@@ -211,3 +169,7 @@
           </div>
         </div>
       </nav>
+</div>
+    
+</div>
+

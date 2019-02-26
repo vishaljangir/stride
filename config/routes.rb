@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :footerlinks
   resources :news_seconds
   resources :training_blogs
   resources :training_videos

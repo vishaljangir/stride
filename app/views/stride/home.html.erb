@@ -12,7 +12,7 @@
           <div class="col-md-9 col-12">
               <ul class="top-bar-info">
                   <li><i class="fa fa-phone"></i> Phone: +1234567890</li>
-                  <li><i class="fa fa-map-marker-alt"></i>Jaipur</li>
+                  <li><i class="fa fa-map-marker"></i>Jaipur</li>
                   <li><i class="fa fa-envelope"></i>Email: demo@email.com</li>
               </ul>
           </div>
@@ -22,7 +22,7 @@
                   <li><%= link_to "logout", destroy_user_session_path(@user), method: :delete, style: "pull-right" %></li>
                 <% else %>
                   <li><%= link_to "login", new_user_session_path %></li>
-                  <li><%= link_to "sigup", new_user_session_path %></li>
+                  <li><%= link_to "sigup", new_user_registration_path %></li>
                 <% end %>
             </ul>
          </div>
@@ -32,7 +32,7 @@
 <header>
   <nav id="navigation4" class="container navigation">
     <div class="nav-header">
-      <a class="nav-brand" href="index.html"><%= image_tag(@logos.last.image, :width => '70px', class: "main-logo", :alt=> "logo", id: "main_logo") %></a>
+      <a class="nav-brand" href=""><%= image_tag(@logos.last.image, :width => '70px', class: "main-logo", :alt=> "logo", id: "main_logo") %></a>
       <div class="nav-toggle"></div>
     </div>
     <div class="nav-menus-wrapper">
@@ -45,36 +45,57 @@
   </nav>
 </header>
 <div class="rev_slider_wrapper">
-    <div id="rev_slider" class="rev_slider fullscreenbanner">
-        <ul>
-          <%= @sliders.each do |slider| %>
-            <li data-delay="5000" data-transition="slotzoom-horizontal" data-slotamount="7" data-masterspeed="1000" data-fsmasterspeed="1000">
-              <%= image_tag (slider.image), class: "rev-slidebg", :alt=> "slider" %>
-                <img src="img/content/slider/slide11.jpg"  >
-                <div class="slide-title tp-caption tp-resizeme white-color text-center" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['-90','-90', '-150', '-350']" data-fontsize="['70','70', '70', '125']" data-fontweight="600" data-lineheight="['85','85', '80', '135']" data-width="['800','800','650']" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:50px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05"><%= slider.heading %></div>
-                <div class="slide-subtitle tp-caption tp-resizeme white-color text-center" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['45','45', '15', '15']" data-fontsize="['18', '18', '18', '18']" data-fontweight="300" data-lineheight="['30']" data-width="['1000','1000','550']" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1200;e:Power1.easeInOut;" data-transform_out="opacity:0;s:1000;s:1000;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-start="1500" data-splitin="none" data-splitout="none"><%= slider.description %></div>
-                <div class="tp-caption rev-btn tp-resizeme button-white-bordered" id="slide-1081-layer-12" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['125','125','125','30']" data-fontsize="['15','15','15','15']" data-fontweight="600" data-lineheight="['50','50','50','50']" data-width="['200','200','200','200']" data-height="none" data-borderWidth="2" data-whitespace="nowrap" data-start="1500" data-type="button" data-actions='[{"event":"click","action":"scrollbelow","offset":"-70px","delay":"","speed":"1000","ease":"Power1.easeInOut"}]' data-responsive_offset="on" data-splitin="none" data-splitout="none" data-frames='[{"delay":900,"speed":2000,"frame":"0","from":"y:50px;opacity:0;fb:10px;fbr:100;","to":"o:1;fb:0;fbr:100;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;fbr:100;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"200","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;fb:0;fbr:110%;","style":"c:rgba(255,255,255,1);bs:solid;bw:0 0 0 0;"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="">Keep Going</div>
-            </li>
-          <% end %>
-            <!-- <li data-delay="5000" data-transition="slotzoom-horizontal" data-slotamount="7" data-masterspeed="1000" data-fsmasterspeed="1000">
-                <img src="img/content/slider/slide12.jpg" alt="" data-bgposition="center right" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg">
-                <div class="slide-title tp-caption tp-resizeme white-color text-center" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['-90','-90', '-150', '-350']" data-fontsize="['70','60', '60', '125']" data-fontweight="600" data-lineheight="['80','70', '70', '135']" data-width="['800','700','650']" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:50px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05">Accurate data for precision marketing</div>
-                <div class="slide-subtitle tp-caption tp-resizeme white-color text-center" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['45','25', '15', '15']" data-fontsize="['18', '18', '18', '18']" data-fontweight="300" data-lineheight="['30']" data-width="['1000','1000','550']" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1200;e:Power1.easeInOut;" data-transform_out="opacity:0;s:1000;s:1000;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-start="1500" data-splitin="none" data-splitout="none">Brand marketing that puts your vision into action! Putting vision into action.
-                    <br>Accurate data for precision marketing. Your outsourced marketing team.</div>
-                <div class="tp-caption rev-btn tp-resizeme slider-btn button-primary" id="slide-1081-layer-13" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['100','100','100','30']" data-fontsize="['15','15','15','15']" data-fontweight="600" data-lineheight="['50','50','50','50']" data-width="['200','200','200','200']" data-height="none" data-whitespace="nowrap" data-start="1500" data-type="button" data-actions='[{"event":"click","action":"scrollbelow","offset":"-70px","delay":"","speed":"2500","ease":"Power1.easeInOut"}]' data-responsive_offset="on" data-splitin="none" data-splitout="none" data-frames='[{"delay":900,"speed":1000,"frame":"0","from":"y:50px;opacity:0;fb:10px;fbr:100;","to":"o:1;fb:0;fbr:100;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;fbr:100;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"200","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;fb:0;fbr:110%;","style":"c:rgba(255,255,255,1);bs:solid;bw:0 0 0 0;"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="">Learn More</div>
-            </li> -->
-        </ul>
-    </div>
+  <div id="rev_slider" class="rev_slider fullscreenbanner">
+    <ul>
+      <%= @sliders.each do |slider| %>
+        <li data-delay="5000" data-transition="slotzoom-horizontal" data-slotamount="7" data-masterspeed="1000" data-fsmasterspeed="1000">
+          <%= image_tag (slider.image), class: "rev-slidebg", :alt=> "slider" %>
+            <div class="slide-title tp-caption tp-resizeme white-color text-center" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['-90','-90', '-150', '-350']" data-fontsize="['70','70', '70', '125']" data-fontweight="600" data-lineheight="['85','85', '80', '135']" data-width="['800','800','650']" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:50px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05"><%= slider.heading %></div>
+            <div class="slide-subtitle tp-caption tp-resizeme white-color text-center" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['45','45', '15', '15']" data-fontsize="['18', '18', '18', '18']" data-fontweight="300" data-lineheight="['30']" data-width="['1000','1000','550']" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1200;e:Power1.easeInOut;" data-transform_out="opacity:0;s:1000;s:1000;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-start="1500" data-splitin="none" data-splitout="none"><%= slider.description %></div>
+            <div class="tp-caption rev-btn tp-resizeme button-white-bordered" id="slide-1081-layer-12" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['125','125','125','30']" data-fontsize="['15','15','15','15']" data-fontweight="600" data-lineheight="['50','50','50','50']" data-width="['200','200','200','200']" data-height="none" data-borderWidth="2" data-whitespace="nowrap" data-start="1500" data-type="button" data-actions='[{"event":"click","action":"scrollbelow","offset":"-70px","delay":"","speed":"1000","ease":"Power1.easeInOut"}]' data-responsive_offset="on" data-splitin="none" data-splitout="none" data-frames='[{"delay":900,"speed":2000,"frame":"0","from":"y:50px;opacity:0;fb:10px;fbr:100;","to":"o:1;fb:0;fbr:100;","ease":"Power4.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;fbr:100;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"200","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;fb:0;fbr:110%;","style":"c:rgba(255,255,255,1);bs:solid;bw:0 0 0 0;"}]' data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="">Keep Going</div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
 <div class="section-block">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-12">
-              <%= image_tag ("tradingApi.jpg") %>
-            </div>
-
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-12">
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {
+            "symbols": [
+              {
+                "description": "BSE",
+                "proName": "NSE:BSE"
+              },
+              {
+                "description": "RCOM",
+                "proName": "NSE:RCOM"
+              },
+              {
+                "description": "SENSEX",
+                "proName": "BSE:SENSEX"
+              },
+              {
+                "description": "TATAMOTORS",
+                "proName": "NSE:TATAMOTORS"
+              }
+            ],
+            "theme": "light",
+            "isTransparent": false,
+            "displayMode": "compact",
+            "locale": "in"
+              }
+          </script>
         </div>
+      <!-- TradingView Widget END -->
+      </div>
     </div>
+  </div>
 </div>
 <div class="section-block grey-bg">
   <div class="container">
@@ -134,10 +155,143 @@
     <div class="row">
       <div class="col-md-4 col-sm-4 col-12">
         <div class="pl-45-md">
-          <%= image_tag ("Logofgf.png") %>
-          <!-- <canvas class="chartjs mt-30-xs" id="chart-1" height="370px"></canvas> -->
-        </div>
+          <!-- TradingView Widget BEGIN -->
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com" rel="noopener" target="_blank"><span class="blue-text">Market Data</span></a> by Stride</div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+            {
+            "showChart": true,
+            "locale": "in",
+            "largeChartUrl": "",
+            "width": "400",
+            "height": "660",
+            "plotLineColorGrowing": "rgba(33, 150, 243, 1)",
+            "plotLineColorFalling": "rgba(33, 150, 243, 1)",
+            "gridLineColor": "rgba(233, 233, 234, 1)",
+            "scaleFontColor": "rgba(131, 136, 141, 1)",
+            "belowLineFillColorGrowing": "rgba(5, 122, 205, 0.12)",
+            "belowLineFillColorFalling": "rgba(5, 122, 205, 0.12)",
+            "symbolActiveColor": "rgba(225, 239, 249, 1)",
+            "tabs": [
+              {
+                "title": "Indices",
+                "symbols": [
+                  {
+                    "s": "INDEX:SPX",
+                    "d": "S&P 500"
+                  },
+                  {
+                    "s": "INDEX:XLY0",
+                    "d": "Shanghai Composite"
+                  },
+                  {
+                    "s": "INDEX:DOWI",
+                    "d": "Dow 30"
+                  },
+                  {
+                    "s": "INDEX:NKY",
+                    "d": "Nikkei 225"
+                  },
+                  {
+                    "s": "NSE:BSE",
+                    "d": "BSE"
+                  }
+                ],
+                "originalTitle": "Indices"
+              },
+              {
+                "title": "Commodities",
+                "symbols": [
+                  {
+                    "s": "CME_MINI:ES1!",
+                    "d": "E-Mini S&P"
+                  },
+                  {
+                    "s": "CME:E61!",
+                    "d": "Euro"
+                  },
+                  {
+                    "s": "COMEX:GC1!",
+                    "d": "Gold"
+                  },
+                  {
+                    "s": "NYMEX:CL1!",
+                    "d": "Crude Oil"
+                  },
+                  {
+                    "s": "NYMEX:NG1!",
+                    "d": "Natural Gas"
+                  },
+                  {
+                    "s": "CBOT:ZC1!",
+                    "d": "Corn"
+                  }
+                ],
+                "originalTitle": "Commodities"
+              },
+              {
+                "title": "Bonds",
+                "symbols": [
+                  {
+                    "s": "CME:GE1!",
+                    "d": "Eurodollar"
+                  },
+                  {
+                    "s": "CBOT:ZB1!",
+                    "d": "T-Bond"
+                  },
+                  {
+                    "s": "CBOT:UD1!",
+                    "d": "Ultra T-Bond"
+                  },
+                  {
+                    "s": "EUREX:GG1!",
+                    "d": "Euro Bund"
+                  },
+                  {
+                    "s": "EUREX:II1!",
+                    "d": "Euro BTP"
+                  },
+                  {
+                    "s": "EUREX:HR1!",
+                    "d": "Euro BOBL"
+                  }
+                ],
+                "originalTitle": "Bonds"
+              },
+              {
+                "title": "Forex",
+                "symbols": [
+                  {
+                    "s": "FX:EURUSD"
+                  },
+                  {
+                    "s": "FX:GBPUSD"
+                  },
+                  {
+                    "s": "FX:USDJPY"
+                  },
+                  {
+                    "s": "FX:USDCHF"
+                  },
+                  {
+                    "s": "FX:AUDUSD"
+                  },
+                  {
+                    "s": "FX:USDCAD"
+                  }
+                ],
+                "originalTitle": "Forex"
+              }
+            ]
+          }
+        </script>
       </div>
+      <!-- TradingView Widget END -->
+      <!-- <canvas class="chartjs mt-30-xs" id="chart-1" height="370px"></canvas> -->
+    </div>
+  </div>
       <div class="col-md-8 col-sm-8 col-12">
         <div class="section-heading text-left">
           <h3 class="semi-bold"><span class="primary-color">Latest News</span></h3>
@@ -213,8 +367,8 @@
     <div class="section-heading text-center">
       <h3 class="semi-bold">Recent News</h3>
       <div class="section-heading-line line-thin dark-bg"></div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-      <br>ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+      <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+      <br>ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p> -->
     </div>
     <div class="row mt-50">
       <div class="row">
@@ -233,18 +387,22 @@
         </div>
         <div class="col-md-6 col-sm-6 col-12">
           <div class="row">
-            <% @news_seconds[-5...-1].each do |news_second| %>
-              <div class="col-md-6 col-sm-6 col-12">
-                <div class="blog-grid">
-                  <%= image_tag (news_second.image) %>
-                  <div class="blog-team-box">
-                    <h6><%= news_second.created_at.strftime("%d/%m/%y") %></h6>
+            <% if @news_seconds.length == 5 %>
+              <% @news_seconds[-5...-1].each do |news_second| %>
+                <div class="col-md-6 col-sm-6 col-12">
+                  <div class="blog-grid">
+                    <%= image_tag (news_second.image) %>
+                    <div class="blog-team-box">
+                      <h6><%= news_second.created_at.strftime("%d/%m/%y") %></h6>
+                    </div>
+                    <h4><a href="#"><%= news_second.heading %></a></h4>
+                    <p><%= news_second.description %></p>
+                    <a href="#" class="button-simple-primary mt-20">Read More <i class="fa fa-arrow-right"></i></a>
                   </div>
-                  <h4><a href="#"><%= news_second.heading %></a></h4>
-                  <p><%= news_second.description %></p>
-                  <a href="#" class="button-simple-primary mt-20">Read More <i class="fa fa-arrow-right"></i></a>
                 </div>
-              </div>
+              <% end %>
+            <% else %>
+
             <% end %>
           </div>
         </div>
@@ -257,8 +415,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3 col-sm-6 col-12">
-          <a href="#"><img id="footer_logo" src="img/logos/logo-footer-3.png" alt="logo"></a>
-          <p class="mt-20">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <a href="#"><%= image_tag(@logos.last.image, :width => '70px', class: "main-logo", :alt=> "logo", id: "footer_logo") %></a>
+          <p class="mt-20"><%= @logos.last.about %></p>
           <ul class="social-links-footer">
             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -274,29 +432,23 @@
                 <li><a href="#">About Us</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Our approach</a></li>
-                <li><a href="#">Case Studies</a></li>
-                <li><a href="#">Our team</a></li>
-                <li><a href="#">Our approach</a></li>
-                <li><a href="#">Accounting</a></li>
-              </ul>
-            </div>
-            <div class="col-md-6 col-sm-6">
-              <ul class="footer-nav">
                 <li><a href="#">Business</a></li>
                 <li><a href="#">Consulting</a></li>
-                <li><a href="#">Development</a></li>
-                <li><a href="#">Case Studies</a></li>
                 <li><a href="#">Latest News</a></li>
                 <li><a href="#">Contact us</a></li>
+                <li><a href="#">Our team</a></li>
               </ul>
             </div>
+            
             </div>
             </div>
             <div class="col-md-3 col-sm-6 col-12">
                 <h2>Recent news</h2>
                         <ul class="footer-news mt-25">
-                            <li> <a href="#">Apartamento at ten: a decade of celebrating the everyday.</a> <strong><i class="fa fa-calendar"></i> 11 September 2019</strong> </li>
-                            <li> <a href="#">Within the construction industry as their overdraft</a> <strong><i class="fa fa-calendar"></i> 11 September 2019</strong> </li>
+                            <% @stock_market_updates.last(2).each do |stock| %>
+                              <li> <a href="#"><%= stock.description %></a> <strong><i class="fa fa-calendar"></i><%= stock.created_at.strftime("%d/%m/%y") %></strong> </li>
+                            <% end %>
+                            
                         </ul>
                     </div>
                     <div class="col-md-3 col-sm-6 col-12">
@@ -314,7 +466,7 @@
                     </div>
                 </div>
                 <div class="footer-1-bar">
-                    <p>SpecThemes © 2019. All Rights Reserved.</p>
+                    <center>SpecThemes © 2019. All Rights Reserved.</center>
                 </div>
             </div>
         </div>

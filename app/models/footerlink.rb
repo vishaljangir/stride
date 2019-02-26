@@ -1,0 +1,2 @@
+class Footerlink < ApplicationRecord
+end

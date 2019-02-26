@@ -20,16 +20,16 @@
                   <div class="col-md-12">
                     <div class="col-md-12">
                       <% @training_blogs.each do |training_blog| %>
-                        <div class="col-md-4 logo-container">
-                          <%= image_tag(training_blog.image, class: "img-thumbnail", alt: "Cinque Terre", width: "236", height: "236") %>
+                        <div class="col-md-3 logo-container">
+                          <%= image_tag(training_blog.image, class: "img-thumbnail", alt: "Cinque Terre") %>
                           <div class="middle">
                             <br/>
                             <p><%= training_blog.description %></p>
                             <br/>
                             <h3p><%= "By " +training_blog.name %></h3>
                             <br/>
-                            <%= link_to '', edit_training_blog_path(training_blog), class: "fa fa-pencil" %>
-                            <%= link_to '', training_blog, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash" %>
+                            <%= link_to 'Change', edit_training_blog_path(training_blog), class: "btn btn-dark" %>
+                            <%= link_to 'Remove', training_blog, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
                           </div>
                         </div>
                       <% end %>

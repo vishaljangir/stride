@@ -70,6 +70,6 @@ class LogosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def logo_params
-      params.require(:logo).permit(:image)
+      params.require(:logo).permit(:image, :about)
     end
 end

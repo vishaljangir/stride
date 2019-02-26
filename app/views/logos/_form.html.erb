@@ -28,8 +28,11 @@
                         <%= image_tag(@logo.image) %>
                         <% end %>
                       </div>
+                        <%= form.label :logo %>
                         <%= form.file_field :image, class: "form-control" %>
-                      
+                        <%= form.label :about %>
+                        <%= form.text_area :about, class: "form-control" %>
+                        
                     </div>
                   </div>
                   <%= form.submit "submit", class: "btn btn-primary pull-right"%>

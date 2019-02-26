@@ -26,8 +26,8 @@
                             <br/>
                             <p><%= slider.description %></p>
                             <br/>
-                            <%= link_to '', edit_slider_path(slider), class: "fa fa-pencil" %>
-                            <%= link_to '', slider, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash" %>
+                            <%= link_to 'Change', edit_slider_path(slider), class: "btn btn-dark" %>
+                            <%= link_to 'Remove', slider, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
                           </div>
                         </div>
                       <% end %>

@@ -26,8 +26,8 @@
                             <br/>
                             <p><%= news_first.description %></p>
                             <br/>
-                            <%= link_to '', edit_news_first_path(news_first), class: "fa fa-pencil" %>
-                            <%= link_to '', news_first, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash" %>
+                            <%= link_to 'Change', edit_news_first_path(news_first), class: "btn btn-dark" %>
+                            <%= link_to 'Remove', news_first, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
                           </div>
                         </div>
                       <% end %>

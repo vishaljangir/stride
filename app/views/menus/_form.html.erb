@@ -23,7 +23,7 @@
                   <% end %>
                   <div class="field">
                     <%= form.label :name %>
-                    <%= form.text_field :name %>
+                    <%= form.text_field :name, class: "form-control" %>
                   </div>
                   <div class="fields">
                     <%= form.fields_for :submenus do |builder| %>

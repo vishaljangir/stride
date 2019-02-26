@@ -27,8 +27,8 @@
                           <h4><%= "By " + news_latest.name %></h4>
                           <p><%= news_latest.created_at.strftime("%d-%m-%Y") %></p>
                           <br/>
-                          <%= link_to '', edit_news_latest_path(news_latest), class: "fa fa-pencil" %>
-                          <%= link_to '', news_latest, method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-trash" %>
+                          <%= link_to 'Change', edit_news_latest_path(news_latest), class: "btn btn-dark" %>
+                          <%= link_to 'Remove', news_latest, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
                         </div>
                       </div>
                     <% end %>

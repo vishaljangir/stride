@@ -1,7 +1,14 @@
 <div class="submenu">
 	<label class="bmd-label-floating">sub menu</label>
-	<%= f.text_field :name %>
-	<%= f.hidden_field :menu_id %>
-	<%= f.check_box :_destroy, as: :hidden %>
-    <%= link_to '', '#', class: 'remove_record fa fa-trash' %>
+	<div class="row">
+		<div class="col-md-6">
+			<%= f.text_field :name, class: "form-control" %>
+		<%= f.hidden_field :menu_id %>
+		</div>
+		<div class="col-md-6">
+			<%= f.check_box :_destroy, as: :hidden %>
+			&nbsp&nbsp
+	    	<%= link_to '', '#', class: 'remove_record fa fa-trash' %>
+		</div>
+	</div>
 </div>
