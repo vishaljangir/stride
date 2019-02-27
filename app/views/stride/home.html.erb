@@ -153,7 +153,7 @@
 <div class="section-block">
   <div class="container">
     <div class="row">
-      <div class="col-md-4 col-sm-4 col-12">
+      <div class="col-md-5 col-sm-5 col-12">
         <div class="pl-45-md">
           <!-- TradingView Widget BEGIN -->
           <div class="tradingview-widget-container">
@@ -292,7 +292,7 @@
       <!-- <canvas class="chartjs mt-30-xs" id="chart-1" height="370px"></canvas> -->
     </div>
   </div>
-      <div class="col-md-8 col-sm-8 col-12">
+      <div class="col-md-7 col-sm-7 col-12">
         <div class="section-heading text-left">
           <h3 class="semi-bold"><span class="primary-color">Latest News</span></h3>
           <div class="section-heading-line line-thin"></div>
@@ -429,7 +429,7 @@
           <div class="row mt-25">
             <div class="col-md-6 col-sm-6">
               <ul class="footer-nav">
-                <li><a href="#">About Us</a></li>
+                <!-- <li><a href="#">About Us</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Our approach</a></li>
                 <li><a href="#">Business</a></li>
@@ -437,6 +437,10 @@
                 <li><a href="#">Latest News</a></li>
                 <li><a href="#">Contact us</a></li>
                 <li><a href="#">Our team</a></li>
+                 -->
+                 <% @footerlinks.all.each do |footer| %>
+                  <li><a href="#"><%= footer.name %></a></li>
+                  <% end %>
               </ul>
             </div>
             

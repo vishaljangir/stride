@@ -12,5 +12,6 @@ class StrideController < ApplicationController
   	@training_videos = TrainingVideo.all
   	@training_blogs = TrainingBlog.all
   	@news_seconds = NewsSecond.all
+    @footerlinks = Footerlink.all
   end
 end
