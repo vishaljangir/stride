@@ -20,8 +20,8 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <% @logos.each do |logo| %>
-                        <div class="col-md-2 logo-container">
-                            <%= image_tag(logo.image, class: "img-thumbnail", alt: "Cinque Terre", width: "236", height: "236") %>
+                        <div class="col-md-3 logo-container">
+                            <%= image_tag(logo.image, class: "img-thumbnail") %>
                           <div class="middle">
                             <%= link_to 'change', edit_logo_path(logo), class: "btn btn-sm btn-primary" %>
                           </div>

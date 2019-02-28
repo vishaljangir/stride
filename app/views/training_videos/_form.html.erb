@@ -22,8 +22,12 @@
                     </div>
                   <% end %>
                   <div class="field">
-                    <%= form.label :video %>
-                    <%= form.file_field :video, class: "form-control" %>
+                    <%= form.label :image %>
+                    <%= form.file_field :image, class: "form-control" %>
+                  </div>
+                  <div class="field">
+                    <%= form.label :link %>
+                    <%= form.text_field :link, class: "form-control" %>
                   </div>
                   <div class="field">
                     <%= form.label :caption %>

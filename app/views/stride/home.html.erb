@@ -1,3 +1,9 @@
+<style type="text/css">
+  h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
+</style>
 <div id="preloader">
   <div class="lds-ellipsis">
       <div></div>
@@ -105,7 +111,7 @@
           <div class="features-box">
             <% @news_firsts.last(1).each do |news_first| %>
               <div class="features-box-icon">
-                <%= image_tag (news_first.image), class: "shadow-primary rounded-border", :alt=> "img" %>
+                <%= image_tag (news_first.image), class: "shadow-primary rounded-border", :alt=> "img", style: "width: 1000px; height: 202px" %>
               </div>
               <div class="features-box-content">
                 <h2><%= news_first.heading %></h2>
@@ -116,7 +122,7 @@
               <div class="owl-carousel owl-theme services-carousel-2">
                 <% @news_firsts.each do |news_first| %>
                   <div class="service-block-2">
-                    <%= image_tag (news_first.image) %>
+                    <%= image_tag (news_first.image), style: "width: 400px; height: 128px" %>
                   </div>
                 <% end %>
               </div>
@@ -133,7 +139,7 @@
                     <div class="top-news-info">
                       <div class="row">
                         <div class="col-md-4 col-sm-4 col-12 pr-0">
-                          <%= image_tag (stock.image) %>
+                          <%= image_tag (stock.image), style: "width: 300px; height: 108px" %>
                         </div>
                         <div class="col-md-8 col-sm-8 col-12">
                           <h3><a href="#"><%= stock.description %></a></h3>
@@ -301,15 +307,15 @@
           <div class="col-md-12 col-sm-12 col-12">
             <div class="">
               <div class="row">
-                <% @news_latests.last(4).each do |latest_news| %>
+                <% @news_latests.last(6).each do |latest_news| %>
                   <div class="col-md-6 col-sm-6 col-12">
                     <div class="top-news-info">
                       <div class="row">
                         <div class="col-md-4 col-sm-4 col-12 pr-0">
-                          <%= image_tag (latest_news.image), class: "round" %>
+                          <%= image_tag (latest_news.image), class: "round", style: "width: 300px; height: 100px" %>
                         </div>
                         <div class="col-md-8 col-sm-8 col-12 ">
-                          <p><a href="#"><%= latest_news.description %></a></p>
+                          <p class="strdenews"><a href="#"><%= latest_news.description %></a></p>
                           <h3><a href="#"><%= "By " + latest_news.name %></a></h3>
                           <h6><%= latest_news.created_at.strftime("%d/%m/%y") %></h6> </div>
                       </div>
@@ -333,7 +339,7 @@
           <div class="owl-carousel owl-theme services-carousel-2">
             <% @training_videos.each do |training_video| %>
               <div class="service-block-2">
-                <%= video_tag(url_for(training_video.video), controls: "") %>
+                <%= link_to image_tag(training_video.image, style: "width: 300px; height: 180px"), training_video.link %>
                 <div class="service-block-2-content">
                   <h4><%= training_video.caption %></h4>
                 </div>
@@ -348,12 +354,12 @@
             <div class="top-news-info">
               <div class="row">
                 <div class="col-md-4 col-sm-4 col-12 pr-0">
-                  <%= image_tag (blog.image), class: "rounded" %>
+                  <%= image_tag (blog.image), class: "stride-blog" %>
                 </div>
                 <div class="col-md-8 col-sm-8 col-12">
                   <h3><a href="#"><%= blog.description %></a></h3>
-                  <p><%= "By " + blog.name %></p>
-                  <h6><%= blog.created_at.strftime("%d/%m/%y") %></h6> </div>
+                  <p class="stride-blog-name"><%= "By " + blog.name %></p>
+                  <h6 class="stride-blog-date"><%= blog.created_at.strftime("%d/%m/%y") %></h6> </div>
               </div>
             </div>
           <% end %>
@@ -375,7 +381,7 @@
         <div class="col-md-6 col-sm-6 col-12">
           <% @news_seconds.last(1).each do |news_second| %>
             <div class="blog-grid">
-              <%= image_tag (news_second.image) %>
+              <%= image_tag (news_second.image), style: "width: 560px; height: 455px" %>
               <div class="blog-team-box">
                 <h6><%= news_second.created_at.strftime("%d/%m/%y") %></h6>
               </div>
@@ -391,7 +397,7 @@
               <% @news_seconds[-5...-1].each do |news_second| %>
                 <div class="col-md-6 col-sm-6 col-12">
                   <div class="blog-grid">
-                    <%= image_tag (news_second.image) %>
+                    <%= image_tag (news_second.image), style: "width: 300px; height: 180px" %>
                     <div class="blog-team-box">
                       <h6><%= news_second.created_at.strftime("%d/%m/%y") %></h6>
                     </div>

@@ -70,6 +70,6 @@ class TrainingVideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def training_video_params
-      params.require(:training_video).permit(:video, :caption)
+      params.require(:training_video).permit(:image, :link, :caption)
     end
 end

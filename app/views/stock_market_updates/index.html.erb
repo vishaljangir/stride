@@ -11,7 +11,7 @@
                     <h4 class="card-title">NEWS</h4>
                   </div>
                   <div class="col-md-1">
-                    <%= link_to '', new_stock_market_update_path, class: "fa fa-plus", style: "color: white; border: 1px solid; padding: 9px; float: right;" %>
+                    <%= link_to 'Add new', new_stock_market_update_path, class: "", style: "color: white; border: 1px solid; padding: 9px; float: right;" %>
                   </div>
                 </div>
               </div>
@@ -19,12 +19,12 @@
                 <div class="row">
                   <div class="col-md-12">
                     <% @stock_market_updates.each do |stock_market_update| %>
-                      <div class="col-md-4 logo-container">
-                        <%= image_tag(stock_market_update.image, class: "img-thumbnail", alt: "Cinque Terre", width: "236", height: "236") %>
+                      <div class="col-md-3 logo-container">
+                        <%= image_tag(stock_market_update.image, class: "img-thumbnail", alt: "stock_market_update") %>
                         <div class="middle">
                           <p><%= stock_market_update.description %></p>
                           <br/>
-                          <%= link_to 'Change', edit_stock_market_update_path(stock_market_update), class: "btn btn-dark" %>
+                          <%= link_to 'Change', edit_stock_market_update_path(stock_market_update), class: "btn btn-default" %>
                           <%= link_to 'Remove', stock_market_update, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
                         </div>
                       </div>

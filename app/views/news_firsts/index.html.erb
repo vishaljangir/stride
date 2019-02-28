@@ -20,13 +20,13 @@
                   <div class="col-md-12">
                     <% @news_firsts.each do |news_first| %>
                         <div class="col-md-4 logo-container">
-                          <%= image_tag(news_first.image, class: "img-thumbnail", alt: "Cinque Terre", width: "236", height: "236") %>
+                          <%= image_tag(news_first.image, class: "img-thumbnail", alt: "news") %>
                           <div class="middle">
                             <h3><%= news_first.heading %></h3>
                             <br/>
                             <p><%= news_first.description %></p>
                             <br/>
-                            <%= link_to 'Change', edit_news_first_path(news_first), class: "btn btn-dark" %>
+                            <%= link_to 'Change', edit_news_first_path(news_first), class: "btn btn-default" %>
                             <%= link_to 'Remove', news_first, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
                           </div>
                         </div>

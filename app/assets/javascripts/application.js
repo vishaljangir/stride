@@ -13,11 +13,9 @@
 //= require jquery
 
 //= require material/popper.min
-//= require material/bootstrap-material-design.min
 //= require material/perfect-scrollbar.jquery.min
 //= require material/chartist.min
 //= require material/arrive.min
-//= require material/bootstrap-notify
 //= require material/material-dashboard
 //= require material/demo
 
@@ -47,6 +45,22 @@ $(document).ready(function() {
       
   });
 
+ function readURL(input) {
+
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('#blah').attr('src', e.target.result);
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("#imgInp").change(function() {
+  readURL(this);
+});
 
 
 });

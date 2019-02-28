@@ -6,7 +6,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header card-header-primary">
-                <h4 class="card-title">ADD LOGO</h4>
+                <h4 class="card-title">CHANGE LOGO</h4>
               </div>
               <div class="card-body">
                 <%= form_with(model: logo, local: true) do |form| %>
@@ -22,17 +22,26 @@
                     </div>
                   <% end %>
                   <div class="row">
-                    <div class="col-md-12">  
-                      <div class="col-md-2">
-                        <% if @logos.present? %>
-                        <%= image_tag(@logo.image) %>
-                        <% end %>
-                      </div>
-                        <%= form.label :logo %>
-                        <%= form.file_field :image, class: "form-control" %>
-                        <%= form.label :about %>
-                        <%= form.text_area :about, class: "form-control" %>
-                        
+                    <div class="col-md-2">
+                      <label>Current logo</label>
+                      <%= image_tag(logo.image, class: "img-thumbnail", alt: "Cinque Terre", width: "236", height: "236") %>
+                      
+                    </div>
+                    <div class="col-md-2">
+                      <label>New logo</label>
+                      <img id="blah" src="" />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <br>
+                      <span class="btn btn-default btn-file">
+                        Browse <%= form.file_field :image, class: "form-control", id: "imgInp" %>
+                      </span>
+                      <br>
+                      <br>
+                      <%= form.label :about %>
+                      <%= form.text_area :about, class: "form-control" %>
                     </div>
                   </div>
                   <%= form.submit "submit", class: "btn btn-primary pull-right"%>

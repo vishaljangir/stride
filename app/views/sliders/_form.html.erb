@@ -1,3 +1,29 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+    function readURL(input) {
+
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+          $('#newimage').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $("#sliderimg").change(function() {
+      readURL(this);
+    });
+    $('input[type="file"]').change(function(e){
+        var fileName = e.target.files[0].name;
+        $('.custom').html(fileName);
+    });
+  });
+
+   
+</script>
 <div class="wrapper ">
   <div class="main-panel">
     <div class="content">
@@ -6,7 +32,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header card-header-primary">
-                <h4 class="card-title">ADD SLIDER</h4>
+                <h4 class="card-title">ADD SLIDER IMAGE</h4>
               </div>
               <div class="card-body">
                 <%= form_with(model: slider, local: true) do |form| %>
@@ -21,22 +47,37 @@
                       </ul>
                     </div>
                   <% end %>
-                  <div class="field">
-                    <%= form.label :image %>
-                    <%= form.file_field :image, class: "form-control" %>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="col-md-3">
+                        <span class="btn btn-default btn-file">
+                          <i class="fa fa-upload" aria-hidden="true"></i> Browse <%= form.file_field :image, class: "form-control", id: "sliderimg" %>
+                        </span>
+                        <span class="custom" for="sliderimg">Choose file</span>
+                        <hr>
+                      </div>
+                      <div class="col-md-3">
+                        <img id="newimage" src="" />
+                      </div>
+                    </div>
                   </div>
-                  <div class="field">
-                    <%= form.label :heading %>
-                    <%= form.text_field :heading, class: "form-control" %>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="field">
+                         <%= form.text_field :heading, class: "form-control", placeholder: "Heading"  %>
+                      </div>  
+                    </div>
                   </div>
-
-                  <div class="field">
-                    <%= form.label :description %>
-                    <%= form.text_area :description, class: "form-control" %>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="field">
+                        <%= form.text_area :description, class: "form-control", placeholder: "Description" %>
+                      </div>  
+                    </div>
                   </div>
-
+                  
                   <%= form.submit "submit", class: "btn btn-primary pull-right"%>
-                  <!-- <button type="submit" class="btn btn-primary pull-right">Update Profile</button> -->
                   <div class="clearfix"></div>
                 <% end %>
               </div>

@@ -28,6 +28,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body{
+        font-family: Poppins;
+}
+
 img.rounded-circle.z-depth-1-half.avatar-pic {
     width: 115px;
 }
@@ -60,12 +64,12 @@ video {
 }
 .service-block-2 .service-block-2-content {
     text-align: center;
-    padding: 0px;
+    padding: 15px;
 }
 .service-block-2 {
     position: relative;
     display: block;
-    background: #445698;
+    background: #fff;
     border-radius: 5px;
     overflow: hidden;
     margin: 15px 0px;
@@ -79,9 +83,75 @@ div#header ul li a p {
     color: white;
 }
 
-
-a.btn {
-    /* position: absolute; */
-    bottom: -50px;
+  .btn-file {
     position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+.btn {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+  .btn-default {
+  font-family: Raleway-SemiBold;
+  font-size: 13px;
+  color: rgba(108, 88, 179, 0.75);
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid rgba(108, 89, 179, 0.75);
+  border-radius: 40px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-default:hover {
+  color: #FFF;
+  background: rgba(108, 88, 179, 0.75);
+  border: 2px solid rgba(108, 89, 179, 0.75);
+}
+.btn-primary {
+  font-family: Raleway-SemiBold;
+  font-size: 13px;
+  color: rgba(58, 133, 191, 0.75);
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid rgba(58, 133, 191, 0.75);
+  border-radius: 40px;
+  background: transparent;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-primary:hover {
+  color: #FFF;
+  background: rgba(58, 133, 191, 0.75);
+  border: 2px solid rgba(58, 133, 191, 0.75);
+}
+
+p.strdenews a {
+    color: #333;
+}
+img.stride-blog {
+    border-radius: 50%;
+    height: 80px;
+    width: 100px;
+}
+p.stride-blog-name {
+    margin: 0;
+}
+.sidebar-wrapper ul li a p {
+    color: black;
 }
