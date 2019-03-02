@@ -10,10 +10,16 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- 
+*= require stride/animate
+*= require stride/default
+*= require stride/icomoon
+*= require stride/justifiedGallery.min
+*= require stride/navigation
+*= require stride/plugins
+*= require stride/styles-3
+*= require stride/styles 
 *= require stride/owl.carousel
-*= require stride/themify-icons
-*= require phrasing
+
 *= require material-dashboard-rtl
 *= require material-dashboard
 *= require material-dashboard.min
@@ -21,18 +27,13 @@
 *= require demo/docs
 
 
-
-*= require stride/owl.carousel
-*= require stride/themify-icons
-
-
  *= require_tree .
 
  */
 
-/*@import "bootstrap-sprockets";
+@import "bootstrap-sprockets";
 @import "bootstrap";
-*/
+
 body{
         font-family: Poppins;
 }
@@ -186,11 +187,8 @@ p.stride-blog-name {
 }
 
 .sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
+   
+  
     width: 260px;
    background: linear-gradient(60deg,#080808,#3860ac);
     box-shadow: 0 16px 38px -12px rgba(0,0,0,.56), 0 4px 25px 0 rgba(0,0,0,.12), 0 8px 10px -5px rgba(0,0,0,.2);

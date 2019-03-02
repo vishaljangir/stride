@@ -36,21 +36,7 @@
       </div>
    </div>
 </div>
-<header>
-  <nav id="navigation4" class="container navigation">
-    <div class="nav-header">
-      <a class="nav-brand" href=""><%= image_tag(@logos.last.image, :width => '70px', class: "main-logo", :alt=> "logo", id: "main_logo") %></a>
-      <div class="nav-toggle"></div>
-    </div>
-    <div class="nav-menus-wrapper">
-      <ul class="nav-menu align-to-right">
-        <%= @menus.each do |menu| %> 
-          <li><a href="#"><%= menu.name %></a></li>
-        <% end %>
-      </ul>
-    </div>
-  </nav>
-</header>
+<%= render "header" %>
 <div class="rev_slider_wrapper">
   <div id="rev_slider" class="rev_slider fullscreenbanner">
     <ul>
@@ -382,6 +368,7 @@
         <div class="col-md-6 col-sm-6 col-12">
           <% @news_seconds.last(1).each do |news_second| %>
             <div class="blog-grid">
+              <%= image_tag (news_second.image), style: "width: 560px; height: 455px" %>
               <div class="blog-team-box">
                 <h6><%= news_second.created_at.strftime("%d/%m/%y") %></h6>
               </div>
@@ -393,22 +380,18 @@
         </div>
         <div class="col-md-6 col-sm-6 col-12">
           <div class="row">
-            <% if @news_seconds.length == 5 %>
-              <% @news_seconds.last(5).each do |news_second| %>
-                <div class="col-md-6 col-sm-6 col-12">
-                  <div class="blog-grid">
-                    <%= image_tag (news_second.image), style: "width: 300px; height: 180px" %>
-                    <div class="blog-team-box">
-                      <h6><%= news_second.created_at.strftime("%d/%m/%y") %></h6>
-                    </div>
-                    <h4><a href="#"><%= news_second.heading %></a></h4>
-                    <p><%= news_second.description %></p>
-                    <a href="#" class="button-simple-primary mt-20">Read More <i class="fa fa-arrow-right"></i></a>
+            <% @news_seconds[0..(@news_seconds.length - 2)].each do |news_second| %>
+              <div class="col-md-6 col-sm-6 col-12">
+                <div class="blog-grid">
+                  <%= image_tag (news_second.image), style: "width: 300px; height: 180px" %>
+                  <div class="blog-team-box">
+                    <h6><%= news_second.created_at.strftime("%d/%m/%y") %></h6>
                   </div>
+                  <h4><a href="#"><%= news_second.heading %></a></h4>
+                  <p><%= news_second.description %></p>
+                  <a href="#" class="button-simple-primary mt-20">Read More <i class="fa fa-arrow-right"></i></a>
                 </div>
-              <% end %>
-            <% else %>
-
+              </div>
             <% end %>
           </div>
         </div>
@@ -416,68 +399,4 @@
     </div>
   </div>
 </div>
-<footer>
-  <div class="footer-1">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 col-sm-6 col-12">
-          <a href="#"><%= image_tag(@logos.last.image, :width => '70px', class: "main-logo", :alt=> "logo", id: "footer_logo") %></a>
-          <p class="mt-20"><%= @logos.last.about %></p>
-          <ul class="social-links-footer">
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-          </ul>
-        </div>
-        <div class="col-md-3 col-sm-6 col-12">
-          <h2>Extra Links</h2>
-          <div class="row mt-25">
-            <div class="col-md-6 col-sm-6">
-              <ul class="footer-nav">
-                <!-- <li><a href="#">About Us</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Our approach</a></li>
-                <li><a href="#">Business</a></li>
-                <li><a href="#">Consulting</a></li>
-                <li><a href="#">Latest News</a></li>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">Our team</a></li>
-                 -->
-                 <% @footerlinks.all.each do |footer| %>
-                  <li><a href="#"><%= footer.name %></a></li>
-                  <% end %>
-              </ul>
-            </div>
-            
-            </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-12">
-                <h2>Recent news</h2>
-                        <ul class="footer-news mt-25">
-                            <% @stock_market_updates.last(2).each do |stock| %>
-                              <li> <a href="#"><%= stock.description %></a> <strong><i class="fa fa-calendar"></i><%= stock.created_at.strftime("%d/%m/%y") %></strong> </li>
-                            <% end %>
-                            
-                        </ul>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-12">
-                        <h2>Subscribe</h2>
-                        <form class="footer-subscribe-form mt-25">
-                            <div class="d-table full-width">
-                                <div class="d-table-cell">
-                                    <input type="text" placeholder="Your Email adress"> </div>
-                                <div class="d-table-cell">
-                                    <button type="submit"><i class="fa fa-envelope"></i></button>
-                                </div>
-                            </div>
-                        </form>
-                        <p class="mt-10">Get latest updates and offers.</p>
-                    </div>
-                </div>
-                <div class="footer-1-bar">
-                    <center>SpecThemes © 2019. All Rights Reserved.</center>
-                </div>
-            </div>
-        </div>
-    </footer>
+<%= render "footer" %>

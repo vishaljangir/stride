@@ -1,0 +1,20 @@
+{:uriI"�file://app/assets/stylesheets/stride/openhand.html?type=text/html&id=51f8381a7ede5e2973bd91a1287b543a30c8d07c7ddba1b869407bd3166cb990:ET:load_pathI"app/assets/stylesheets;T:filenameI"0app/assets/stylesheets/stride/openhand.html;T:	nameI"stride/openhand;T:logical_pathI"stride/openhand.html;T:content_typeI"text/html;T:sourceI"4<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Страница не найдена</title><link rel="stylesheet" media="all" href="/hosting_static_404/style.css"><link rel="icon" href="/hosting_static_404/favicon.ico" type="image/x-icon"><script src="/hosting_static_404/modernizr.js"></script><!--[if lt IE 9]><script src="/hosting_static_404/html5shiv.js"></script><![endif]--></head><body class="b-page b-page_type_parking"><header class="b-header-parking"><div class="b-parking__grid b-page__content-wrapper"><div class="b-parking__left-side"><div class="b-header-parking__content b-header-parking__content-logo"><div class="b-header-parking__name"><strong class="b-header-parking__title"><span class="j_dname"></span></strong> <em class="b-header-parking__desc">Сайт обслуживается в REG.RU</em></div></div></div><div class="b-parking__divider"></div><div class="b-parking__right-side b-menu-external"><a href="https://www.reg.ru/" rel="nofollow" class="b-menu-external__logo b-menu-external__logo_style_regru"></a></div></div></header><article class="b-content b-page__content-wrapper b-page__content-wrapper_align_center"><div class="b-parking__center-column l-margin_top-large l-margin_bottom-big"><div class="b-http-status b-http-status_icon_brick"><h2 class="b-title b-title_size_huge-compact">Страница не&nbsp;найдена</h2><p class="b-text b-text_size_big-compact l-color_error">404 ошибка</p><p class="b-text"><a href="https://www.reg.ru/support/hosting-i-servery/sajty-i-domeny/moy-sayt-ne-rabotaet/oshibka-404" class="b-link-icon b-link-icon_size_big b-link-icon_style_invert b-icon b-icon_style_faq" rel="nofollow">404 ошибка на сайте</a></p></div></div><p class="b-text">Если вы уверены, что это недоразумение или ошибка, напишите в <a href="https://www.reg.ru/support/" class="b-link" rel="nofollow">Службу поддержки</a><br><strong>В письме не забудьте указать ссылку на страницу.</strong></p></article><script src="/hosting_static_404/script.js"></script><script>if ( ''.match( /xn--/ ) && document.querySelectorAll ) {
+        var spans = document.querySelectorAll( 'span.puny, span.no-puny' ),
+            t = 'textContent' in document.body ? 'textContent' : 'innerText';
+
+        document.title = punycode.ToUnicode( document.title );
+
+        for ( var i = 0; i < spans.length; i++) {
+            if ( spans[ i ].className.match( /^puny/ ) ) {
+                var text = spans[ i ][ t ];
+                text = punycode.ToUnicode( text );
+                spans[ i ][ t ] = text;
+            } else if ( spans[ i ].className.match( /^no-puny/ ) ) {
+                spans[ i ].style.display = 'none';
+            }
+        }
+    }</script><!-- Counters  --></body></html>;T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI">file-digest://app/assets/stylesheets/stride/openhand.html;TTF:charsetI"
+utf-8;F:digest"%�?웍�&u��H�"���O:IhG��L�?n�k:lengthi4:dependencies_digest"%RrW���0�O�<���51��C���Q��vע�Q�:idI"E51f8381a7ede5e2973bd91a1287b543a30c8d07c7ddba1b869407bd3166cb990;F:
+mtimel+�xw\
