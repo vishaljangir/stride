@@ -4,6 +4,7 @@
     margin-bottom: 10px;
 }
 </style>
+
 <div id="preloader">
   <div class="lds-ellipsis">
       <div></div>
@@ -381,7 +382,6 @@
         <div class="col-md-6 col-sm-6 col-12">
           <% @news_seconds.last(1).each do |news_second| %>
             <div class="blog-grid">
-              <%= image_tag (news_second.image), style: "width: 560px; height: 455px" %>
               <div class="blog-team-box">
                 <h6><%= news_second.created_at.strftime("%d/%m/%y") %></h6>
               </div>
@@ -394,7 +394,7 @@
         <div class="col-md-6 col-sm-6 col-12">
           <div class="row">
             <% if @news_seconds.length == 5 %>
-              <% @news_seconds[-5...-1].each do |news_second| %>
+              <% @news_seconds.last(5).each do |news_second| %>
                 <div class="col-md-6 col-sm-6 col-12">
                   <div class="blog-grid">
                     <%= image_tag (news_second.image), style: "width: 300px; height: 180px" %>

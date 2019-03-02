@@ -12,16 +12,33 @@
 //
 //= require jquery
 
-//= require material/popper.min
-//= require material/perfect-scrollbar.jquery.min
-//= require material/chartist.min
-//= require material/arrive.min
-//= require material/material-dashboard
-//= require material/demo
+//= require core/bootstrap-material-design.min
+//= require core/jquery.min
+//= require core/popper.min
+//= require material-dashboard
+//= require material-dashboard.min
+//= require plugins/arrive.min
+//= require plugins/bootstrap-tagsinput
+//= require plugins/chartist.min
+//= require plugins/nouislider.min
+//= require plugins/perfect-scrollbar.jquery.min
+//= require plugins/moment.min
+//= require plugins/sweetalert2
+//= require plugins/nouislider.min
+//= require plugins/jquery.validate.min
+//= require plugins/jquery.bootstrap-wizard
 
+//= require plugins/bootstrap-selectpicker
+//= require plugins/bootstrap-datetimepicker.min
+//= require plugins/jquery.dataTables.min
+//= require plugins/bootstrap-tagsinput
+//= require plugins/jasny-bootstrap.min
+//= require plugins/fullcalendar.min
+//= require plugins/jquery-jvectormap
+//= require plugins/bootstrap-notify
+//= require demo/demo
 
 //= require bootstrap-sprockets
-
 //= require rails-ujs
 //= require activestorage
 //= require_tree .

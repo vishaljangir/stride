@@ -11,7 +11,7 @@
                     <h4 class="card-title">NEWS SECOND</h4>
                   </div>
                   <div class="col-md-2">
-                    <%= link_to '', new_news_second_path, class: "fa fa-plus", style: "color: white; border: 1px solid; padding: 9px; float: right;" %>
+                    <%= link_to '', new_news_second_path, class: "fa fa-plus add" %>
                   </div>
                 </div>
               </div>
@@ -19,16 +19,14 @@
                 <div class="row">
                   <div class="col-md-12">
                     <% @news_seconds.each do |news_second| %>
-                      <div class="col-md-4 logo-container">
+                      <div class="col-md-3 logo-container">
                         <%= image_tag(news_second.image, class: "img-thumbnail", alt: "news") %>
-                        <div class="middle">
                           <h3><%= news_second.heading %></h3>
-                          <br/>
                           <p><%= news_second.description %></p>
-                          <br/>
-                          <%= link_to 'Change', edit_news_second_path(news_second), class: "btn btn-default" %>
-                          <%= link_to 'Remove', news_second, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
-                        </div>
+                          
+                          <%= link_to 'Change', edit_news_second_path(news_second), class: "btn btn-raised btn-secondary" %>
+                          <%= link_to 'Remove', news_second, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+                        
                       </div>
                     <% end %>
                   </div>

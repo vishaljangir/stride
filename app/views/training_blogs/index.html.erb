@@ -11,7 +11,7 @@
                     <h4 class="card-title">TRAINING BLOGS</h4>
                   </div>
                   <div class="col-md-2">
-                    <%= link_to 'Add new', new_training_blog_path, class: "", style: "color: white; border: 1px solid; padding: 9px; float: right;" %>
+                    <%= link_to '', new_training_blog_path, class: "fa fa-plus add" %>
                   </div>
                 </div>
               </div>
@@ -22,15 +22,18 @@
                       <% @training_blogs.each do |training_blog| %>
                         <div class="col-md-3 logo-container">
                           <%= image_tag(training_blog.image, class: "img-thumbnail", alt: "blog") %>
-                          <div class="middle">
+                          
                             <br/>
                             <p><%= training_blog.description %></p>
+                            
+                            <h5><%= "By " +training_blog.name %></h5>
                             <br/>
-                            <h3><%= "By " +training_blog.name %></h3>
-                            <br/>
-                            <%= link_to 'Change', edit_training_blog_path(training_blog), class: "btn btn-default" %>
-                            <%= link_to 'Remove', training_blog, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
-                          </div>
+                            <center>
+                              <%= link_to 'Change', edit_training_blog_path(training_blog), class: "btn btn-raised btn-secondary" %>
+                              <%= link_to 'Remove', training_blog, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+                            </center>
+                            
+                          
                         </div>
                       <% end %>
                     </div>

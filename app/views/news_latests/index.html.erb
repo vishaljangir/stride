@@ -11,7 +11,7 @@
                     <h4 class="card-title">LATEST NEWS</h4>
                   </div>
                   <div class="col-md-2">
-                    <%= link_to '', new_news_latest_path, class: "fa fa-plus", style: "color: white; border: 1px solid; padding: 9px; float: right;" %>
+                    <%= link_to '', new_news_latest_path, class: "fa fa-plus add" %>
                   </div>
                 </div>
               </div>
@@ -19,17 +19,18 @@
                 <div class="row">
                   <div class="col-md-12">
                     <% @news_latests.each do |news_latest| %>
-                      <div class="col-md-4 logo-container">
+                      <div class="col-md-3 logo-container">
                         <%= image_tag(news_latest.image, class: "img-thumbnail", alt: "news_latest") %>
-                        <div class="middle">
                           <p><%= news_latest.description %></p>
-                          <br/>
-                          <h4><%= "By " + news_latest.name %></h4>
+                          
+                          <h5><%= "By " + news_latest.name %></h5>
                           <p><%= news_latest.created_at.strftime("%d-%m-%Y") %></p>
                           <br/>
-                          <%= link_to 'Change', edit_news_latest_path(news_latest), class: "btn btn-default" %>
-                          <%= link_to 'Remove', news_latest, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
-                        </div>
+                          <center>
+                            <%= link_to 'Change', edit_news_latest_path(news_latest), class: "btn btn-raised btn-secondary" %>
+                            <%= link_to 'Remove', news_latest, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+                          </center>
+                          
                       </div>
                     <% end %>
                   </div>

@@ -22,9 +22,9 @@
                       <% @logos.each do |logo| %>
                         <div class="col-md-3 logo-container">
                             <%= image_tag(logo.image, class: "img-thumbnail") %>
-                          <div class="middle">
-                            <%= link_to 'change', edit_logo_path(logo), class: "btn btn-sm btn-primary" %>
-                          </div>
+                            <br>
+                            <center><%= link_to 'change', edit_logo_path(logo), class: "btn btn-primary" %></center>
+                          
                         </div>
                       <% end %>
                     </div>
