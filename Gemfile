@@ -21,6 +21,7 @@ gem "jquery-rails"
 gem 'popper_js', '~> 1.12.9'
 gem 'devise'
 gem "paperclip", "~> 4.1.1"
+gem 'activestorage-validator'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
