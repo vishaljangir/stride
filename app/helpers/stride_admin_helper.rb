@@ -1,0 +1,2 @@
+module StrideAdminHelper
+end

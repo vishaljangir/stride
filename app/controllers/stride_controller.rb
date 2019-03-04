@@ -1,6 +1,5 @@
 class StrideController < ApplicationController
-  def admin
-  end
+  layout "stride"
 
   def home
   	@logos = Logo.all
@@ -15,9 +14,9 @@ class StrideController < ApplicationController
     @footerlinks = Footerlink.all
   end
   def training
-    
+
   end
   def about_us
-    
+   
   end
 end

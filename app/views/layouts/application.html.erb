@@ -24,19 +24,27 @@
   <body>
 
 
-    <% if user_signed_in? && current_user.admin? && request.original_url == 'http://localhost:3000/admin' %>
-      <%= render 'layouts/sidebar' %>
-      <div class="main-panel">
-         <%= render 'layouts/navbar' %>
-      </div>
-    <% else %>
+    <% if user_signed_in? %>
+      <% if current_user.admin? %>
+        <%= render 'layouts/sidebar' %>
+        <div class="main-panel">
+           <%= render 'layouts/navbar' %>
+        </div>
+        <%= yield %>
 
+      <% end %>
+      
+    <% else %>
+      <% if user_signed_in? == false %>
+        <%= render "layouts/404" %>
+      <% end %>
+      
     <% end %>
 
 
 
     
     
-    <%= yield %>
+    
   </body>
 </html>

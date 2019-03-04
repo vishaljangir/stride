@@ -1,0 +1,56 @@
+<div id="preloader">
+  <div class="lds-ellipsis">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+  </div>
+</div>
+<div id="top-bar" class="hidden-md-down">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-9 col-12">
+              <ul class="top-bar-info">
+                  <li><i class="fa fa-phone"></i> Phone: <%= Logo.last.contact %></li>
+                  <li><i class="fa fa-map-marker"></i><%= Logo.last.location %></li>
+                  <li><i class="fa fa-envelope"></i>Email: <%= Logo.last.email %></li>
+              </ul>
+          </div>
+          <div class="col-md-3 col-12">
+            <ul class="social-icons hidden-sm">
+              <% if user_signed_in? %>
+                <li><%= link_to "logout", destroy_user_session_path(@user), method: :delete, style: "pull-right" %></li>
+              <% else %>
+                <!-- <li><a href="#" data-toggle="modal" data-target="#myModal">Sign In  /  Free Sign Up</li> -->
+                 <li><%= link_to "login", new_user_session_path %></li>
+                <li><%= link_to "sigup", new_user_session_path %></li>
+              <% end %>
+             
+            </ul>
+          </div>
+          
+      </div>
+   </div>
+</div>
+<header>
+  <nav id="navigation4" class="container navigation">
+    <div class="nav-header">
+      <%= link_to image_tag(Logo.last.image, class: "main-logo", :alt=> "logo", id: "main_logo", style: "width: 145px; height: 50px;"), root_path, class: "nav-brand" %>
+      <div class="nav-toggle"></div>
+    </div>
+    <div class="nav-menus-wrapper">
+      <ul class="nav-menu align-to-right">
+        <% Menu.all.each do |menu| %> 
+          <li>
+            <a href="menu/:name"><%= menu.name %></a>
+            <ul class="nav-dropdown">
+              <% menu.submenus.each do |submenu| %> 
+                <li><a href="#"><%= submenu.name %></a></li>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
+      </ul> 
+    </div>
+  </nav>
+</header>

@@ -12,8 +12,6 @@
                 <%= form_with(model: logo, local: true) do |form| %>
                   <% if logo.errors.any? %>
                     <div id="error_explanation">
-                      <h2><%= pluralize(logo.errors.count, "error") %> prohibited this logo from being saved:</h2>
-
                       <ul>
                       <% logo.errors.full_messages.each do |message| %>
                         <li><%= message %></li>
@@ -24,10 +22,9 @@
                   <div class="row">
                     <div class="col-md-2">
                       <label>Current logo</label>
-                      <% if @logos.present? %>
+                      <% if logo.present? %>
                         <%= image_tag(logo.image, class: "img-thumbnail", alt: "Cinque Terre") %>
                       <% end %>
-                      
                     </div>
                     <div class="col-md-2">
                       <label>New logo</label>
@@ -42,6 +39,12 @@
                       </span>
                       <br>
                       <br>
+                      <%= form.label :contact %>
+                      <%= form.number_field :contact, class: "form-control" %>
+                      <%= form.label :email %>
+                      <%= form.email_field :email, class: "form-control" %>
+                       <%= form.label :location %>
+                      <%= form.text_field :location, class: "form-control" %>
                       <%= form.label :about %>
                       <%= form.text_area :about, class: "form-control" %>
                     </div>

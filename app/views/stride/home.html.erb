@@ -5,38 +5,7 @@
 }
 </style>
 
-<div id="preloader">
-  <div class="lds-ellipsis">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-  </div>
-</div>
-<div id="top-bar" class="hidden-md-down">
-  <div class="container">
-      <div class="row">
-          <div class="col-md-9 col-12">
-              <ul class="top-bar-info">
-                  <li><i class="fa fa-phone"></i> Phone: +1234567890</li>
-                  <li><i class="fa fa-map-marker"></i>Jaipur</li>
-                  <li><i class="fa fa-envelope"></i>Email: demo@email.com</li>
-              </ul>
-          </div>
-          <div class="col-md-3 col-12">
-              <ul class="social-icons hidden-sm">
-                <% if user_signed_in? %>
-                  <li><%= link_to "logout", destroy_user_session_path(@user), method: :delete, style: "pull-right" %></li>
-                <% else %>
-                  <li><%= link_to "login", new_user_session_path %></li>
-                  <li><%= link_to "sigup", new_user_registration_path %></li>
-                <% end %>
-            </ul>
-         </div>
-      </div>
-   </div>
-</div>
-<%= render "header" %>
+
 <div class="rev_slider_wrapper">
   <div id="rev_slider" class="rev_slider fullscreenbanner">
     <ul>
@@ -399,4 +368,3 @@
     </div>
   </div>
 </div>
-<%= render "footer" %>

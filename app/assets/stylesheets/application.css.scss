@@ -19,6 +19,7 @@
 *= require stride/styles-3
 *= require stride/styles 
 *= require stride/owl.carousel
+*= require stride/themify-icons
 
 *= require material-dashboard-rtl
 *= require material-dashboard
@@ -251,3 +252,4 @@ label.footer-name {
     font-weight: 300;
     white-space: nowrap;
 }
+
