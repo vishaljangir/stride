@@ -1,5 +1,10 @@
+
 {
-  "name": "temp-rails",
+ "name": "temp-rails",
   "private": true,
-  "dependencies": {}
+  "description": {},
+  "version": "1.0.0",
+  "engines": {
+    "node": "9.11.2"
+   }
 }
