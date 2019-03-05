@@ -13,10 +13,24 @@ class StrideController < ApplicationController
   	@news_seconds = NewsSecond.all
     @footerlinks = Footerlink.all
   end
+  
   def training
 
   end
+  
   def about_us
    
+  end
+
+  def blog
+
+  end
+
+  def career
+
+  end
+
+  def contact_us
+
   end
 end
