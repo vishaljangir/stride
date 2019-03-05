@@ -1,8 +1,6 @@
 class FooterlinksController < ApplicationController
   before_action :set_footerlink, only: [:show, :edit, :update, :destroy]
-  render :partial => 'sidebar'
-
-  # GET /footerlinks
+ 
   # GET /footerlinks.json
   def index
     @footerlinks = Footerlink.all
