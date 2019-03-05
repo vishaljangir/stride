@@ -7,7 +7,7 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.2'
 
 gem 'puma', '~> 3.11'
-gem 'sass-rails', '~> 5.0'
+
 gem 'uglifier', '>= 1.3.0'
 
 gem 'coffee-rails', '~> 4.2'
@@ -15,7 +15,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-gem 'bootstrap-sass', '~> 3.4.1'
+gem 'bootstrap-sass', '~> 3.3.5'
+gem 'sass-rails', '>= 3.2'
 gem 'font-awesome-rails'
 gem "jquery-rails"
 gem 'popper_js', '~> 1.12.9'
