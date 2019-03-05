@@ -2,8 +2,8 @@ class NewsLatest < ApplicationRecord
 	has_one_attached :image
 	validates :name, presence: true
 	validates :description, presence: true
-    validates_length_of :name, :maximum=>10, :message=>" length of words can not be accepted"
-    validates_length_of :description, :maximum=>30, :message=>" length of characters can not be over 30"
+    validates_length_of :name, :maximum=>50, :message=>" length of words can not be accepted"
+    validates_length_of :description, :maximum=>150, :message=>" length of characters can not be over 150"
     validates :image, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 1..5000.kilobytes }
 	validate :image_type
 

@@ -1,7 +1,7 @@
 class StockMarketUpdate < ApplicationRecord
 	has_one_attached :image
 	validates :description, presence: true
-    validates_length_of :description, :maximum=>30, :message=>" length of characters can not be over 30"
+    validates_length_of :description, :maximum=>150, :message=>" length of characters can not be over 150"
     validates :image, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 1..5000.kilobytes }
     validate :image_type
 

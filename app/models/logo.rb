@@ -3,7 +3,7 @@ class Logo < ApplicationRecord
 	validates :about, presence: true
     validates :contact, presence: true, length: { is: 10 }
     validates :email, presence: true
-    validates_length_of :about, :maximum=>100, :message=>"Length of words can not be accepted"
+    validates_length_of :about, :maximum=>150, :message=>"Length of words can not be accepted"
    	validates :image, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: 1..5000.kilobytes }
 
     validate :image_type
