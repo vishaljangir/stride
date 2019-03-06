@@ -40,17 +40,45 @@
     </div>
     <div class="nav-menus-wrapper">
       <ul class="nav-menu align-to-right">
-        <% Menu.all.each do |menu| %> 
-          <li>
-            <a href="menu/:name"><%= menu.name %></a>
-            <ul class="nav-dropdown">
-              <% menu.submenus.each do |submenu| %> 
-                <li><a href="#"><%= submenu.name %></a></li>
-              <% end %>
-            </ul>
-          </li>
-        <% end %>
-      </ul> 
+        <li><%= link_to Menu.all[0].name, root_path %></li>
+        <li>
+          <%= link_to Menu.all[1].name, about_path %>
+          <ul class="nav-dropdown">
+            <li><%= link_to Menu.all[1].submenus[0].name, about_who_we_are_path %></li>
+            <li><%= link_to Menu.all[1].submenus[1].name, about_what_set_as_apart_path %></li>
+            <li><%= link_to Menu.all[1].submenus[2].name, about_our_mission_path %></li>
+          </ul>
+        </li>
+        <li>
+          <%== link_to Menu.all[2].name, growth_tools_path %>
+          <ul class="nav-dropdown">
+            <li><%= link_to Menu.all[2].submenus[0].name, growth_tools_training_path  %></li>
+            <li><%= link_to Menu.all[2].submenus[1].name, growth_tools_aif_path  %></li>
+            <li><%= link_to Menu.all[2].submenus[2].name, growth_tools_hedge_fund_path %></li>
+            <li><%= link_to Menu.all[2].submenus[3].name, growth_tools_financial_planning_path %></li>
+          </ul>
+        </li>
+        <li>
+          <%== link_to Menu.all[3].name, market_analysis_path %>
+          <ul class="nav-dropdown">
+            <li><%= link_to Menu.all[3].submenus[0].name, market_analysis_daily_updates_path %></li>
+            <li><%= link_to Menu.all[3].submenus[1].name, market_analysis_statistics_path %></li>
+            <li><%= link_to Menu.all[3].submenus[2].name, market_analysis_news_path %></li>
+            <li><%= link_to Menu.all[3].submenus[3].name, market_analysis_strategies_path %></li>
+          </ul>
+        </li>
+        <li>
+          <%== link_to Menu.all[4].name, career_path %>
+          <ul class="nav-dropdown">
+            <li><%= link_to Menu.all[4].submenus[0].name, career_sales_marketing_path %></li>
+            <li><%= link_to Menu.all[4].submenus[1].name, career_management_trainee_path %></li>
+            <li><%= link_to Menu.all[4].submenus[2].name, career_research_team_path %></li>
+          </ul>
+        </li>
+        <li><%== link_to Menu.all[5].name, blog_path %></li>
+        <li> <%= link_to Menu.all[6].name, budget_path %></li>
+        <li><%== link_to Menu.all[7].name, contact_path %></li>
+      </ul>
     </div>
   </nav>
 </header>

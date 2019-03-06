@@ -48,13 +48,23 @@
                     </div>
                   <% end %>
                   <div class="row">
+                    <div class="col-md-2">
+                      <label>Current image</label>
+                      <% if slider.present? %>
+                        <%= image_tag(slider.image, class: "img-thumbnail", alt: "Cinque Terre") %>
+                      <% end %>
+                    </div>
+                    <div class="col-md-2">
+                      <label>New image</label>
+                      <img id="blah" src="" />
+                    </div>
+                  </div>
+                  <div class="row">
                     <div class="col-md-12">
                       <div class="col-md-3">
-                        <span class="btn btn-default btn-file">
-                          <i class="fa fa-upload" aria-hidden="true"></i> Browse <%= form.file_field :image, class: "form-control", id: "sliderimg" %>
-                        </span>
-                        <span class="custom" for="sliderimg">Choose file</span>
-                        <hr>
+                         <span class="btn btn-default btn-file">
+                        Browse <%= form.file_field :image, class: "form-control", id: "imgInp" %>
+                      </span>
                       </div>
                       <div class="col-md-3">
                         <img id="newimage" src="" />
@@ -65,13 +75,15 @@
                   <div class="row">
                     <div class="col-md-12">
                       <div class="field">
-                         <%= form.text_field :heading, class: "form-control", placeholder: "Heading"  %>
+                        <label>Heading</label>
+                        <%= form.text_field :heading, class: "form-control", placeholder: "Heading"  %>
                       </div>  
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
                       <div class="field">
+                        <label>Description</label>
                         <%= form.text_area :description, class: "form-control", placeholder: "Description" %>
                       </div>  
                     </div>

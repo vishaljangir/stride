@@ -12,18 +12,36 @@
                 <%= form_with(model: training_blog, local: true) do |form| %>
                   <% if training_blog.errors.any? %>
                     <div id="error_explanation">
-                      <h2><%= pluralize(training_blog.errors.count, "error") %> prohibited this training_blog from being saved:</h2>
-
                       <ul>
                       <% training_blog.errors.full_messages.each do |message| %>
-                        <li><%= message %></li>
+                        <li class="alert"><%= message %></li>
                       <% end %>
                       </ul>
                     </div>
                   <% end %>
-                  <div class="field">
-                    <%= form.label :image %>
-                    <%= form.file_field :image, class: "form-control" %>
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label>Current image</label>
+                      <% if training_blog.present? %>
+                        <%= image_tag(training_blog.image, class: "img-thumbnail", alt: "Cinque Terre") %>
+                      <% end %>
+                    </div>
+                    <div class="col-md-2">
+                      <label>New image</label>
+                      <img id="blah" src="" />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="col-md-3">
+                         <span class="btn btn-default btn-file">
+                        Browse <%= form.file_field :image, class: "form-control", id: "imgInp" %>
+                      </span>
+                      </div>
+                      <div class="col-md-3">
+                        <img id="newimage" src="" />
+                      </div>
+                    </div>
                   </div>
                   <div class="field">
                     <%= form.label :description %>

@@ -22,7 +22,56 @@ class StrideController < ApplicationController
    
   end
 
-  def blog
+  def about_who_we_are
+
+  end
+
+  def about_what_set_as_apart
+    
+  end
+
+  def about_our_mission
+    
+  end
+
+  def growth_tools
+
+  end
+
+  def growth_tools_training
+    
+  end
+
+  def growth_tools_aif
+    
+  end
+
+  def growth_tools_hedge_fund
+
+  end
+
+  def growth_tools_financial
+    
+  end
+
+  def market_analysis
+
+  end
+
+  def market_analysis_daily_updates
+
+  end
+
+  def market_analysis_statistics
+
+  end
+
+  def market_analysis_news
+    @news_seconds = NewsSecond.all
+    @news_latests = NewsLatest.all
+  end
+
+  def market_analysis_strategies
 
   end
 
@@ -30,7 +79,31 @@ class StrideController < ApplicationController
 
   end
 
+  def career_sales_marketing
+
+  end
+
+  def career_management_trainee
+
+  end
+
+  def career_research_team
+
+  end
+
+  
+  def blog
+
+  end
+
+  
+  def budget
+
+  end
+
   def contact_us
 
   end
+
+  
 end

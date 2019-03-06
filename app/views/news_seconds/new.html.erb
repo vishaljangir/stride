@@ -1,2 +1,62 @@
+<div class="wrapper ">
+  <div class="main-panel">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">ADD NEWS</h4>
+              </div>
+              <div class="card-body">
+                <%= form_with(model: @news_second, local: true) do |form| %>
+                  <% if @news_second.errors.any? %>
+                    <div id="error_explanation">
+                      <ul>
+                      <% @news_second.errors.full_messages.each do |message| %>
+                        <li class="alert"><%= message %></li>
+                      <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+                <div class="row">
+                    <div class="col-md-2">
+                      <label>New image</label>
+                      <img id="blah" src="" />
+                    </div>
+                </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="col-md-3">
+                         <span class="btn btn-default btn-file">
+                        Browse <%= form.file_field :image, class: "form-control", id: "imgInp" %>
+                      </span>
+                      </div>
+                      <div class="col-md-3">
+                        <img id="newimage" src="" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <%= form.label :heading %>
+                    <%= form.text_field :heading, class: "form-control" %>
+                  </div>
 
-<%= render 'form', news_second: @news_second %>
+                  <div class="field">
+                    <%= form.label :description %>
+                    <%= form.text_area :description, class: "form-control" %>
+                  </div>
+                  <%= form.submit "Add", class: "btn btn-primary pull-right"%>
+                  <div class="clearfix"></div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+   
+  </div>
+</div>
+

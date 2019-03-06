@@ -12,18 +12,36 @@
                 <%= form_with(model: news_latest, local: true) do |form| %>
                   <% if news_latest.errors.any? %>
                     <div id="error_explanation">
-                      <h2><%= pluralize(news_latest.errors.count, "error") %> prohibited this news_latest from being saved:</h2>
-
                       <ul>
                       <% news_latest.errors.full_messages.each do |message| %>
-                        <li><%= message %></li>
+                        <li class="alert"><%= message %></li>
                       <% end %>
                       </ul>
                     </div>
                   <% end %>
-                  <div class="field">
-                    <%= form.label :image %>
-                    <%= form.file_field :image, class: "form-control" %>
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label>Current image</label>
+                      <% if news_latest.present? %>
+                        <%= image_tag(news_latest.image, class: "img-thumbnail", alt: "Cinque Terre") %>
+                      <% end %>
+                    </div>
+                    <div class="col-md-2">
+                      <label>New image</label>
+                      <img id="blah" src="" />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="col-md-3">
+                         <span class="btn btn-default btn-file">
+                        Browse <%= form.file_field :image, class: "form-control", id: "imgInp" %>
+                      </span>
+                      </div>
+                      <div class="col-md-3">
+                        <img id="newimage" src="" />
+                      </div>
+                    </div>
                   </div>
                   <div class="field">
                     <%= form.label :description %>

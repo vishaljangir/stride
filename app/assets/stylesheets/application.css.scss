@@ -253,3 +253,18 @@ label.footer-name {
     white-space: nowrap;
 }
 
+.alert {
+    padding: 9px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 16px;
+    color: red;
+    border: 0.1px solid red;
+}
+p.recentnews {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
