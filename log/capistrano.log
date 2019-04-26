@@ -1,0 +1,817 @@
+# Logfile created on 2019-04-26 14:27:08 +0530 by logger.rb/66358
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-04-26 14:27:08 +0530 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [c9bc1329] Running /usr/bin/env mkdir -p /tmp on 134.209.154.250
+ DEBUG [c9bc1329] Command: /usr/bin/env mkdir -p /tmp
+  INFO [360afc77] Finished in 1.529 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-stride-production-jyoti.sh 0.0%
+  INFO Uploading /tmp/git-ssh-stride-production-jyoti.sh 100.0%
+  INFO [0cbf8328] Running /usr/bin/env chmod 700 /tmp/git-ssh-stride-production-jyoti.sh on 134.209.154.250
+ DEBUG [0cbf8328] Command: /usr/bin/env chmod 700 /tmp/git-ssh-stride-production-jyoti.sh
+  INFO [84a940ac] Finished in 0.171 seconds with exit status 0 (successful).
+  INFO [ce59d050] Running /usr/bin/env git ls-remote git@github.com:vishaljangir/stride.git HEAD on 134.209.154.250
+ DEBUG [ce59d050] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-stride-production-jyoti.sh" ; /usr/bin/env git ls-remote git@github.com:vishaljangir/stride.git HEAD )
+ DEBUG [fd206bc4] 	Warning: Permanently added 'github.com,192.30.253.112' (RSA) to the list of known hosts.
+ DEBUG [fd206bc4] 	
+ DEBUG [fd206bc4] 	d5b3fa94ba13c711a9b61c977f0921ff183e2466	HEAD
+  INFO [fd206bc4] Finished in 3.105 seconds with exit status 0 (successful).
+  INFO [18c296b9] Running /usr/bin/env mkdir -p /home/deployer/apps/stride/shared /home/deployer/apps/stride/releases on 134.209.154.250
+ DEBUG [18c296b9] Command: /usr/bin/env mkdir -p /home/deployer/apps/stride/shared /home/deployer/apps/stride/releases
+  INFO [9d6e3425] Finished in 0.128 seconds with exit status 0 (successful).
+  INFO [35f7e05a] Running /usr/bin/env mkdir -p /home/deployer/apps/stride/shared/log /home/deployer/apps/stride/shared/tmp/pids /home/deployer/apps/stride/shared/tmp/cache /home/deployer/apps/stride/shared/tmp/sockets /home/deployer/apps/stride/shared/vendor/bundle /home/deployer/apps/stride/shared/public/system /home/deployer/apps/stride/shared/public/assets on 134.209.154.250
+ DEBUG [35f7e05a] Command: /usr/bin/env mkdir -p /home/deployer/apps/stride/shared/log /home/deployer/apps/stride/shared/tmp/pids /home/deployer/apps/stride/shared/tmp/cache /home/deployer/apps/stride/shared/tmp/sockets /home/deployer/apps/stride/shared/vendor/bundle /home/deployer/apps/stride/shared/public/system /home/deployer/apps/stride/shared/public/assets
+  INFO [9ac8fbdd] Finished in 0.166 seconds with exit status 0 (successful).
+ DEBUG [72c84d5b] Running [ -f /home/deployer/apps/stride/current/REVISION ] on 134.209.154.250
+ DEBUG [72c84d5b] Command: [ -f /home/deployer/apps/stride/current/REVISION ]
+ DEBUG [722b575d] Finished in 0.167 seconds with exit status 1 (failed).
+ DEBUG [bde2f7f4] Running [ -f /home/deployer/apps/stride/repo/HEAD ] on 134.209.154.250
+ DEBUG [bde2f7f4] Command: [ -f /home/deployer/apps/stride/repo/HEAD ]
+ DEBUG [be30fff2] Finished in 0.166 seconds with exit status 1 (failed).
+ DEBUG [4baa03d4] Running if test ! -d /home/deployer/apps/stride; then echo "Directory does not exist '/home/deployer/apps/stride'" 1>&2; false; fi on 134.209.154.250
+ DEBUG [4baa03d4] Command: if test ! -d /home/deployer/apps/stride; then echo "Directory does not exist '/home/deployer/apps/stride'" 1>&2; false; fi
+ DEBUG [6d0701f0] Finished in 0.179 seconds with exit status 0 (successful).
+  INFO [1fed4b09] Running /usr/bin/env git clone --mirror git@github.com:vishaljangir/stride.git /home/deployer/apps/stride/repo on 134.209.154.250
+ DEBUG [1fed4b09] Command: cd /home/deployer/apps/stride && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-stride-production-jyoti.sh" ; /usr/bin/env git clone --mirror git@github.com:vishaljangir/stride.git /home/deployer/apps/stride/repo )
+ DEBUG [af725767] 	Cloning into bare repository '/home/deployer/apps/stride/repo'...
+ DEBUG [af725767] 	
+ DEBUG [af725767] 	Warning: Permanently added the RSA host key for IP address '192.30.253.113' to the list of known hosts.
+ DEBUG [af725767] 	
+ DEBUG [af725767] 	remote: Enumerating objects: 25463, done.[K
+ DEBUG [af725767] 	
+ DEBUG [af725767] 	Receiving objects:   0% (1/25463)   
+ DEBUG [af725767] 	Receiving objects:   0% (55/25463), 172.01 KiB | 255.00 KiB/s   
+ DEBUG [af725767] 	Receiving objects:   0% (101/25463), 5.90 MiB | 3.30 MiB/s   
+ DEBUG [af725767] 	Receiving objects:   1% (255/25463), 9.89 MiB | 4.18 MiB/s   
+ DEBUG [af725767] 	Receiving objects:   2% (510/25463), 14.61 MiB | 5.10 MiB/s   
+ DEBUG [af725767] 	Receiving objects:   2% (537/25463), 14.61 MiB | 5.10 MiB/s   
+ DEBUG [af725767] 	Receiving objects:   2% (606/25463), 23.00 MiB | 5.94 MiB/s   
+ DEBUG [af725767] 	Receiving objects:   2% (647/25463), 32.59 MiB | 6.64 MiB/s   
+ DEBUG [af725767] 	Receiving objects:   2% (699/25463), 42.00 MiB | 8.80 MiB/s   
+ DEBUG [af725767] 	Receiving objects:   3% (764/25463), 46.21 MiB | 8.71 MiB/s   
+ DEBUG [af725767] 	Receiving objects:   3% (766/25463), 55.60 MiB | 9.01 MiB/s   
+ DEBUG [af725767] 	Receiving objects:   3% (800/25463), 59.95 MiB | 8.98 MiB/s   
+ DEBUG [af725767] 	Receiving objects:   4% (1019/25463), 64.43 MiB | 9.06 MiB/s   
+ DEBUG [af725767] 	Receiving objects:   4% (1156/25463), 69.54 MiB | 9.07 MiB/s   
+ DEBUG [af725767] 	Receiving objects:   5% (1274/25463), 69.54 MiB | 9.07 MiB/s   
+ DEBUG [af725767] 	Receiving objects:   6% (1528/25463), 73.79 MiB | 8.99 MiB/s   
+ DEBUG [af725767] 	Receiving objects:   6% (1584/25463), 78.72 MiB | 9.07 MiB/s   
+ DEBUG [af725767] 	Receiving objects:   7% (1783/25463), 78.72 MiB | 9.07 MiB/s   
+ DEBUG [af725767] 	Receiving objects:   8% (2038/25463), 83.21 MiB | 8.95 MiB/s   
+ DEBUG [af725767] 	Receiving objects:   8% (2171/25463), 87.65 MiB | 8.99 MiB/s   
+ DEBUG [af725767] 	Receiving objects:   9% (2292/25463), 87.65 MiB | 8.99 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  10% (2547/25463), 92.61 MiB | 9.10 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  11% (2801/25463), 92.61 MiB | 9.10 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  11% (2843/25463), 96.80 MiB | 8.93 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  12% (3056/25463), 96.80 MiB | 8.93 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  13% (3311/25463), 101.25 MiB | 8.97 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  13% (3396/25463), 101.25 MiB | 8.97 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  14% (3565/25463), 101.25 MiB | 8.97 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  15% (3820/25463), 105.58 MiB | 8.95 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  16% (4075/25463), 105.58 MiB | 8.95 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  17% (4329/25463), 105.58 MiB | 8.95 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  18% (4584/25463), 105.58 MiB | 8.95 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  19% (4838/25463), 105.58 MiB | 8.95 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  20% (5093/25463), 105.58 MiB | 8.95 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  21% (5348/25463), 105.58 MiB | 8.95 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  22% (5602/25463), 105.58 MiB | 8.95 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  23% (5857/25463), 105.58 MiB | 8.95 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  24% (6112/25463), 105.58 MiB | 8.95 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  25% (6366/25463), 110.29 MiB | 8.91 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  26% (6621/25463), 110.29 MiB | 8.91 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  27% (6876/25463), 110.29 MiB | 8.91 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  28% (7130/25463), 110.29 MiB | 8.91 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  29% (7385/25463), 110.29 MiB | 8.91 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  30% (7639/25463), 110.29 MiB | 8.91 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  31% (7894/25463), 110.29 MiB | 8.91 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  32% (8149/25463), 110.29 MiB | 8.91 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  32% (8353/25463), 110.29 MiB | 8.91 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  33% (8403/25463), 110.29 MiB | 8.91 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  34% (8658/25463), 114.67 MiB | 8.98 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  35% (8913/25463), 114.67 MiB | 8.98 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  36% (9167/25463), 114.67 MiB | 8.98 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  37% (9422/25463), 114.67 MiB | 8.98 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  38% (9676/25463), 114.67 MiB | 8.98 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  39% (9931/25463), 114.67 MiB | 8.98 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  40% (10186/25463), 114.67 MiB | 8.98 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  41% (10440/25463), 114.67 MiB | 8.98 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  42% (10695/25463), 114.67 MiB | 8.98 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  43% (10950/25463), 114.67 MiB | 8.98 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  44% (11204/25463), 119.22 MiB | 8.90 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  45% (11459/25463), 119.22 MiB | 8.90 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  46% (11713/25463), 119.22 MiB | 8.90 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  47% (11968/25463), 119.22 MiB | 8.90 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  47% (12024/25463), 119.22 MiB | 8.90 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  48% (12223/25463), 123.90 MiB | 8.99 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  49% (12477/25463), 128.37 MiB | 8.97 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  49% (12554/25463), 133.13 MiB | 8.93 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  50% (12732/25463), 133.13 MiB | 8.93 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  50% (12974/25463), 137.73 MiB | 9.03 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  51% (12987/25463), 137.73 MiB | 9.03 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  52% (13241/25463), 142.18 MiB | 9.02 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  52% (13382/25463), 146.86 MiB | 9.07 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  53% (13496/25463), 151.76 MiB | 9.05 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  54% (13751/25463), 151.76 MiB | 9.05 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  54% (13930/25463), 160.79 MiB | 9.08 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  55% (14005/25463), 160.79 MiB | 9.08 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  56% (14260/25463), 165.38 MiB | 9.04 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  57% (14514/25463), 165.38 MiB | 9.04 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  57% (14619/25463), 169.79 MiB | 9.07 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  58% (14769/25463), 169.79 MiB | 9.07 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  59% (15024/25463), 169.79 MiB | 9.07 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  60% (15278/25463), 174.44 MiB | 9.05 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  60% (15374/25463), 178.94 MiB | 9.01 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  61% (15533/25463), 178.94 MiB | 9.01 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  62% (15788/25463), 178.94 MiB | 9.01 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  62% (15846/25463), 183.43 MiB | 9.04 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  63% (16042/25463), 187.99 MiB | 9.04 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  63% (16208/25463), 192.54 MiB | 9.00 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  64% (16297/25463), 197.05 MiB | 9.00 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  65% (16551/25463), 201.86 MiB | 9.02 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  66% (16806/25463), 201.86 MiB | 9.02 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  66% (16816/25463), 201.86 MiB | 9.02 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  67% (17061/25463), 206.33 MiB | 8.97 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  68% (17315/25463), 211.20 MiB | 9.04 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  68% (17400/25463), 211.20 MiB | 9.04 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  69% (17570/25463), 215.74 MiB | 9.02 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  70% (17825/25463), 215.74 MiB | 9.02 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  70% (17997/25463), 220.04 MiB | 8.99 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  71% (18079/25463), 224.81 MiB | 9.03 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  72% (18334/25463), 229.33 MiB | 9.03 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  72% (18339/25463), 229.33 MiB | 9.03 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  73% (18588/25463), 233.68 MiB | 9.01 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  73% (18746/25463), 238.16 MiB | 9.01 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  74% (18843/25463), 242.80 MiB | 9.00 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  75% (19098/25463), 247.17 MiB | 9.02 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  75% (19181/25463), 247.17 MiB | 9.02 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  76% (19352/25463), 247.17 MiB | 9.02 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  76% (19560/25463), 260.73 MiB | 8.99 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  76% (19560/25463), 269.97 MiB | 8.98 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  76% (19560/25463), 278.82 MiB | 8.97 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  76% (19561/25463), 283.56 MiB | 8.99 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  76% (19566/25463), 297.14 MiB | 9.00 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  77% (19607/25463), 297.14 MiB | 9.00 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  77% (19684/25463), 301.58 MiB | 9.00 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  78% (19862/25463), 306.21 MiB | 9.02 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  79% (20116/25463), 310.95 MiB | 8.99 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  79% (20334/25463), 315.31 MiB | 8.97 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  79% (20337/25463), 324.75 MiB | 8.95 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  79% (20337/25463), 334.04 MiB | 9.05 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  79% (20337/25463), 342.96 MiB | 8.99 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  80% (20371/25463), 342.96 MiB | 8.99 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  81% (20626/25463), 342.96 MiB | 8.99 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  81% (20857/25463), 347.86 MiB | 9.00 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  82% (20880/25463), 347.86 MiB | 9.00 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  83% (21135/25463), 352.20 MiB | 8.93 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  84% (21389/25463), 352.20 MiB | 8.93 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  84% (21508/25463), 357.20 MiB | 9.07 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  85% (21644/25463), 357.20 MiB | 9.07 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  86% (21899/25463), 357.20 MiB | 9.07 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  87% (22153/25463), 357.20 MiB | 9.07 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  88% (22408/25463), 357.20 MiB | 9.07 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  89% (22663/25463), 361.67 MiB | 8.95 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  89% (22894/25463), 366.45 MiB | 9.05 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  90% (22917/25463), 366.45 MiB | 9.05 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  91% (23172/25463), 366.45 MiB | 9.05 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  92% (23426/25463), 366.45 MiB | 9.05 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  93% (23681/25463), 366.45 MiB | 9.05 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  94% (23936/25463), 366.45 MiB | 9.05 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  95% (24190/25463), 366.45 MiB | 9.05 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  96% (24445/25463), 366.45 MiB | 9.05 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  97% (24700/25463), 366.45 MiB | 9.05 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  98% (24954/25463), 370.36 MiB | 8.89 MiB/s   
+ DEBUG [af725767] 	Receiving objects:  99% (25209/25463), 370.36 MiB | 8.89 MiB/s   
+ DEBUG [af725767] 	remote: Total 25463 (delta 0), reused 0 (delta 0), pack-reused 25463[K
+ DEBUG [af725767] 	
+ DEBUG [af725767] 	Receiving objects: 100% (25463/25463), 370.36 MiB | 8.89 MiB/s   
+ DEBUG [af725767] 	Receiving objects: 100% (25463/25463), 372.29 MiB | 8.72 MiB/s, done.
+ DEBUG [af725767] 	
+ DEBUG [af725767] 	Resolving deltas:   0% (0/7911)   
+ DEBUG [af725767] 	Resolving deltas:   1% (89/7911)   
+ DEBUG [af725767] 	Resolving deltas:   3% (256/7911)   
+ DEBUG [af725767] 	Resolving deltas:   4% (325/7911)   
+ DEBUG [af725767] 	Resolving deltas:   5% (396/7911)   
+ DEBUG [af725767] 	Resolving deltas:   5% (463/7911)   
+ DEBUG [af725767] 	Resolving deltas:   6% (486/7911)   
+ DEBUG [af725767] 	Resolving deltas:   7% (554/7911)   
+ DEBUG [af725767] 	Resolving deltas:   8% (651/7911)   
+ DEBUG [af725767] 	Resolving deltas:   9% (729/7911)   
+ DEBUG [af725767] 	Resolving deltas:  10% (800/7911)   
+ DEBUG [af725767] 	Resolving deltas:  12% (962/7911)   
+ DEBUG [af725767] 	Resolving deltas:  13% (1049/7911)   
+ DEBUG [af725767] 	Resolving deltas:  14% (1115/7911)   
+ DEBUG [af725767] 	Resolving deltas:  15% (1187/7911)   
+ DEBUG [af725767] 	Resolving deltas:  16% (1266/7911)   
+ DEBUG [af725767] 	Resolving deltas:  17% (1346/7911)   
+ DEBUG [af725767] 	Resolving deltas:  18% (1425/7911)   
+ DEBUG [af725767] 	Resolving deltas:  19% (1504/7911)   
+ DEBUG [af725767] 	Resolving deltas:  20% (1584/7911)   
+ DEBUG [af725767] 	Resolving deltas:  21% (1662/7911)   
+ DEBUG [af725767] 	Resolving deltas:  22% (1742/7911)   
+ DEBUG [af725767] 	Resolving deltas:  23% (1822/7911)   
+ DEBUG [af725767] 	Resolving deltas:  24% (1901/7911)   
+ DEBUG [af725767] 	Resolving deltas:  25% (1978/7911)   
+ DEBUG [af725767] 	Resolving deltas:  26% (2060/7911)   
+ DEBUG [af725767] 	Resolving deltas:  27% (2136/7911)   
+ DEBUG [af725767] 	Resolving deltas:  28% (2219/7911)   
+ DEBUG [af725767] 	Resolving deltas:  29% (2296/7911)   
+ DEBUG [af725767] 	Resolving deltas:  30% (2374/7911)   
+ DEBUG [af725767] 	Resolving deltas:  31% (2454/7911)   
+ DEBUG [af725767] 	Resolving deltas:  32% (2533/7911)   
+ DEBUG [af725767] 	Resolving deltas:  33% (2611/7911)   
+ DEBUG [af725767] 	Resolving deltas:  34% (2693/7911)   
+ DEBUG [af725767] 	Resolving deltas:  35% (2769/7911)   
+ DEBUG [af725767] 	Resolving deltas:  36% (2848/7911)   
+ DEBUG [af725767] 	Resolving deltas:  37% (2929/7911)   
+ DEBUG [af725767] 	Resolving deltas:  38% (3008/7911)   
+ DEBUG [af725767] 	Resolving deltas:  39% (3087/7911)   
+ DEBUG [af725767] 	Resolving deltas:  40% (3165/7911)   
+ DEBUG [af725767] 	Resolving deltas:  41% (3245/7911)   
+ DEBUG [af725767] 	Resolving deltas:  42% (3323/7911)   
+ DEBUG [af725767] 	Resolving deltas:  43% (3402/7911)   
+ DEBUG [af725767] 	Resolving deltas:  44% (3481/7911)   
+ DEBUG [af725767] 	Resolving deltas:  45% (3560/7911)   
+ DEBUG [af725767] 	Resolving deltas:  46% (3642/7911)   
+ DEBUG [af725767] 	Resolving deltas:  47% (3720/7911)   
+ DEBUG [af725767] 	Resolving deltas:  48% (3798/7911)   
+ DEBUG [af725767] 	Resolving deltas:  49% (3878/7911)   
+ DEBUG [af725767] 	Resolving deltas:  50% (3957/7911)   
+ DEBUG [af725767] 	Resolving deltas:  51% (4035/7911)   
+ DEBUG [af725767] 	Resolving deltas:  52% (4118/7911)   
+ DEBUG [af725767] 	Resolving deltas:  53% (4196/7911)   
+ DEBUG [af725767] 	Resolving deltas:  54% (4272/7911)   
+ DEBUG [af725767] 	Resolving deltas:  55% (4352/7911)   
+ DEBUG [af725767] 	Resolving deltas:  56% (4431/7911)   
+ DEBUG [af725767] 	Resolving deltas:  57% (4511/7911)   
+ DEBUG [af725767] 	Resolving deltas:  58% (4589/7911)   
+ DEBUG [af725767] 	Resolving deltas:  59% (4669/7911)   
+ DEBUG [af725767] 	Resolving deltas:  60% (4747/7911)   
+ DEBUG [af725767] 	Resolving deltas:  61% (4826/7911)   
+ DEBUG [af725767] 	Resolving deltas:  62% (4905/7911)   
+ DEBUG [af725767] 	Resolving deltas:  63% (4984/7911)   
+ DEBUG [af725767] 	Resolving deltas:  64% (5064/7911)   
+ DEBUG [af725767] 	Resolving deltas:  65% (5143/7911)   
+ DEBUG [af725767] 	Resolving deltas:  66% (5223/7911)   
+ DEBUG [af725767] 	Resolving deltas:  67% (5301/7911)   
+ DEBUG [af725767] 	Resolving deltas:  68% (5385/7911)   
+ DEBUG [af725767] 	Resolving deltas:  69% (5460/7911)   
+ DEBUG [af725767] 	Resolving deltas:  70% (5538/7911)   
+ DEBUG [af725767] 	Resolving deltas:  71% (5617/7911)   
+ DEBUG [af725767] 	Resolving deltas:  72% (5696/7911)   
+ DEBUG [af725767] 	Resolving deltas:  73% (5776/7911)   
+ DEBUG [af725767] 	Resolving deltas:  74% (5856/7911)   
+ DEBUG [af725767] 	Resolving deltas:  74% (5891/7911)   
+ DEBUG [af725767] 	Resolving deltas:  75% (5935/7911)   
+ DEBUG [af725767] 	Resolving deltas:  76% (6013/7911)   
+ DEBUG [af725767] 	Resolving deltas:  77% (6092/7911)   
+ DEBUG [af725767] 	Resolving deltas:  78% (6171/7911)   
+ DEBUG [af725767] 	Resolving deltas:  79% (6251/7911)   
+ DEBUG [af725767] 	Resolving deltas:  80% (6331/7911)   
+ DEBUG [af725767] 	Resolving deltas:  81% (6408/7911)   
+ DEBUG [af725767] 	Resolving deltas:  82% (6489/7911)   
+ DEBUG [af725767] 	Resolving deltas:  83% (6567/7911)   
+ DEBUG [af725767] 	Resolving deltas:  84% (6646/7911)   
+ DEBUG [af725767] 	Resolving deltas:  85% (6726/7911)   
+ DEBUG [af725767] 	Resolving deltas:  86% (6804/7911)   
+ DEBUG [af725767] 	Resolving deltas:  87% (6883/7911)   
+ DEBUG [af725767] 	Resolving deltas:  88% (6962/7911)   
+ DEBUG [af725767] 	Resolving deltas:  89% (7042/7911)   
+ DEBUG [af725767] 	Resolving deltas:  90% (7189/7911)   
+ DEBUG [af725767] 	Resolving deltas:  91% (7200/7911)   
+ DEBUG [af725767] 	Resolving deltas:  92% (7279/7911)   
+ DEBUG [af725767] 	Resolving deltas:  93% (7365/7911)   
+ DEBUG [af725767] 	Resolving deltas:  94% (7437/7911)   
+ DEBUG [af725767] 	Resolving deltas:  95% (7522/7911)   
+ DEBUG [af725767] 	Resolving deltas:  96% (7595/7911)   
+ DEBUG [af725767] 	Resolving deltas:  97% (7674/7911)   
+ DEBUG [af725767] 	Resolving deltas:  98% (7753/7911)   
+ DEBUG [af725767] 	Resolving deltas:  99% (7832/7911)   
+ DEBUG [af725767] 	Resolving deltas: 100% (7911/7911)   
+ DEBUG [af725767] 	Resolving deltas: 100% (7911/7911), done.
+ DEBUG [af725767] 	
+  INFO [af725767] Finished in 56.338 seconds with exit status 0 (successful).
+ DEBUG [19942406] Running if test ! -d /home/deployer/apps/stride/repo; then echo "Directory does not exist '/home/deployer/apps/stride/repo'" 1>&2; false; fi on 134.209.154.250
+ DEBUG [19942406] Command: if test ! -d /home/deployer/apps/stride/repo; then echo "Directory does not exist '/home/deployer/apps/stride/repo'" 1>&2; false; fi
+ DEBUG [09bb485d] Finished in 0.167 seconds with exit status 0 (successful).
+  INFO [9e4b1654] Running /usr/bin/env git remote set-url origin git@github.com:vishaljangir/stride.git on 134.209.154.250
+ DEBUG [9e4b1654] Command: cd /home/deployer/apps/stride/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-stride-production-jyoti.sh" ; /usr/bin/env git remote set-url origin git@github.com:vishaljangir/stride.git )
+  INFO [abdc3a97] Finished in 0.171 seconds with exit status 0 (successful).
+  INFO [152ddedd] Running /usr/bin/env git remote update --prune on 134.209.154.250
+ DEBUG [152ddedd] Command: cd /home/deployer/apps/stride/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-stride-production-jyoti.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [a4484b4e] 	Fetching origin
+ DEBUG [a4484b4e] 	
+  INFO [a4484b4e] Finished in 3.018 seconds with exit status 0 (successful).
+ DEBUG [dd32a56c] Running if test ! -d /home/deployer/apps/stride/repo; then echo "Directory does not exist '/home/deployer/apps/stride/repo'" 1>&2; false; fi on 134.209.154.250
+ DEBUG [dd32a56c] Command: if test ! -d /home/deployer/apps/stride/repo; then echo "Directory does not exist '/home/deployer/apps/stride/repo'" 1>&2; false; fi
+ DEBUG [d17d1379] Finished in 0.123 seconds with exit status 0 (successful).
+  INFO [2ab95517] Running /usr/bin/env mkdir -p /home/deployer/apps/stride/releases/20190426085714 on 134.209.154.250
+ DEBUG [2ab95517] Command: cd /home/deployer/apps/stride/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-stride-production-jyoti.sh" ; /usr/bin/env mkdir -p /home/deployer/apps/stride/releases/20190426085714 )
+  INFO [349b14ab] Finished in 0.173 seconds with exit status 0 (successful).
+  INFO [5527f6c5] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /home/deployer/apps/stride/releases/20190426085714 on 134.209.154.250
+ DEBUG [5527f6c5] Command: cd /home/deployer/apps/stride/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-stride-production-jyoti.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /home/deployer/apps/stride/releases/20190426085714 )
+  INFO [23f25ab8] Finished in 4.205 seconds with exit status 0 (successful).
+ DEBUG [bd13d52d] Running if test ! -d /home/deployer/apps/stride/repo; then echo "Directory does not exist '/home/deployer/apps/stride/repo'" 1>&2; false; fi on 134.209.154.250
+ DEBUG [bd13d52d] Command: if test ! -d /home/deployer/apps/stride/repo; then echo "Directory does not exist '/home/deployer/apps/stride/repo'" 1>&2; false; fi
+ DEBUG [aff227bf] Finished in 0.170 seconds with exit status 0 (successful).
+ DEBUG [df0f62e7] Running /usr/bin/env git rev-list --max-count=1 master on 134.209.154.250
+ DEBUG [df0f62e7] Command: cd /home/deployer/apps/stride/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-stride-production-jyoti.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [368c6ac7] 	d5b3fa94ba13c711a9b61c977f0921ff183e2466
+ DEBUG [368c6ac7] 	
+ DEBUG [368c6ac7] Finished in 0.172 seconds with exit status 0 (successful).
+ DEBUG [14090de3] Running if test ! -d /home/deployer/apps/stride/releases/20190426085714; then echo "Directory does not exist '/home/deployer/apps/stride/releases/20190426085714'" 1>&2; false; fi on 134.209.154.250
+ DEBUG [14090de3] Command: if test ! -d /home/deployer/apps/stride/releases/20190426085714; then echo "Directory does not exist '/home/deployer/apps/stride/releases/20190426085714'" 1>&2; false; fi
+ DEBUG [89e37311] Finished in 0.167 seconds with exit status 0 (successful).
+  INFO [68ddf6a5] Running /usr/bin/env echo "d5b3fa94ba13c711a9b61c977f0921ff183e2466" >> REVISION on 134.209.154.250
+ DEBUG [68ddf6a5] Command: cd /home/deployer/apps/stride/releases/20190426085714 && /usr/bin/env echo "d5b3fa94ba13c711a9b61c977f0921ff183e2466" >> REVISION
+  INFO [ff6a15a2] Finished in 0.175 seconds with exit status 0 (successful).
+ DEBUG [1d90083e] Running [ -f /etc/nginx/sites-enabled/default ] on 134.209.154.250
+ DEBUG [1d90083e] Command: [ -f /etc/nginx/sites-enabled/default ]
+ DEBUG [ebb9d94a] Finished in 0.169 seconds with exit status 1 (failed).
+  INFO [f6087a96] Running /usr/bin/env mkdir -p /home/deployer/apps/stride/shared/config on 134.209.154.250
+ DEBUG [f6087a96] Command: /usr/bin/env mkdir -p /home/deployer/apps/stride/shared/config
+  INFO [64a69468] Finished in 0.176 seconds with exit status 0 (successful).
+ DEBUG Uploading /home/deployer/apps/stride/shared/config/nginx.conf 0.0%
+  INFO Uploading /home/deployer/apps/stride/shared/config/nginx.conf 100.0%
+  INFO copying: #<StringIO:0x0000000001be6378> to: /home/deployer/apps/stride/shared/config/nginx.conf
+ DEBUG Uploading /home/deployer/apps/stride/shared/config/nginx.mime.types 0.0%
+  INFO Uploading /home/deployer/apps/stride/shared/config/nginx.mime.types 100.0%
+  INFO copying: #<StringIO:0x0000000001e25f08> to: /home/deployer/apps/stride/shared/config/nginx.mime.types
+ DEBUG Uploading /home/deployer/apps/stride/shared/config/database.yml 0.0%
+  INFO Uploading /home/deployer/apps/stride/shared/config/database.yml 100.0%
+  INFO copying: #<StringIO:0x0000000001fac6b0> to: /home/deployer/apps/stride/shared/config/database.yml
+ DEBUG Uploading /home/deployer/apps/stride/shared/config/log_rotation 0.0%
+  INFO Uploading /home/deployer/apps/stride/shared/config/log_rotation 100.0%
+  INFO copying: #<StringIO:0x00000000020ec2a0> to: /home/deployer/apps/stride/shared/config/log_rotation
+ DEBUG Uploading /home/deployer/apps/stride/shared/config/monit 0.0%
+  INFO Uploading /home/deployer/apps/stride/shared/config/monit 100.0%
+  INFO copying: #<StringIO:0x000000000247f4d0> to: /home/deployer/apps/stride/shared/config/monit
+ DEBUG Uploading /home/deployer/apps/stride/shared/config/unicorn.rb 0.0%
+  INFO Uploading /home/deployer/apps/stride/shared/config/unicorn.rb 100.0%
+  INFO copying: #<StringIO:0x00000000024cb830> to: /home/deployer/apps/stride/shared/config/unicorn.rb
+ DEBUG Uploading /home/deployer/apps/stride/shared/config/unicorn_init.sh 0.0%
+  INFO Uploading /home/deployer/apps/stride/shared/config/unicorn_init.sh 100.0%
+  INFO copying: #<StringIO:0x000000000252b668> to: /home/deployer/apps/stride/shared/config/unicorn_init.sh
+ DEBUG Uploading /home/deployer/apps/stride/shared/config/user_aliases 0.0%
+  INFO Uploading /home/deployer/apps/stride/shared/config/user_aliases 100.0%
+  INFO copying: #<StringIO:0x00000000025809d8> to: /home/deployer/apps/stride/shared/config/user_aliases
+ DEBUG [06aeba49] Running [ -f /etc/nginx/sites-enabled/stride ] on 134.209.154.250
+ DEBUG [06aeba49] Command: [ -f /etc/nginx/sites-enabled/stride ]
+ DEBUG [376f0a3a] Finished in 0.169 seconds with exit status 1 (failed).
+  INFO [292118f9] Running /usr/bin/env sudo touch /etc/nginx/sites-enabled/stride on 134.209.154.250
+ DEBUG [292118f9] Command: /usr/bin/env sudo touch /etc/nginx/sites-enabled/stride
+  INFO [a23d9ad9] Finished in 0.190 seconds with exit status 0 (successful).
+  INFO [4edb8204] Running /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/nginx.conf /etc/nginx/sites-enabled/stride on 134.209.154.250
+ DEBUG [4edb8204] Command: /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/nginx.conf /etc/nginx/sites-enabled/stride
+  INFO [689aa9b5] Finished in 0.174 seconds with exit status 0 (successful).
+ DEBUG [40d1e9a4] Running [ -f /etc/nginx/mime.types ] on 134.209.154.250
+ DEBUG [40d1e9a4] Command: [ -f /etc/nginx/mime.types ]
+ DEBUG [084fade2] Finished in 0.168 seconds with exit status 0 (successful).
+  INFO [ad4f3f50] Running /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/nginx.mime.types /etc/nginx/mime.types on 134.209.154.250
+ DEBUG [ad4f3f50] Command: /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/nginx.mime.types /etc/nginx/mime.types
+  INFO [eb9ada2b] Finished in 0.179 seconds with exit status 0 (successful).
+ DEBUG [19b97b8f] Running [ -f /etc/init.d/unicorn_stride ] on 134.209.154.250
+ DEBUG [19b97b8f] Command: [ -f /etc/init.d/unicorn_stride ]
+ DEBUG [fddc756f] Finished in 0.170 seconds with exit status 1 (failed).
+  INFO [a90c55a3] Running /usr/bin/env sudo touch /etc/init.d/unicorn_stride on 134.209.154.250
+ DEBUG [a90c55a3] Command: /usr/bin/env sudo touch /etc/init.d/unicorn_stride
+  INFO [3b88ab42] Finished in 0.181 seconds with exit status 0 (successful).
+  INFO [3ee95953] Running /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/unicorn_init.sh /etc/init.d/unicorn_stride on 134.209.154.250
+ DEBUG [3ee95953] Command: /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/unicorn_init.sh /etc/init.d/unicorn_stride
+  INFO [91fd1563] Finished in 0.184 seconds with exit status 0 (successful).
+ DEBUG [e26aa818] Running [ -f /etc/logrotate.d/stride ] on 134.209.154.250
+ DEBUG [e26aa818] Command: [ -f /etc/logrotate.d/stride ]
+ DEBUG [9ee12f12] Finished in 0.168 seconds with exit status 1 (failed).
+  INFO [20549963] Running /usr/bin/env sudo touch /etc/logrotate.d/stride on 134.209.154.250
+ DEBUG [20549963] Command: /usr/bin/env sudo touch /etc/logrotate.d/stride
+  INFO [533728ee] Finished in 0.178 seconds with exit status 0 (successful).
+  INFO [5b613a9c] Running /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/log_rotation /etc/logrotate.d/stride on 134.209.154.250
+ DEBUG [5b613a9c] Command: /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/log_rotation /etc/logrotate.d/stride
+  INFO [820816c6] Finished in 0.180 seconds with exit status 0 (successful).
+ DEBUG [8b3a8359] Running [ -f .bash_aliases ] on 134.209.154.250
+ DEBUG [8b3a8359] Command: [ -f .bash_aliases ]
+ DEBUG [69c08f33] Finished in 0.167 seconds with exit status 1 (failed).
+  INFO [bbbf3883] Running /usr/bin/env sudo touch .bash_aliases on 134.209.154.250
+ DEBUG [bbbf3883] Command: /usr/bin/env sudo touch .bash_aliases
+  INFO [fc79b590] Finished in 0.174 seconds with exit status 0 (successful).
+  INFO [b37eec68] Running /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/user_aliases .bash_aliases on 134.209.154.250
+ DEBUG [b37eec68] Command: /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/user_aliases .bash_aliases
+  INFO [26ab0b94] Finished in 0.175 seconds with exit status 0 (successful).
+ DEBUG [833ad0c3] Running [ -f /home/deployer/apps/stride/releases/20190426085714/config/database.yml ] on 134.209.154.250
+ DEBUG [833ad0c3] Command: [ -f /home/deployer/apps/stride/releases/20190426085714/config/database.yml ]
+ DEBUG [d043c32d] Finished in 0.175 seconds with exit status 0 (successful).
+  INFO [68909a61] Running /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/database.yml /home/deployer/apps/stride/releases/20190426085714/config/database.yml on 134.209.154.250
+ DEBUG [68909a61] Command: /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/database.yml /home/deployer/apps/stride/releases/20190426085714/config/database.yml
+  INFO [a94d976a] Finished in 0.548 seconds with exit status 0 (successful).
+  INFO [462c575b] Running /usr/bin/env sudo /etc/init.d/nginx reload on 134.209.154.250
+ DEBUG [462c575b] Command: /usr/bin/env sudo /etc/init.d/nginx reload
+ DEBUG [c1ff6eed] 	[....] 
+ DEBUG [c1ff6eed] 	Reloading nginx configuration (via systemctl): nginx.service
+ DEBUG [c1ff6eed] 	[?25l
+ DEBUG [c1ff6eed] 	7
+ DEBUG [c1ff6eed] 	[1G
+ DEBUG [c1ff6eed] 	[[32m ok [39;49m
+ DEBUG [c1ff6eed] 	8
+ DEBUG [c1ff6eed] 	[?12l[?25h
+ DEBUG [c1ff6eed] 	.
+ DEBUG [c1ff6eed] 	
+  INFO [c1ff6eed] Finished in 0.452 seconds with exit status 0 (successful).
+  INFO [24f49492] Running /usr/bin/env mkdir -p /home/deployer/apps/stride/releases/20190426085714 /home/deployer/apps/stride/releases/20190426085714/tmp /home/deployer/apps/stride/releases/20190426085714/vendor /home/deployer/apps/stride/releases/20190426085714/public on 134.209.154.250
+ DEBUG [24f49492] Command: /usr/bin/env mkdir -p /home/deployer/apps/stride/releases/20190426085714 /home/deployer/apps/stride/releases/20190426085714/tmp /home/deployer/apps/stride/releases/20190426085714/vendor /home/deployer/apps/stride/releases/20190426085714/public
+  INFO [9c92c589] Finished in 0.164 seconds with exit status 0 (successful).
+ DEBUG [73730c20] Running [ -L /home/deployer/apps/stride/releases/20190426085714/log ] on 134.209.154.250
+ DEBUG [73730c20] Command: [ -L /home/deployer/apps/stride/releases/20190426085714/log ]
+ DEBUG [d7bba2ce] Finished in 0.166 seconds with exit status 1 (failed).
+ DEBUG [09d50a14] Running [ -d /home/deployer/apps/stride/releases/20190426085714/log ] on 134.209.154.250
+ DEBUG [09d50a14] Command: [ -d /home/deployer/apps/stride/releases/20190426085714/log ]
+ DEBUG [19cfd960] Finished in 0.170 seconds with exit status 0 (successful).
+  INFO [b3b16459] Running /usr/bin/env rm -rf /home/deployer/apps/stride/releases/20190426085714/log on 134.209.154.250
+ DEBUG [b3b16459] Command: /usr/bin/env rm -rf /home/deployer/apps/stride/releases/20190426085714/log
+  INFO [bc21451a] Finished in 0.170 seconds with exit status 0 (successful).
+  INFO [2012dee0] Running /usr/bin/env ln -s /home/deployer/apps/stride/shared/log /home/deployer/apps/stride/releases/20190426085714/log on 134.209.154.250
+ DEBUG [2012dee0] Command: /usr/bin/env ln -s /home/deployer/apps/stride/shared/log /home/deployer/apps/stride/releases/20190426085714/log
+  INFO [ec41d745] Finished in 0.173 seconds with exit status 0 (successful).
+ DEBUG [e2a6180a] Running [ -L /home/deployer/apps/stride/releases/20190426085714/tmp/pids ] on 134.209.154.250
+ DEBUG [e2a6180a] Command: [ -L /home/deployer/apps/stride/releases/20190426085714/tmp/pids ]
+ DEBUG [38d373ce] Finished in 0.172 seconds with exit status 1 (failed).
+ DEBUG [12a5f628] Running [ -d /home/deployer/apps/stride/releases/20190426085714/tmp/pids ] on 134.209.154.250
+ DEBUG [12a5f628] Command: [ -d /home/deployer/apps/stride/releases/20190426085714/tmp/pids ]
+ DEBUG [453ee5fe] Finished in 0.167 seconds with exit status 1 (failed).
+  INFO [a7fe8fd2] Running /usr/bin/env ln -s /home/deployer/apps/stride/shared/tmp/pids /home/deployer/apps/stride/releases/20190426085714/tmp/pids on 134.209.154.250
+ DEBUG [a7fe8fd2] Command: /usr/bin/env ln -s /home/deployer/apps/stride/shared/tmp/pids /home/deployer/apps/stride/releases/20190426085714/tmp/pids
+  INFO [bc29afa5] Finished in 0.356 seconds with exit status 0 (successful).
+ DEBUG [aaefbb3c] Running [ -L /home/deployer/apps/stride/releases/20190426085714/tmp/cache ] on 134.209.154.250
+ DEBUG [aaefbb3c] Command: [ -L /home/deployer/apps/stride/releases/20190426085714/tmp/cache ]
+ DEBUG [de3ced02] Finished in 0.168 seconds with exit status 1 (failed).
+ DEBUG [6d8d8c06] Running [ -d /home/deployer/apps/stride/releases/20190426085714/tmp/cache ] on 134.209.154.250
+ DEBUG [6d8d8c06] Command: [ -d /home/deployer/apps/stride/releases/20190426085714/tmp/cache ]
+ DEBUG [b970f503] Finished in 0.168 seconds with exit status 0 (successful).
+  INFO [c38ddaf8] Running /usr/bin/env rm -rf /home/deployer/apps/stride/releases/20190426085714/tmp/cache on 134.209.154.250
+ DEBUG [c38ddaf8] Command: /usr/bin/env rm -rf /home/deployer/apps/stride/releases/20190426085714/tmp/cache
+  INFO [b4491b4d] Finished in 0.423 seconds with exit status 0 (successful).
+  INFO [f5c66daf] Running /usr/bin/env ln -s /home/deployer/apps/stride/shared/tmp/cache /home/deployer/apps/stride/releases/20190426085714/tmp/cache on 134.209.154.250
+ DEBUG [f5c66daf] Command: /usr/bin/env ln -s /home/deployer/apps/stride/shared/tmp/cache /home/deployer/apps/stride/releases/20190426085714/tmp/cache
+  INFO [7d828878] Finished in 0.160 seconds with exit status 0 (successful).
+ DEBUG [bbc3e00e] Running [ -L /home/deployer/apps/stride/releases/20190426085714/tmp/sockets ] on 134.209.154.250
+ DEBUG [bbc3e00e] Command: [ -L /home/deployer/apps/stride/releases/20190426085714/tmp/sockets ]
+ DEBUG [d37f1a04] Finished in 0.166 seconds with exit status 1 (failed).
+ DEBUG [fa8b02ca] Running [ -d /home/deployer/apps/stride/releases/20190426085714/tmp/sockets ] on 134.209.154.250
+ DEBUG [fa8b02ca] Command: [ -d /home/deployer/apps/stride/releases/20190426085714/tmp/sockets ]
+ DEBUG [d447688c] Finished in 0.170 seconds with exit status 1 (failed).
+  INFO [1ef34bd6] Running /usr/bin/env ln -s /home/deployer/apps/stride/shared/tmp/sockets /home/deployer/apps/stride/releases/20190426085714/tmp/sockets on 134.209.154.250
+ DEBUG [1ef34bd6] Command: /usr/bin/env ln -s /home/deployer/apps/stride/shared/tmp/sockets /home/deployer/apps/stride/releases/20190426085714/tmp/sockets
+  INFO [b71c5eae] Finished in 0.170 seconds with exit status 0 (successful).
+ DEBUG [bb83d6b7] Running [ -L /home/deployer/apps/stride/releases/20190426085714/vendor/bundle ] on 134.209.154.250
+ DEBUG [bb83d6b7] Command: [ -L /home/deployer/apps/stride/releases/20190426085714/vendor/bundle ]
+ DEBUG [3acc481d] Finished in 0.169 seconds with exit status 1 (failed).
+ DEBUG [430b8cd8] Running [ -d /home/deployer/apps/stride/releases/20190426085714/vendor/bundle ] on 134.209.154.250
+ DEBUG [430b8cd8] Command: [ -d /home/deployer/apps/stride/releases/20190426085714/vendor/bundle ]
+ DEBUG [3fd952fd] Finished in 0.167 seconds with exit status 1 (failed).
+  INFO [48dac572] Running /usr/bin/env ln -s /home/deployer/apps/stride/shared/vendor/bundle /home/deployer/apps/stride/releases/20190426085714/vendor/bundle on 134.209.154.250
+ DEBUG [48dac572] Command: /usr/bin/env ln -s /home/deployer/apps/stride/shared/vendor/bundle /home/deployer/apps/stride/releases/20190426085714/vendor/bundle
+  INFO [e5f83957] Finished in 0.167 seconds with exit status 0 (successful).
+ DEBUG [84c9c0e8] Running [ -L /home/deployer/apps/stride/releases/20190426085714/public/system ] on 134.209.154.250
+ DEBUG [84c9c0e8] Command: [ -L /home/deployer/apps/stride/releases/20190426085714/public/system ]
+ DEBUG [a60fd9e6] Finished in 0.169 seconds with exit status 1 (failed).
+ DEBUG [d69985a3] Running [ -d /home/deployer/apps/stride/releases/20190426085714/public/system ] on 134.209.154.250
+ DEBUG [d69985a3] Command: [ -d /home/deployer/apps/stride/releases/20190426085714/public/system ]
+ DEBUG [35f5a264] Finished in 0.165 seconds with exit status 1 (failed).
+  INFO [7b94a00b] Running /usr/bin/env ln -s /home/deployer/apps/stride/shared/public/system /home/deployer/apps/stride/releases/20190426085714/public/system on 134.209.154.250
+ DEBUG [7b94a00b] Command: /usr/bin/env ln -s /home/deployer/apps/stride/shared/public/system /home/deployer/apps/stride/releases/20190426085714/public/system
+  INFO [2b2dbb5b] Finished in 0.170 seconds with exit status 0 (successful).
+ DEBUG [dde06a5f] Running [ -L /home/deployer/apps/stride/releases/20190426085714/public/assets ] on 134.209.154.250
+ DEBUG [dde06a5f] Command: [ -L /home/deployer/apps/stride/releases/20190426085714/public/assets ]
+ DEBUG [172b5aaf] Finished in 0.175 seconds with exit status 1 (failed).
+ DEBUG [a125fd58] Running [ -d /home/deployer/apps/stride/releases/20190426085714/public/assets ] on 134.209.154.250
+ DEBUG [a125fd58] Command: [ -d /home/deployer/apps/stride/releases/20190426085714/public/assets ]
+ DEBUG [2f5cfebe] Finished in 0.164 seconds with exit status 0 (successful).
+  INFO [6900fca8] Running /usr/bin/env rm -rf /home/deployer/apps/stride/releases/20190426085714/public/assets on 134.209.154.250
+ DEBUG [6900fca8] Command: /usr/bin/env rm -rf /home/deployer/apps/stride/releases/20190426085714/public/assets
+  INFO [9ca6ce88] Finished in 0.175 seconds with exit status 0 (successful).
+  INFO [7f376ba4] Running /usr/bin/env ln -s /home/deployer/apps/stride/shared/public/assets /home/deployer/apps/stride/releases/20190426085714/public/assets on 134.209.154.250
+ DEBUG [7f376ba4] Command: /usr/bin/env ln -s /home/deployer/apps/stride/shared/public/assets /home/deployer/apps/stride/releases/20190426085714/public/assets
+  INFO [2e69742f] Finished in 0.168 seconds with exit status 0 (successful).
+  INFO [a7752e26] Running RAILS_ENV=production bundle exec rake assets:precompile as jyoti@localhost
+ DEBUG [a7752e26] Command: RAILS_ENV=production bundle exec rake assets:precompile
+ DEBUG [bbf366fa] 	yarn install v1.13.0
+ DEBUG [bbf366fa] 	error temp-rails@: The engine "node" is incompatible with this module. Expected version "9.11.2". Got "11.10.0"
+ DEBUG [bbf366fa] 	[1/5] Validating package.json...
+ DEBUG [bbf366fa] 	error Found incompatible module
+ DEBUG [bbf366fa] 	info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:00.708455 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/about-3-0b8d6be7d6c5d102954dfd83244bbafcfcac30e049cfd31a62ed6ea67256bcbe.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:00.766685 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/about-4-1016488760117c474919f0c0d593b058fd2905b1e665e7737eaea993e126ea6d.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:00.807164 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/about-6-c709d040a936213fb2e4c648a053178436c02f7fcd37da16951dce38de66976a.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:00.841468 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/b-1-895e82036379f6584bc5e809da52f90b11748ec45704ab3d3aee366e3666f9e8.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:00.877737 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/b-2-1e2a34d8943f6bc525320bc117d4a2ff45acab75f8d781be2028abd548534d70.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:00.891814 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/b-3-2457c701690b4c03e455cc11e4d573c0f7d2aa0dd3026369db2ce1922bee6414.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:00.901704 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/b-4-74909ab5d67374b9005f80c521fb06f1d4c0f777e5e984a5e19f2958cfb0804a.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:00.930622 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/b-5-929f93a890b460b8598dd98e7243da580f01febedd3ddf85dfbf8f52bc339dcb.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:00.964625 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/b-6-04ac703b4333d4ec32639587ab46f041ee41e98d4a2b6bf414e486e13bc17c56.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:01.041849 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/b-7-87894a912bbd9c882df95fbab738954b88b4557349fe04562d1f4676918876c8.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:01.082057 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/b-8-3a84b342a5f224f652de93cc9c87519b1451138ec84c6b7993e606a64c7d383b.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:01.880665 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/bg-map-43b8f1637c58fb5899f78f9c08e31f9f438898e499648902f2a35d403ab238f2.png
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:01.944773 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/bg-pixel-71f4cfe8713e2d57e4cdf8e160f60e8df3cb64ada67962302308d8d32a6cc3f3.png
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:02.031594 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/bg1-0349398ef77caf147f5ed339d5a6dc86a431dca4fabf164fd4db14ccabc37d10.png
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:02.144935 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/bg10-fb701f3ddc30578f7964c85112d11e6d4b428fb74462feedf22e04e00225b031.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:02.214597 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/bg11-fa76bd101a68242fafcc78adde89c77ce1172467d6f19bae8bcf6a278d8ddef0.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:02.257235 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/bg12-df55ada30f286a2e8cf37fd3d4c167b9e6070ada72290862f336e2b4fde68b65.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:02.325025 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/bg2-1512be815eeab72f28c012e02c2206f626a752bf9dd527e9f525b95eef370be0.png
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:02.393261 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/bg3-8bb3e5f984882c028de1ba3e40da564da8d4d2f81452f56b49db7490b1fe3c33.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:02.523805 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/bg4-95f21788fff7c8ac8eb8f308452b26591ba3d79278e7f88a933b9e39488d9b5c.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:02.579540 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/bg4-4d70dd7d5065df0d93989a7448878c71f37223508862acfb2cfa0d38132cc285.png
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:02.678288 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/bg5-3305e019dc4edd7eecaf0aacce252a5a661845400bcaf29e8ce9ab969f098851.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:02.714428 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/bg5-5467dea0438151725b5dc307291130488a244e7393ad5945ce76b45dbe1b97f1.png
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:02.883927 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/bg6-d78a696dafae57489d1e9465090084b03d05a949e9d05aa0505c0b39449d8469.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.095654 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/h1-87b19f97eecc34dafab9b932c59a6eb843d629b6d2af0d63e203b720d581b709.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.133593 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/h9-9ff283287c90e11ccd9dbcd812761099fedb0cd07d659b590dfd2b2a22d52112.png
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.163837 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/home13-b14a09c575abff0d55553645599764b9468ba425f1823ffbd86ae108d4d3424d.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.211638 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/home14-966307bd7bf27aa37270a1b4c8c7aecfaaace04e22e4f00c6a10d692de009686.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.263962 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/home15-408fb660743bd0524a85a37134675b71819c68bda9197314212fac1aa82c1c5c.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.284284 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/home16-13e11872544f67b91ca6bd29ce15ac9d42c19940a539872e8316b02ad8fcd003.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.303987 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/home4-520d42fdc1185ef2e5a8edb2510f91e548674ab665d6e1906993a691eacef1b4.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.330690 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/i2-d8f08fabc5882ab72d006e04830d51ac7a539cae1d4e531877fe5ce2c08ac29d.png
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.340250 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/i3-adee328a9920cf873280e1f409086333d0602723c4188b9df77da44b6d237585.png
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.361046 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/i4-dce9f20135d8fdbbc3955fb53f2bbdd764207c2ddc3a779159bfb81e7018ef39.png
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.393306 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/s1-e42f0142fa233f30847940baa76016cd1f9550f8a7c4f2edc692eabb81a04d32.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.398010 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/s10-60391b788bd497d25cbab4ec9528637dadb10335f430b87d7807a14fe4dd9602.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.412928 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/s11-a68c0fc45ebc95c3b2ac35fceed97ee4dade4f28601e9ca1ed009d70de2b8177.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.438494 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/s12-9697302252484bc0159ca0ba9f598b91c497b70dd61e23ef89412be816e4e649.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.451242 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/s2-7b9d984e24cb2992e91dacf465f4a82d1b20417a0b12855777e7aeb31bd2730e.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.479791 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/s3-0c25a1a4b1c4d867e62aa69629eefc4170ca9df73c0bb49eedaaf6db283c4cd6.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.488412 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/s4-7d6cbf4b21d3ab52cd2adce09335b5ec931cfa5efa31a1f987ab567f62c145d6.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.526979 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/s5-c17b8527ea837b19693129e9fbd0b0f2167e84c7be16cb0fcf6558bf710f30ce.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.545806 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/s6-7698d56218ad82fec8ccbf59e1987d9a4ad980d5a15d1ffea04b1b551a081f31.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.590476 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/s7-6f2c95372e413092da07cb21b70cda18415e90749ed7e91bebd27105f9105a33.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.630554 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/s8-d498f032f95df4753d3e3d663a1f54a661fe3560d926177df1c09ffa53a2f520.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.646691 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/s9-e182ad5377a034d756efae3b230acbc6f4ab8ded8ac9c14d644d148c37758a40.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.658449 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/service-1-f95865bb3e7c0cca6482af831a91361354e0e2f05fb7c6206b2f524fbf95ed14.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.673367 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/service-2-81269edae2dc39d537eb259becdb164d87089812ab3eff3bb93163051487271f.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.705088 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/service-3-3-3d6ab69e7e25eb12f903b0d4cb8163f861f58920dbc2a9024214b9a5b2152acf.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.724747 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/service-3-59e4a28632c0820821ae5fd12796011dc380c7f906b5f7788dc60ec84cf5d195.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.762477 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/service-4-3-6197915df6f5e7641c4256efcd213a78a056c954f0464bb8c75b134c1ea4bbcf.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.793744 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/service-4-2e0fe4e1168200b3cd9669b15201ff11894b7b9b89ddbed8993a48db7a6cabac.jpg
+ DEBUG [bbf366fa] 	I, [2019-04-26T14:29:04.810270 #25386]  INFO -- : Writing /home/jyoti/stride/public/assets/service-5-bc8c2c2e7901bd127bbe6eb322e723b0aabcdb21509184520cfcb7baf0aac7fd.jpg
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-04-26 14:36:52 +0530 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [ab7479b2] Running /usr/bin/env mkdir -p /tmp on 134.209.154.250
+ DEBUG [ab7479b2] Command: /usr/bin/env mkdir -p /tmp
+  INFO [8a174f1f] Finished in 1.947 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-stride-production-jyoti.sh 0.0%
+  INFO Uploading /tmp/git-ssh-stride-production-jyoti.sh 100.0%
+  INFO [2e2d2c22] Running /usr/bin/env chmod 700 /tmp/git-ssh-stride-production-jyoti.sh on 134.209.154.250
+ DEBUG [2e2d2c22] Command: /usr/bin/env chmod 700 /tmp/git-ssh-stride-production-jyoti.sh
+  INFO [2058e747] Finished in 0.400 seconds with exit status 0 (successful).
+  INFO [3008fa97] Running /usr/bin/env git ls-remote git@github.com:vishaljangir/stride.git HEAD on 134.209.154.250
+ DEBUG [3008fa97] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-stride-production-jyoti.sh" ; /usr/bin/env git ls-remote git@github.com:vishaljangir/stride.git HEAD )
+ DEBUG [6effc0b3] 	d5b3fa94ba13c711a9b61c977f0921ff183e2466
+ DEBUG [6effc0b3] 		HEAD
+  INFO [6effc0b3] Finished in 3.798 seconds with exit status 0 (successful).
+  INFO [098b5673] Running /usr/bin/env mkdir -p /home/deployer/apps/stride/shared /home/deployer/apps/stride/releases on 134.209.154.250
+ DEBUG [098b5673] Command: /usr/bin/env mkdir -p /home/deployer/apps/stride/shared /home/deployer/apps/stride/releases
+  INFO [32284aed] Finished in 0.132 seconds with exit status 0 (successful).
+  INFO [0b9ce793] Running /usr/bin/env mkdir -p /home/deployer/apps/stride/shared/log /home/deployer/apps/stride/shared/tmp/pids /home/deployer/apps/stride/shared/tmp/cache /home/deployer/apps/stride/shared/tmp/sockets /home/deployer/apps/stride/shared/vendor/bundle /home/deployer/apps/stride/shared/public/system /home/deployer/apps/stride/shared/public/assets on 134.209.154.250
+ DEBUG [0b9ce793] Command: /usr/bin/env mkdir -p /home/deployer/apps/stride/shared/log /home/deployer/apps/stride/shared/tmp/pids /home/deployer/apps/stride/shared/tmp/cache /home/deployer/apps/stride/shared/tmp/sockets /home/deployer/apps/stride/shared/vendor/bundle /home/deployer/apps/stride/shared/public/system /home/deployer/apps/stride/shared/public/assets
+  INFO [a450d5b7] Finished in 0.168 seconds with exit status 0 (successful).
+ DEBUG [f16605f3] Running [ -f /home/deployer/apps/stride/current/REVISION ] on 134.209.154.250
+ DEBUG [f16605f3] Command: [ -f /home/deployer/apps/stride/current/REVISION ]
+ DEBUG [bfd2d47b] Finished in 0.172 seconds with exit status 1 (failed).
+ DEBUG [e91b691c] Running [ -f /home/deployer/apps/stride/repo/HEAD ] on 134.209.154.250
+ DEBUG [e91b691c] Command: [ -f /home/deployer/apps/stride/repo/HEAD ]
+ DEBUG [006c8ff0] Finished in 0.167 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/deployer/apps/stride/repo
+ DEBUG [91f535ec] Running if test ! -d /home/deployer/apps/stride/repo; then echo "Directory does not exist '/home/deployer/apps/stride/repo'" 1>&2; false; fi on 134.209.154.250
+ DEBUG [91f535ec] Command: if test ! -d /home/deployer/apps/stride/repo; then echo "Directory does not exist '/home/deployer/apps/stride/repo'" 1>&2; false; fi
+ DEBUG [1886f63e] Finished in 0.173 seconds with exit status 0 (successful).
+  INFO [cc4f78fa] Running /usr/bin/env git remote set-url origin git@github.com:vishaljangir/stride.git on 134.209.154.250
+ DEBUG [cc4f78fa] Command: cd /home/deployer/apps/stride/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-stride-production-jyoti.sh" ; /usr/bin/env git remote set-url origin git@github.com:vishaljangir/stride.git )
+  INFO [45ae9690] Finished in 0.172 seconds with exit status 0 (successful).
+  INFO [85a1d532] Running /usr/bin/env git remote update --prune on 134.209.154.250
+ DEBUG [85a1d532] Command: cd /home/deployer/apps/stride/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-stride-production-jyoti.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [2443157a] 	Fetching origin
+ DEBUG [2443157a] 	
+  INFO [2443157a] Finished in 4.730 seconds with exit status 0 (successful).
+ DEBUG [cffae951] Running if test ! -d /home/deployer/apps/stride/repo; then echo "Directory does not exist '/home/deployer/apps/stride/repo'" 1>&2; false; fi on 134.209.154.250
+ DEBUG [cffae951] Command: if test ! -d /home/deployer/apps/stride/repo; then echo "Directory does not exist '/home/deployer/apps/stride/repo'" 1>&2; false; fi
+ DEBUG [fe08ca07] Finished in 0.130 seconds with exit status 0 (successful).
+  INFO [85bcdfc1] Running /usr/bin/env mkdir -p /home/deployer/apps/stride/releases/20190426090700 on 134.209.154.250
+ DEBUG [85bcdfc1] Command: cd /home/deployer/apps/stride/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-stride-production-jyoti.sh" ; /usr/bin/env mkdir -p /home/deployer/apps/stride/releases/20190426090700 )
+  INFO [55a41301] Finished in 0.174 seconds with exit status 0 (successful).
+  INFO [d158c0be] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /home/deployer/apps/stride/releases/20190426090700 on 134.209.154.250
+ DEBUG [d158c0be] Command: cd /home/deployer/apps/stride/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-stride-production-jyoti.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /home/deployer/apps/stride/releases/20190426090700 )
+  INFO [fd1d32ce] Finished in 4.298 seconds with exit status 0 (successful).
+ DEBUG [16733d39] Running if test ! -d /home/deployer/apps/stride/repo; then echo "Directory does not exist '/home/deployer/apps/stride/repo'" 1>&2; false; fi on 134.209.154.250
+ DEBUG [16733d39] Command: if test ! -d /home/deployer/apps/stride/repo; then echo "Directory does not exist '/home/deployer/apps/stride/repo'" 1>&2; false; fi
+ DEBUG [0c1d6bd1] Finished in 0.169 seconds with exit status 0 (successful).
+ DEBUG [06599037] Running /usr/bin/env git rev-list --max-count=1 master on 134.209.154.250
+ DEBUG [06599037] Command: cd /home/deployer/apps/stride/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-stride-production-jyoti.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [ea98210b] 	d5b3fa94ba13c711a9b61c977f0921ff183e2466
+ DEBUG [ea98210b] 	
+ DEBUG [ea98210b] Finished in 0.178 seconds with exit status 0 (successful).
+ DEBUG [a3000692] Running if test ! -d /home/deployer/apps/stride/releases/20190426090700; then echo "Directory does not exist '/home/deployer/apps/stride/releases/20190426090700'" 1>&2; false; fi on 134.209.154.250
+ DEBUG [a3000692] Command: if test ! -d /home/deployer/apps/stride/releases/20190426090700; then echo "Directory does not exist '/home/deployer/apps/stride/releases/20190426090700'" 1>&2; false; fi
+ DEBUG [ffa0c3e3] Finished in 0.166 seconds with exit status 0 (successful).
+  INFO [5842a344] Running /usr/bin/env echo "d5b3fa94ba13c711a9b61c977f0921ff183e2466" >> REVISION on 134.209.154.250
+ DEBUG [5842a344] Command: cd /home/deployer/apps/stride/releases/20190426090700 && /usr/bin/env echo "d5b3fa94ba13c711a9b61c977f0921ff183e2466" >> REVISION
+  INFO [c835b262] Finished in 0.169 seconds with exit status 0 (successful).
+ DEBUG [96ca092d] Running [ -f /etc/nginx/sites-enabled/default ] on 134.209.154.250
+ DEBUG [96ca092d] Command: [ -f /etc/nginx/sites-enabled/default ]
+ DEBUG [e5a3615a] Finished in 0.170 seconds with exit status 1 (failed).
+  INFO [fe4b95ba] Running /usr/bin/env mkdir -p /home/deployer/apps/stride/shared/config on 134.209.154.250
+ DEBUG [fe4b95ba] Command: /usr/bin/env mkdir -p /home/deployer/apps/stride/shared/config
+  INFO [b94c7914] Finished in 0.171 seconds with exit status 0 (successful).
+ DEBUG Uploading /home/deployer/apps/stride/shared/config/nginx.conf 0.0%
+  INFO Uploading /home/deployer/apps/stride/shared/config/nginx.conf 100.0%
+  INFO copying: #<StringIO:0x00000000034e21d8> to: /home/deployer/apps/stride/shared/config/nginx.conf
+ DEBUG Uploading /home/deployer/apps/stride/shared/config/nginx.mime.types 0.0%
+  INFO Uploading /home/deployer/apps/stride/shared/config/nginx.mime.types 100.0%
+  INFO copying: #<StringIO:0x000000000352eba0> to: /home/deployer/apps/stride/shared/config/nginx.mime.types
+ DEBUG Uploading /home/deployer/apps/stride/shared/config/database.yml 0.0%
+  INFO Uploading /home/deployer/apps/stride/shared/config/database.yml 100.0%
+  INFO copying: #<StringIO:0x00000000035300b8> to: /home/deployer/apps/stride/shared/config/database.yml
+ DEBUG Uploading /home/deployer/apps/stride/shared/config/log_rotation 0.0%
+  INFO Uploading /home/deployer/apps/stride/shared/config/log_rotation 100.0%
+  INFO copying: #<StringIO:0x00000000035b7540> to: /home/deployer/apps/stride/shared/config/log_rotation
+ DEBUG Uploading /home/deployer/apps/stride/shared/config/monit 0.0%
+  INFO Uploading /home/deployer/apps/stride/shared/config/monit 100.0%
+  INFO copying: #<StringIO:0x0000000002b783e0> to: /home/deployer/apps/stride/shared/config/monit
+ DEBUG Uploading /home/deployer/apps/stride/shared/config/unicorn.rb 0.0%
+  INFO Uploading /home/deployer/apps/stride/shared/config/unicorn.rb 100.0%
+  INFO copying: #<StringIO:0x0000000002da66a8> to: /home/deployer/apps/stride/shared/config/unicorn.rb
+ DEBUG Uploading /home/deployer/apps/stride/shared/config/unicorn_init.sh 0.0%
+  INFO Uploading /home/deployer/apps/stride/shared/config/unicorn_init.sh 100.0%
+  INFO copying: #<StringIO:0x0000000002ed1f28> to: /home/deployer/apps/stride/shared/config/unicorn_init.sh
+ DEBUG Uploading /home/deployer/apps/stride/shared/config/user_aliases 0.0%
+  INFO Uploading /home/deployer/apps/stride/shared/config/user_aliases 100.0%
+  INFO copying: #<StringIO:0x00000000032d2118> to: /home/deployer/apps/stride/shared/config/user_aliases
+ DEBUG [a8921757] Running [ -f /etc/nginx/sites-enabled/stride ] on 134.209.154.250
+ DEBUG [a8921757] Command: [ -f /etc/nginx/sites-enabled/stride ]
+ DEBUG [68845eac] Finished in 0.167 seconds with exit status 0 (successful).
+  INFO [a9b9bf5c] Running /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/nginx.conf /etc/nginx/sites-enabled/stride on 134.209.154.250
+ DEBUG [a9b9bf5c] Command: /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/nginx.conf /etc/nginx/sites-enabled/stride
+  INFO [714f2e77] Finished in 0.194 seconds with exit status 0 (successful).
+ DEBUG [aab3c62a] Running [ -f /etc/nginx/mime.types ] on 134.209.154.250
+ DEBUG [aab3c62a] Command: [ -f /etc/nginx/mime.types ]
+ DEBUG [6bef6413] Finished in 0.166 seconds with exit status 0 (successful).
+  INFO [afcbe444] Running /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/nginx.mime.types /etc/nginx/mime.types on 134.209.154.250
+ DEBUG [afcbe444] Command: /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/nginx.mime.types /etc/nginx/mime.types
+  INFO [539d8c32] Finished in 0.179 seconds with exit status 0 (successful).
+ DEBUG [91b02fae] Running [ -f /etc/init.d/unicorn_stride ] on 134.209.154.250
+ DEBUG [91b02fae] Command: [ -f /etc/init.d/unicorn_stride ]
+ DEBUG [2e7269cf] Finished in 0.167 seconds with exit status 0 (successful).
+  INFO [c29619a0] Running /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/unicorn_init.sh /etc/init.d/unicorn_stride on 134.209.154.250
+ DEBUG [c29619a0] Command: /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/unicorn_init.sh /etc/init.d/unicorn_stride
+  INFO [c97ae6a5] Finished in 0.178 seconds with exit status 0 (successful).
+ DEBUG [b69c63e0] Running [ -f /etc/logrotate.d/stride ] on 134.209.154.250
+ DEBUG [b69c63e0] Command: [ -f /etc/logrotate.d/stride ]
+ DEBUG [fd30f676] Finished in 0.166 seconds with exit status 0 (successful).
+  INFO [81e1aeb1] Running /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/log_rotation /etc/logrotate.d/stride on 134.209.154.250
+ DEBUG [81e1aeb1] Command: /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/log_rotation /etc/logrotate.d/stride
+  INFO [98736f5e] Finished in 0.180 seconds with exit status 0 (successful).
+ DEBUG [8d68ad6a] Running [ -f .bash_aliases ] on 134.209.154.250
+ DEBUG [8d68ad6a] Command: [ -f .bash_aliases ]
+ DEBUG [af78e628] Finished in 0.170 seconds with exit status 0 (successful).
+  INFO [8ec203f5] Running /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/user_aliases .bash_aliases on 134.209.154.250
+ DEBUG [8ec203f5] Command: /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/user_aliases .bash_aliases
+  INFO [90a7a3a6] Finished in 0.182 seconds with exit status 0 (successful).
+ DEBUG [fe8d0acf] Running [ -f /home/deployer/apps/stride/releases/20190426090700/config/database.yml ] on 134.209.154.250
+ DEBUG [fe8d0acf] Command: [ -f /home/deployer/apps/stride/releases/20190426090700/config/database.yml ]
+ DEBUG [74b472fb] Finished in 0.166 seconds with exit status 0 (successful).
+  INFO [7bf89362] Running /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/database.yml /home/deployer/apps/stride/releases/20190426090700/config/database.yml on 134.209.154.250
+ DEBUG [7bf89362] Command: /usr/bin/env sudo ln -nfs /home/deployer/apps/stride/shared/config/database.yml /home/deployer/apps/stride/releases/20190426090700/config/database.yml
+  INFO [b8613160] Finished in 0.176 seconds with exit status 0 (successful).
+  INFO [b8f38b76] Running /usr/bin/env sudo /etc/init.d/nginx reload on 134.209.154.250
+ DEBUG [b8f38b76] Command: /usr/bin/env sudo /etc/init.d/nginx reload
+ DEBUG [dabd9095] 	[....] 
+ DEBUG [dabd9095] 	Reloading nginx configuration (via systemctl): nginx.service
+ DEBUG [dabd9095] 	[?25l
+ DEBUG [dabd9095] 	7
+ DEBUG [dabd9095] 	[1G
+ DEBUG [dabd9095] 	[[32m ok [39;49m
+ DEBUG [dabd9095] 	8
+ DEBUG [dabd9095] 	[?12l[?25h
+ DEBUG [dabd9095] 	.
+ DEBUG [dabd9095] 	
+  INFO [dabd9095] Finished in 0.377 seconds with exit status 0 (successful).
+  INFO [73d820aa] Running /usr/bin/env mkdir -p /home/deployer/apps/stride/releases/20190426090700 /home/deployer/apps/stride/releases/20190426090700/tmp /home/deployer/apps/stride/releases/20190426090700/vendor /home/deployer/apps/stride/releases/20190426090700/public on 134.209.154.250
+ DEBUG [73d820aa] Command: /usr/bin/env mkdir -p /home/deployer/apps/stride/releases/20190426090700 /home/deployer/apps/stride/releases/20190426090700/tmp /home/deployer/apps/stride/releases/20190426090700/vendor /home/deployer/apps/stride/releases/20190426090700/public
+  INFO [6c714766] Finished in 0.209 seconds with exit status 0 (successful).
+ DEBUG [6f66b011] Running [ -L /home/deployer/apps/stride/releases/20190426090700/log ] on 134.209.154.250
+ DEBUG [6f66b011] Command: [ -L /home/deployer/apps/stride/releases/20190426090700/log ]
+ DEBUG [5255aa0e] Finished in 0.166 seconds with exit status 1 (failed).
+ DEBUG [94b6ee14] Running [ -d /home/deployer/apps/stride/releases/20190426090700/log ] on 134.209.154.250
+ DEBUG [94b6ee14] Command: [ -d /home/deployer/apps/stride/releases/20190426090700/log ]
+ DEBUG [63802652] Finished in 0.167 seconds with exit status 0 (successful).
+  INFO [dc3944d1] Running /usr/bin/env rm -rf /home/deployer/apps/stride/releases/20190426090700/log on 134.209.154.250
+ DEBUG [dc3944d1] Command: /usr/bin/env rm -rf /home/deployer/apps/stride/releases/20190426090700/log
+  INFO [f325e557] Finished in 0.171 seconds with exit status 0 (successful).
+  INFO [8caf3242] Running /usr/bin/env ln -s /home/deployer/apps/stride/shared/log /home/deployer/apps/stride/releases/20190426090700/log on 134.209.154.250
+ DEBUG [8caf3242] Command: /usr/bin/env ln -s /home/deployer/apps/stride/shared/log /home/deployer/apps/stride/releases/20190426090700/log
+  INFO [152d644f] Finished in 0.175 seconds with exit status 0 (successful).
+ DEBUG [874226cc] Running [ -L /home/deployer/apps/stride/releases/20190426090700/tmp/pids ] on 134.209.154.250
+ DEBUG [874226cc] Command: [ -L /home/deployer/apps/stride/releases/20190426090700/tmp/pids ]
+ DEBUG [2b379981] Finished in 0.169 seconds with exit status 1 (failed).
+ DEBUG [a317ef90] Running [ -d /home/deployer/apps/stride/releases/20190426090700/tmp/pids ] on 134.209.154.250
+ DEBUG [a317ef90] Command: [ -d /home/deployer/apps/stride/releases/20190426090700/tmp/pids ]
+ DEBUG [88120276] Finished in 0.174 seconds with exit status 1 (failed).
+  INFO [f0bcfe7f] Running /usr/bin/env ln -s /home/deployer/apps/stride/shared/tmp/pids /home/deployer/apps/stride/releases/20190426090700/tmp/pids on 134.209.154.250
+ DEBUG [f0bcfe7f] Command: /usr/bin/env ln -s /home/deployer/apps/stride/shared/tmp/pids /home/deployer/apps/stride/releases/20190426090700/tmp/pids
+  INFO [47f8d562] Finished in 0.170 seconds with exit status 0 (successful).
+ DEBUG [766da501] Running [ -L /home/deployer/apps/stride/releases/20190426090700/tmp/cache ] on 134.209.154.250
+ DEBUG [766da501] Command: [ -L /home/deployer/apps/stride/releases/20190426090700/tmp/cache ]
+ DEBUG [482a41d2] Finished in 0.169 seconds with exit status 1 (failed).
+ DEBUG [155bba47] Running [ -d /home/deployer/apps/stride/releases/20190426090700/tmp/cache ] on 134.209.154.250
+ DEBUG [155bba47] Command: [ -d /home/deployer/apps/stride/releases/20190426090700/tmp/cache ]
+ DEBUG [9424ce74] Finished in 0.171 seconds with exit status 0 (successful).
+  INFO [a130af24] Running /usr/bin/env rm -rf /home/deployer/apps/stride/releases/20190426090700/tmp/cache on 134.209.154.250
+ DEBUG [a130af24] Command: /usr/bin/env rm -rf /home/deployer/apps/stride/releases/20190426090700/tmp/cache
+  INFO [8e0aafb3] Finished in 0.481 seconds with exit status 0 (successful).
+  INFO [43ee4ad8] Running /usr/bin/env ln -s /home/deployer/apps/stride/shared/tmp/cache /home/deployer/apps/stride/releases/20190426090700/tmp/cache on 134.209.154.250
+ DEBUG [43ee4ad8] Command: /usr/bin/env ln -s /home/deployer/apps/stride/shared/tmp/cache /home/deployer/apps/stride/releases/20190426090700/tmp/cache
+  INFO [2897f672] Finished in 0.171 seconds with exit status 0 (successful).
+ DEBUG [0892ca0d] Running [ -L /home/deployer/apps/stride/releases/20190426090700/tmp/sockets ] on 134.209.154.250
+ DEBUG [0892ca0d] Command: [ -L /home/deployer/apps/stride/releases/20190426090700/tmp/sockets ]
+ DEBUG [15dfc796] Finished in 0.172 seconds with exit status 1 (failed).
+ DEBUG [2a7a8504] Running [ -d /home/deployer/apps/stride/releases/20190426090700/tmp/sockets ] on 134.209.154.250
+ DEBUG [2a7a8504] Command: [ -d /home/deployer/apps/stride/releases/20190426090700/tmp/sockets ]
+ DEBUG [d0cca238] Finished in 0.169 seconds with exit status 1 (failed).
+  INFO [5c7041e2] Running /usr/bin/env ln -s /home/deployer/apps/stride/shared/tmp/sockets /home/deployer/apps/stride/releases/20190426090700/tmp/sockets on 134.209.154.250
+ DEBUG [5c7041e2] Command: /usr/bin/env ln -s /home/deployer/apps/stride/shared/tmp/sockets /home/deployer/apps/stride/releases/20190426090700/tmp/sockets
+  INFO [f3b7bfe9] Finished in 0.169 seconds with exit status 0 (successful).
+ DEBUG [aaf2c699] Running [ -L /home/deployer/apps/stride/releases/20190426090700/vendor/bundle ] on 134.209.154.250
+ DEBUG [aaf2c699] Command: [ -L /home/deployer/apps/stride/releases/20190426090700/vendor/bundle ]
+ DEBUG [372ebc0c] Finished in 0.172 seconds with exit status 1 (failed).
+ DEBUG [c603b434] Running [ -d /home/deployer/apps/stride/releases/20190426090700/vendor/bundle ] on 134.209.154.250
+ DEBUG [c603b434] Command: [ -d /home/deployer/apps/stride/releases/20190426090700/vendor/bundle ]
+ DEBUG [51e8574b] Finished in 0.173 seconds with exit status 1 (failed).
+  INFO [57e1166b] Running /usr/bin/env ln -s /home/deployer/apps/stride/shared/vendor/bundle /home/deployer/apps/stride/releases/20190426090700/vendor/bundle on 134.209.154.250
+ DEBUG [57e1166b] Command: /usr/bin/env ln -s /home/deployer/apps/stride/shared/vendor/bundle /home/deployer/apps/stride/releases/20190426090700/vendor/bundle
+  INFO [f4d925a7] Finished in 0.170 seconds with exit status 0 (successful).
+ DEBUG [36bb0e56] Running [ -L /home/deployer/apps/stride/releases/20190426090700/public/system ] on 134.209.154.250
+ DEBUG [36bb0e56] Command: [ -L /home/deployer/apps/stride/releases/20190426090700/public/system ]
+ DEBUG [b991b237] Finished in 0.182 seconds with exit status 1 (failed).
+ DEBUG [ba7ec6cc] Running [ -d /home/deployer/apps/stride/releases/20190426090700/public/system ] on 134.209.154.250
+ DEBUG [ba7ec6cc] Command: [ -d /home/deployer/apps/stride/releases/20190426090700/public/system ]
+ DEBUG [43e2c853] Finished in 0.169 seconds with exit status 1 (failed).
+  INFO [311aaec6] Running /usr/bin/env ln -s /home/deployer/apps/stride/shared/public/system /home/deployer/apps/stride/releases/20190426090700/public/system on 134.209.154.250
+ DEBUG [311aaec6] Command: /usr/bin/env ln -s /home/deployer/apps/stride/shared/public/system /home/deployer/apps/stride/releases/20190426090700/public/system
+  INFO [a0018648] Finished in 0.170 seconds with exit status 0 (successful).
+ DEBUG [af14a854] Running [ -L /home/deployer/apps/stride/releases/20190426090700/public/assets ] on 134.209.154.250
+ DEBUG [af14a854] Command: [ -L /home/deployer/apps/stride/releases/20190426090700/public/assets ]
+ DEBUG [ff2e6481] Finished in 0.167 seconds with exit status 1 (failed).
+ DEBUG [4b08910b] Running [ -d /home/deployer/apps/stride/releases/20190426090700/public/assets ] on 134.209.154.250
+ DEBUG [4b08910b] Command: [ -d /home/deployer/apps/stride/releases/20190426090700/public/assets ]
+ DEBUG [71c3186b] Finished in 0.168 seconds with exit status 0 (successful).
+  INFO [60febf49] Running /usr/bin/env rm -rf /home/deployer/apps/stride/releases/20190426090700/public/assets on 134.209.154.250
+ DEBUG [60febf49] Command: /usr/bin/env rm -rf /home/deployer/apps/stride/releases/20190426090700/public/assets
+  INFO [c1a11b0b] Finished in 0.176 seconds with exit status 0 (successful).
+  INFO [17c13284] Running /usr/bin/env ln -s /home/deployer/apps/stride/shared/public/assets /home/deployer/apps/stride/releases/20190426090700/public/assets on 134.209.154.250
+ DEBUG [17c13284] Command: /usr/bin/env ln -s /home/deployer/apps/stride/shared/public/assets /home/deployer/apps/stride/releases/20190426090700/public/assets
+  INFO [98d784ef] Finished in 0.171 seconds with exit status 0 (successful).
+  INFO [d2869c08] Running RAILS_ENV=production bundle exec rake assets:precompile as jyoti@localhost
+ DEBUG [d2869c08] Command: RAILS_ENV=production bundle exec rake assets:precompile
+ DEBUG [fd0f6eaf] 	yarn install v1.13.0
+ DEBUG [fd0f6eaf] 	[1/5] Validating package.json...
+ DEBUG [fd0f6eaf] 	error temp-rails@: The engine "node" is incompatible with this module. Expected version "9.11.2". Got "11.10.0"
+ DEBUG [fd0f6eaf] 	error Found incompatible module
+ DEBUG [fd0f6eaf] 	info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+ DEBUG [fd0f6eaf] 	I, [2019-04-26T14:38:57.868478 #2601]  INFO -- : Writing /home/jyoti/stride/public/assets/application-72aa56a92c487449217538ba1928b08bc240920855fc1ffcb4e56e379f0ba59e.js
+ DEBUG [fd0f6eaf] 	I, [2019-04-26T14:38:57.868860 #2601]  INFO -- : Writing /home/jyoti/stride/public/assets/application-72aa56a92c487449217538ba1928b08bc240920855fc1ffcb4e56e379f0ba59e.js.gz
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-04-26 14:39:51 +0530 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [8c5d0f74] Running /usr/bin/env mkdir -p /tmp on 134.209.154.250
+ DEBUG [8c5d0f74] Command: /usr/bin/env mkdir -p /tmp
+  INFO [4c4ad00e] Finished in 2.117 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-stride-production-jyoti.sh 0.0%
+  INFO Uploading /tmp/git-ssh-stride-production-jyoti.sh 100.0%
+  INFO [c08b31bf] Running /usr/bin/env chmod 700 /tmp/git-ssh-stride-production-jyoti.sh on 134.209.154.250
+ DEBUG [c08b31bf] Command: /usr/bin/env chmod 700 /tmp/git-ssh-stride-production-jyoti.sh
+  INFO [2a8711e8] Finished in 0.388 seconds with exit status 0 (successful).
+  INFO [189fdc90] Running /usr/bin/env git ls-remote git@github.com:vishaljangir/stride.git HEAD on 134.209.154.250
+ DEBUG [189fdc90] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-stride-production-jyoti.sh" ; /usr/bin/env git ls-remote git@github.com:vishaljangir/stride.git HEAD )
+ DEBUG [574f9619] 	d5b3fa94ba13c711a9b61c977f0921ff183e2466
+ DEBUG [574f9619] 		HEAD
+  INFO [574f9619] Finished in 4.001 seconds with exit status 0 (successful).
+  INFO [cf6d7713] Running /usr/bin/env mkdir -p /home/deployer/apps/stride/shared /home/deployer/apps/stride/releases on 134.209.154.250
+ DEBUG [cf6d7713] Command: /usr/bin/env mkdir -p /home/deployer/apps/stride/shared /home/deployer/apps/stride/releases
+  INFO [f97a0859] Finished in 0.101 seconds with exit status 0 (successful).
+  INFO [313e9404] Running /usr/bin/env mkdir -p /home/deployer/apps/stride/shared/log /home/deployer/apps/stride/shared/tmp/pids /home/deployer/apps/stride/shared/tmp/cache /home/deployer/apps/stride/shared/tmp/sockets /home/deployer/apps/stride/shared/vendor/bundle /home/deployer/apps/stride/shared/public/system /home/deployer/apps/stride/shared/public/assets on 134.209.154.250
+ DEBUG [313e9404] Command: /usr/bin/env mkdir -p /home/deployer/apps/stride/shared/log /home/deployer/apps/stride/shared/tmp/pids /home/deployer/apps/stride/shared/tmp/cache /home/deployer/apps/stride/shared/tmp/sockets /home/deployer/apps/stride/shared/vendor/bundle /home/deployer/apps/stride/shared/public/system /home/deployer/apps/stride/shared/public/assets
+  INFO [d8120d53] Finished in 0.178 seconds with exit status 0 (successful).
+ DEBUG [6de3bf85] Running [ -f /home/deployer/apps/stride/current/REVISION ] on 134.209.154.250
+ DEBUG [6de3bf85] Command: [ -f /home/deployer/apps/stride/current/REVISION ]
+ DEBUG [864bd5c8] Finished in 0.172 seconds with exit status 1 (failed).
+ DEBUG [93c37069] Running [ -f /home/deployer/apps/stride/repo/HEAD ] on 134.209.154.250
+ DEBUG [93c37069] Command: [ -f /home/deployer/apps/stride/repo/HEAD ]
+ DEBUG [930d01bc] Finished in 0.174 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/deployer/apps/stride/repo
+ DEBUG [16678dd3] Running if test ! -d /home/deployer/apps/stride/repo; then echo "Directory does not exist '/home/deployer/apps/stride/repo'" 1>&2; false; fi on 134.209.154.250
+ DEBUG [16678dd3] Command: if test ! -d /home/deployer/apps/stride/repo; then echo "Directory does not exist '/home/deployer/apps/stride/repo'" 1>&2; false; fi
+ DEBUG [820e1625] Finished in 0.173 seconds with exit status 0 (successful).
+  INFO [e32e8605] Running /usr/bin/env git remote set-url origin git@github.com:vishaljangir/stride.git on 134.209.154.250
+ DEBUG [e32e8605] Command: cd /home/deployer/apps/stride/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-stride-production-jyoti.sh" ; /usr/bin/env git remote set-url origin git@github.com:vishaljangir/stride.git )
+  INFO [e17cc541] Finished in 0.179 seconds with exit status 0 (successful).
+  INFO [83522d74] Running /usr/bin/env git remote update --prune on 134.209.154.250
+ DEBUG [83522d74] Command: cd /home/deployer/apps/stride/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-stride-production-jyoti.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [64880a63] 	Fetching origin
+ DEBUG [64880a63] 	
