@@ -11,7 +11,7 @@ set :rbenv_roles, :all
   
 server '134.209.154.250', roles: [:web, :app, :db], primary: true
 
-set :repo_url,        'git@github.com:vishaljangir/stride.git'
+set :repo_url,        'git@bitbucket.org:vishal_jangir/stride.git'
 set :application,     'stride'
 set :application_url, 'stride.com'
 set :user,            'deployer'
